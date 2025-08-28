@@ -26,15 +26,14 @@ modulo5_final_project/     → Proyecto final de publicación
 
 ## ✅ Progreso actual
 - [x] **Módulo 1 – Introducción a Flutter y Dart**
-  - [x] Course Introduction
-  - [x] Introduction to Flutter
-  - [x] Flutter Development Environment 
-  - [x] Comparison of Flutter with Other Mobile Frameworks
-  - [x] Flutter Toolchain, SDK, and Tools 
-  - [x] Introduction to Flutter Utilities 
-  - [x] Expert Viewpoints: Getting started with Flutter 
-  - [x] Basics of Dart 
-  - [x] Lab: Creating a Flutter Web Hello World Application
+  - [x] [Introducción a Flutter](modulo1_introduccion/notas/1_Introduccion-a-Flutter.md)
+  - [x] [Entorno de desarrllo en Flutter](modulo1_introduccion/notas/2_Entorno-desarrollo-Flutter.md)
+  - [x] [Comparación de Flutter con otros frameworks](modulo1_introduccion/notas/3_Comparacion-flutter-otros-frameworks.md)
+  - [x] [Flutter Toolchain, SDK, & Tools](modulo1_introduccion/notas/4_Toolchain-flutter-sdk-herramientas.md) 
+  - [x] [Introducción a utilidades de Flutter](modulo1_introduccion/notas/5_Utilidades-flutter.md) 
+  - [x] [Opiniones de expertos: primeros pasos en Flutter](modulo1_introduccion/notas/6_Opiniones-expertos-primeros-pasos-Flutter.md)
+  - [x] [Basicos Dart](modulo1_introduccion/notas/7_Basicos-dart.md)
+  - [x] [Lab: Creando una Aplicación Web Flutter Hello World](modulo1_introduccion/lab_hello_world_web)
 
 - [ ] **Módulo 2 – Exploring Dart Language**
   - [ ] Internals of Dart 
