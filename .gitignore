@@ -1,0 +1,13 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+build/
+ios/Pods/
+macos/Pods/
+**/DerivedData/
+**/*.iml
+**/.DS_Store
+.idea/
+.vscode/*
+!.vscode/settings.json
