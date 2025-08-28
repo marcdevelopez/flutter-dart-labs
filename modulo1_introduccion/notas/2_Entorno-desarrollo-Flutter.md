@@ -1,6 +1,6 @@
 # 🖥️ Entorno de Desarrollo en Flutter
 
-Después de este módulo serás capaz de:  
+En estas notas vamos a aprender a:  
 - Describir los **componentes principales** del entorno de desarrollo Flutter.  
 - Identificar el **lenguaje de programación Dart**.  
 - Reconocer el uso de **emuladores y dispositivos físicos**.  
