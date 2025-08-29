@@ -9,7 +9,8 @@ La intención es ir subiendo, poco a poco, **todo lo que voy practicando y apren
 - Documentar mi avance en el estudio de Flutter y Dart.  
 - Subir **labs, ejemplos y proyectos** organizados por módulos.  
 - Crear una **guía práctica** de referencia para otros estudiantes/desarrolladores que quieran aprender siguiendo el mismo recorrido.  
-- Mantener un historial claro con **commits descriptivos** y ramas por módulo.
+- Mantener un historial claro con commits descriptivos y trabajar en ramas por módulo (se crean y eliminan a medida que se completan, manteniendo `main` limpio y actualizado).
+
 
 ---
 
