@@ -45,7 +45,7 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](module2_dart-languaje/notes/2_Expert_Viewpoints_Fundamentals_of_Dart.md)
   - [x] [Variables y Tipos](module2_dart-languaje/notes/3_Variables_and_types.md)
   - [x] [Funciones y Métodos en Dart](module2_dart-languaje/notes/4_Functions-methods-in-Dart.md)
-  - [ ] Classes in Dart
+  - [ ] [Classes in Dart](module2_dart-languaje/notes/5_Classes_in_Dart.md)
   - [ ] Lab: Utilize Variables, Functions, and Methods in Dart
   - [ ] Libraries in Dart
   - [ ] Lab: Libraries in Dart Using Cloud IDE
