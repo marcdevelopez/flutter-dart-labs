@@ -41,10 +41,10 @@ modulo5_final_project/     → Proyecto final de publicación
 
 - [ ] **Módulo 2 – Exploring Dart Language**
 
-  - [ ] Funcionamiento interno de Dart
-  - [ ] Expert Viewpoints: The Fundamentals of Dart
-  - [ ] Variables and Types
-  - [ ] Functions and Methods in Dart
+  - [x] [Funcionamiento interno de Dart](module2_dart-languaje/notes/1_Internals_of_Dart.md)
+  - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](module2_dart-languaje/notes/2_Expert_Viewpoints_Fundamentals_of_Dart.md)
+  - [x] [Variables y Tipos](module2_dart-languaje/notes/3_Variables_and_types.md)
+  - [x] [Funciones y Métodos en Dart](module2_dart-languaje/notes/4_Functions-methods-in-Dart.md)
   - [ ] Classes in Dart
   - [ ] Lab: Utilize Variables, Functions, and Methods in Dart
   - [ ] Libraries in Dart
