@@ -39,28 +39,27 @@ Future<void> main() async {
 /// ---------------------------------------------------------------------------
 /// 1) async/await (Futures)
 /// ---------------------------------------------------------------------------
-///
 Future<void> demoAsyncAwait() async {
   print("1) async/await");
-  print("   Inicio del programa (antes del await)");
+  print("   Program start (before await)");
 
   try {
-    // Simmula una operacion asincrona (I/O) que tarda 800 ms.
+    // Simulates an asynchronous operation (I/O) that takes 800 ms.
     await Future.delayed(const Duration(milliseconds: 800), () {
-      print("   Tarea asincrona completada (Future.delayed)");
+      print("   Asynchronous task completed (Future.delayed)");
     });
 
-    // Otra demo: una funcion que devuelve un Future con un valor calculado.
-    final int respuesta = await tareaAsincronaConResultado(21);
-    print("   Resultado de tareaAsincronaConResultado(21) = $respuesta");
+    // Another demo: a function that returns a Future with a calculated value.
+    final int result = await asyncTaskWithResult(21);
+    print("   Result of asyncTaskWithResult(21) = $result");
   } catch (e) {
-    print("   Error en Async/await: $e");
+    print("   Error in Async/await: $e");
   }
 
-  print("   Fin del programa (despues del await)\n");
+  print("   Program end (after await)\n");
 }
 
-Future<int> tareaAsincronaConResultado(int base) async {
+Future<int> asyncTaskWithResult(int base) async {
   await Future.delayed(const Duration(milliseconds: 2000));
   return base * 2;
 }
@@ -68,59 +67,55 @@ Future<int> tareaAsincronaConResultado(int base) async {
 /// ---------------------------------------------------------------------------
 /// 2) Streams
 /// ---------------------------------------------------------------------------
-///
 Future<void> demoStream() async {
   print("2) Streams");
-  print("   Emitiendo una secuencia 1..5 con retraso...");
+  print("   Emitting a sequence 1..5 with delay...");
 
   try {
     await for (final int n in countStream(5, delayMs: 150)) {
-      print("   Numero emitido: $n");
+      print("   Emitted number: $n");
     }
 
-    // Aquí creamos un nuevo Stream a partir de countStream(8, delayMs: 60)
-    // - .map((int n) => n * n): transforma cada número emitido por el stream en
-    // su cuadrado.
-    //   Es decir, si el stream original emite 1, 2, 3..., este método los convierte
-    // en 1, 4, 9...
-    //   El método .map recibe una función que se aplica a cada elemento del stream
-    // y devuelve un nuevo stream con los valores transformados.
-    //   En otras palabras, por cada valor que emite el stream original, .map ejecuta
-    // la función y emite el resultado.
-    // - .where((int n) => n.isEven): filtra el stream para dejar solo los valores
-    // pares.
-    //   El método isEven es una propiedad de int en Dart que devuelve true si el
-    // número es par.
-    // En resumen: este stream emite los cuadrados de los números del 1 al 8, pero
-    // solo imprime los que son pares.
-    final Stream<int> streamTransformado = countStream(8, delayMs: 60)
-        .map((int n) => n * n) // transforma cada elemento en su cuadrado
-        .where((int n) => n.isEven); // filtra solo los pares usando isEven
+    // Here we create a new Stream from countStream(8, delayMs: 60)
+    // - .map((int n) => n * n): transforms each emitted number into its square.
+    //   For example, if the original stream emits 1, 2, 3..., this method converts
+    //   them to 1, 4, 9...
+    //   The .map method receives a function that is applied to each element of the stream
+    //   and returns a new stream with the transformed values.
+    //   In other words, for each value emitted by the original stream, .map executes
+    //   the function and emits the result.
+    // - .where((int n) => n.isEven): filters the stream to keep only even values.
+    //   The isEven property is a Dart int property that returns true if the number is even.
+    // In summary: this stream emits the squares of numbers from 1 to 8, but
+    // only prints those that are even.
+    final Stream<int> transformedStream = countStream(8, delayMs: 60)
+        .map((int n) => n * n) // transforms each element into its square
+        .where((int n) => n.isEven); // filters only even numbers using isEven
 
-    print("   Stream transformado (cuadrados pares hasta 8):");
-    await for (final int n in streamTransformado) {
-      print("   Valor: $n");
+    print("   Transformed stream (even squares up to 8):");
+    await for (final int n in transformedStream) {
+      print("   Value: $n");
     }
   } catch (e) {
-    print("   Error en Streams: $e");
+    print("   Error in Streams: $e");
   }
   print("");
 }
 
-// Esta función genera un Stream de enteros del 1 al [max], emitiendo cada valor
-// tras un retardo.
-// El uso de 'async*' indica que es un generador asíncrono, lo que permite emitir
-// múltiples valores de forma asíncrona usando 'yield'.
-// Cada vez que se llama a 'yield', se emite un valor al stream y la función se
-// pausa hasta que el consumidor pide el siguiente valor.
-// Sin 'async*' y 'yield', solo podrías devolver un único valor (con 'async' y
-// 'return'), no una secuencia.
-// En resumen: usa 'async*' y 'yield' para construir streams que emiten varios
-// valores a lo largo del tiempo.
+// This function generates a Stream of integers from 1 to [max], emitting each value
+// after a delay.
+// The use of 'async*' indicates that it is an asynchronous generator, which allows
+// emitting multiple values asynchronously using 'yield'.
+// Each time 'yield' is called, the current value is emitted to the stream and the function
+// pauses until the consumer requests the next value.
+// Without 'async*' and 'yield', you could only return a single value (with 'async' and
+// 'return'), not a sequence.
+// In summary: use 'async*' and 'yield' to build streams that emit multiple
+// values over time.
 Stream<int> countStream(int max, {int delayMs = 100}) async* {
   for (int i = 1; i <= max; i++) {
     await Future.delayed(Duration(milliseconds: delayMs));
-    yield i; // Emite el valor actual y pausa la función hasta el siguiente ciclo
+    yield i; // Emits the current value and pauses the function until the next cycle
   }
 }
 
@@ -131,30 +126,28 @@ Stream<int> countStream(int max, {int delayMs = 100}) async* {
 void demoJsonConvert() {
   print("3).  dart:convert (Dart ↔ JSON)");
 
-  // Creamos un mapa de Dart (puede ser un modelo de datos en una app real)
-  // Con dynamic podemos dar valores distintos, muy util para trabajar conn JSON
-  final Map<String, dynamic> persona = {
-    'nombre': 'Raquel',
-    'edad': 29,
-    'habilidades': ['Cocinar', 'Hacer reir', 'Enseñar Español'],
-    'activo': true,
+  // We create a Dart map (could be a data model in a real app)
+  // With dynamic we can assign different types, very useful for working with JSON
+  final Map<String, dynamic> person = {
+    'name': 'Raquel',
+    'age': 29,
+    'skills': ['Cooking', 'Making people laugh', 'Teaching Spanish'],
+    'active': true,
   };
 
-  // Convert Dart -> JSON (serializacion)
-  // jsonEncode de la libreria dart:convert que importamos arriba, convierte un
-  // objeto Dart (Map, List, etc.) a una cadena JSON.
-  final String jsonString = jsonEncode(persona);
+  // Convert Dart -> JSON (serialization)
+  // jsonEncode from the dart:convert library (imported above) converts a
+  // Dart object (Map, List, etc.) to a JSON string.
+  final String jsonString = jsonEncode(person);
   print(".  Dart -> JSON: $jsonString \n");
 
-  //Convertir JSON -> Dart (deserializacion)
-  // jsonDecode convierte una cadena JSON a un objeto Dart (Map, List, etc.)
-  final String entradaJson =
-      '{"nombre": "Ezequiel", "edad": 38, "activo": true}';
-  // Ahora creamos el Map de Dart para recoger los datos desde JSON, el cual Map
-  // bien podria ser obtenido desde un modelo preparado en una clase Dart creada
-  // por nosotros dentro de este mismo proyecto.
-  final Map<String, dynamic> personaDesdeJson = jsonDecode(entradaJson);
-  print(".  JSON -> Dart: $personaDesdeJson \n");
+  // Convert JSON -> Dart (deserialization)
+  // jsonDecode converts a JSON string to a Dart object (Map, List, etc.)
+  final String inputJson = '{"name": "Ezequiel", "age": 38, "active": true}';
+  // Now we create the Dart Map to collect the data from JSON, which could
+  // also be obtained from a Dart class model created in this project.
+  final Map<String, dynamic> personFromJson = jsonDecode(inputJson);
+  print(".  JSON -> Dart: $personFromJson \n");
 
   print("");
 }
@@ -163,54 +156,49 @@ void demoJsonConvert() {
 /// 4) Isolates (parallel computation)
 /// ---------------------------------------------------------------------------
 
-// Un isolate es un hilo separado que corre en paralelo al principal, con su propio
-// heap de memoria.
-// No pueden acceder directamente a las variables de otros isolates, por lo que la
-// comunicación se realiza mediante mensajes usando SendPort y ReceivePort.
-// El flujo típico es:
-//   1. El padre (código principal) crea un ReceivePort (buzón para recibir mensajes).
-//   2. El padre lanza un isolate hijo con Isolate.spawn, pasándole el SendPort del
-// ReceivePort.
-//   3. El hijo ejecuta su función (isolateEntry), hace el trabajo pesado y usa el
-// SendPort para enviar el resultado al padre.
-//   4. El padre recibe el resultado a través del ReceivePort.
-// Nota: SendPort solo sirve para enviar mensajes en una dirección. Si quieres
-// comunicación en ambos sentidos, necesitas dos pares ReceivePort/SendPort.
+// An isolate is a separate thread that runs in parallel to the main one, with its own heap memory.
+// Isolates cannot directly access each other's variables, so communication is done via messages using SendPort and ReceivePort.
+// Typical flow:
+//   1. The parent (main code) creates a ReceivePort (mailbox to receive messages).
+//   2. The parent launches a child isolate with Isolate.spawn, passing the SendPort of the ReceivePort.
+//   3. The child runs its function (isolateEntry), does the heavy work, and uses the SendPort to send the result back to the parent.
+//   4. The parent receives the result through the ReceivePort.
+// Note: SendPort is only for sending messages in one direction. If you want two-way communication, you need two pairs of ReceivePort/SendPort.
 
 Future<void> demoIsolate() async {
   print("4) Isolates (parallel computation)");
 
-  // 1. El padre crea un ReceivePort para recibir mensajes del isolate hijo.
+  // 1. The parent creates a ReceivePort to receive messages from the child isolate.
   final ReceivePort receivePort = ReceivePort();
 
-  // 2. El padre lanza el hijo (nuevo isolate) y le pasa el SendPort para que el
-  //    hijo pueda enviar mensajes de vuelta. Isolate.spawn ejecuta la función isolateEntry
-  //    en el hijo y le pasa el argumento (el SendPort).
+  // 2. The parent launches the child (new isolate) and passes the SendPort so the
+  //    child can send messages back. Isolate.spawn runs the isolateEntry function
+  //    in the child and passes the argument (the SendPort).
   await Isolate.spawn(isolateEntry, receivePort.sendPort);
 
-  // 3. El padre espera el primer mensaje del hijo (el resultado del cálculo).
-  //    Mientras espera, el padre puede seguir haciendo otras cosas (no se bloquea).
-  //    Usamnos el metodo 'first' para obtener solo el primer mensaje.
-  print("   Esperando resultado del isolate hijo...");
+  // 3. The parent waits for the first message from the child (the result of the calculation).
+  //    While waiting, the parent can continue doing other things (it is not blocked).
+  //    We use the 'first' method to get only the first message.
+  print("   Waiting for result from child isolate...");
   final result = await receivePort.first;
 
-  print(".  Resultado recibido del isolate hijo: $result\n");
+  print(".  Result received from child isolate: $result\n");
 
-  // 4. Ceramos el ReceivePort ya que no lo necesitamos más.
+  // 4. Close the ReceivePort as it is no longer needed.
   receivePort.close();
 }
 
-// Esta función se ejecuta en el isolate hijo.
-// Recibe como argumento el SendPort del padre, que solo sirve para enviar mensajes
-// de hijo a padre.
-// Aquí se puede hacer cualquier cálculo pesado sin bloquear el hilo principal.
-// En este ejemplo, el hijo calcula la suma de los primeros 10,000,000,000 números naturales,
-// lo que puede tardar bastante tiempo dependiendo de la potencia del equipo.
+// This function runs in the child isolate.
+// It receives as an argument the parent's SendPort, which is only used to send messages
+// from child to parent.
+// Here you can perform any heavy computation without blocking the main thread.
+// In this example, the child calculates the sum of the first 10,000,000,000 natural numbers,
+// which may take a long time depending on your computer's performance.
 void isolateEntry(SendPort sendPort) {
-  int suma = 0;
+  int sum = 0;
   for (int i = 1; i <= 10000000000; i++) {
-    suma += i;
+    sum += i;
   }
-  // El hijo envia el resultado al padre usando el SendPort.
-  sendPort.send(suma);
+  // The child sends the result to the parent using the SendPort.
+  sendPort.send(sum);
 }
