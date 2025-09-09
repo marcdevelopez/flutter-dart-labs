@@ -6,6 +6,9 @@ const String storeName = 'Tech Store';
 
 void main() {
   // TODO: Generate product ID (use 'generateProductId' function)
+  // Use 'final' because the value is assigned once and won't change, 
+  // pero no se conoce en tiempo de compilación, sino en tiempo de ejecución
+  final String productId = generateProductId();
 
   // TODO: Declare the product name using 'var'
 
@@ -32,5 +35,11 @@ void main() {
   // TODO: Print updated data
 }
 
-/// TODO: Create 'generateProductId' function that returns a String
+// Function to generate a product ID
+String generateProductId() {
+  // Returns a String with prefix and current timestamp
+  return 'prod_${DateTime.now().millisecondsSinceEpoch}';
+}
+
+
 /// Returns a String with prefix and current timestamp
