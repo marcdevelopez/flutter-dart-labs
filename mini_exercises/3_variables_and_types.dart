@@ -1,6 +1,8 @@
 // TODO: Import necessary libraries if input or async is needed (not required for now)
 
-/// Global constant for the store name
+// Usamos 'const' porque este valor es fijo y se conoce en tiempo de compilación
+// Y lo declaramos fuera de 'main' para que esté disponible en todo el archivo
+const String storeName = 'Tech Store';
 
 void main() {
   // TODO: Generate product ID (use 'generateProductId' function)
