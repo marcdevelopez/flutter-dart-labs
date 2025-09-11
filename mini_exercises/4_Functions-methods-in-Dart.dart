@@ -64,13 +64,13 @@
  */
 
 // Constantes para prioridades (estas ayudaran en los filtros al desarrollar)
-const String HIGH = 'high';
-const String MEDIUM = 'medium';
-const String LOW = 'low';
+const String highPriority = 'high';
+const String mediumPriority = 'medium';
+const String lowPriority = 'low';
 
 // Funcion principal
 void main() {
-  print('===== TASK MANAGER FOR MOBILE DEVELOPERS =====\n');
+  print('\n\n===== TASK MANAGER FOR MOBILE DEVELOPERS =====\n\n');
 
   // Crear lista de tareas (tasks) usando diferentes tipos de parametros en las
   // funciones sin olvidar los obligatorios.
@@ -79,30 +79,31 @@ void main() {
     // TODO aqui van las tareas creadas con createTask()
     createTask(
       title: 'Fix UI bug in profile screen',
-      priority: HIGH,
+      priority: highPriority,
       completed: false,
       estimatedHours: 3.5,
     ),
     createTask(
       title: 'Implement authentication flow',
-      priority: HIGH,
+      priority: highPriority,
       completed: false,
       estimatedHours: 5.0,
       assignee: 'Alice',
     ),
-    createTask(title: 'Code review PR #42',
-    priority:MEDIUM, 
-    completed: false,
+    createTask(
+      title: 'Code review PR #42',
+      priority: mediumPriority,
+      completed: false,
     ),
     createTask(
       title: 'Update project documentation',
-      priority: LOW,
+      priority: lowPriority,
       completed: false,
       tags: ['docs', 'maintenance'],
     ),
     createTask(
       title: 'Refactor networking code',
-      priority: MEDIUM,
+      priority: mediumPriority,
       completed: false,
       estimatedHours: 4.0,
       assignee: 'Bob',
@@ -111,9 +112,46 @@ void main() {
   ];
 
   // Imprimir todas las tareas
-  print(tasks);
+  print('--- All Tasks ---\n');
+  printTasks(tasks);
 
   // TODO: Filtar tareas y mostrar estadisticas
+}
+
+// Funcion para hacer mas grafico la prioridad al imprimir usando una funcion flecha
+String getPrioritySymbol(String priority) => priority == highPriority
+    ? '🔴'
+    : priority == mediumPriority
+    ? '🟡'
+    : '🟢';
+
+void printTasks(List<Map<String, dynamic>> tasks) {
+  if (tasks.isEmpty) {
+    print('No tasks available.');
+    return;
+  }
+
+  // Al hacer final task dentro del bucle for, se ahorra memoria y se mejora
+  // el rendimiento, ya que no es necesario reservar memoria adicional en cada
+  // iteracion.
+  // En esta funcion elegimos que datos queremos imprimir de cada tarea.
+  for (final task in tasks) {
+    final priority = task['priority'];
+    final title = task['title'];
+    // Esta variable puede ser nula, por eso usamos el operador ?? para asignar
+    // un valor por defecto en caso de que sea nula.
+    final assignee = task['assignee'] ?? 'Unassigned';
+    // Esta variable tiene un valor por defecto que es 1.0
+    final estimatedHours = task['estimatedHours'];
+    // Ahora usamos el valor de prioridad para obtener el simbolo
+    final symbol = getPrioritySymbol(priority);
+
+    // Finalmente con todos los datos imprimimos la tarea
+    print(
+      '  $symbol $title${assignee != 'Unassigned' ? ' (assignee: $assignee)' : ''}, estimated hours: $estimatedHours hrs\n',
+    );
+  }
+  print('\n');
 }
 
 // Función para crear una tarea con parámetros nombrados, algunos con valores por defecto.
