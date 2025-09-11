@@ -75,5 +75,33 @@ void main() {
   // TODO: Crear lista de tareas (tasks)
   // TODO: Imprimir todas las tareas
   // TODO: Filtar tareas y mostrar estadisticas
-  
+
+}
+
+// Función para crear una tarea con parámetros nombrados, algunos con valores por defecto.
+// Devuelve un Map con el valor dinámico para permitir diferentes tipos de datos.
+Map<String, dynamic> createTask({
+  required String title,
+  required String priority,
+  required bool completed, // este parámetro es opcional y tiene un valor por defecto
+  double estimatedHours = 1.0, // este parámetro es opcional y tiene un valor por defecto
+  String? assignee, // este parámetro es opcional y puede ser nulo
+  List<String>? tags, // este parámetro es opcional y puede ser nulo
+}
+) {
+  // Generar un ID único para la tarea basado en la marca de tiempo actual
+  final id = 'task_${DateTime.now().millisecondsSinceEpoch}';
+
+  return {
+    // rellenamos el mapa con los datos de la tarea
+    'id': id,
+    'title': title,
+    'priority': priority,
+    'completed': false, // el valor por defecto sera false
+    'estimatedHours': estimatedHours,
+    'assignee': assignee,
+    'tags': tags ?? [], // si tags es nulo, asignamos una lista vacía
+    // fecha de creación en formato ISO 8601 para facilitar su lectura:
+    'createdAt': DateTime.now().toIso8601String(), 
+  }
 }
