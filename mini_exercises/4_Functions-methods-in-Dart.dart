@@ -72,10 +72,48 @@ const String LOW = 'low';
 void main() {
   print('===== TASK MANAGER FOR MOBILE DEVELOPERS =====\n');
 
-  // TODO: Crear lista de tareas (tasks)
-  // TODO: Imprimir todas las tareas
-  // TODO: Filtar tareas y mostrar estadisticas
+  // Crear lista de tareas (tasks) usando diferentes tipos de parametros en las
+  // funciones sin olvidar los obligatorios.
+  // Cada tarea sera creada dentro de la lista usando la funcion createTask:
+  final tasks = [
+    // TODO aqui van las tareas creadas con createTask()
+    createTask(
+      title: 'Fix UI bug in profile screen',
+      priority: HIGH,
+      completed: false,
+      estimatedHours: 3.5,
+    ),
+    createTask(
+      title: 'Implement authentication flow',
+      priority: HIGH,
+      completed: false,
+      estimatedHours: 5.0,
+      assignee: 'Alice',
+    ),
+    createTask(title: 'Code review PR #42',
+    priority:MEDIUM, 
+    completed: false,
+    ),
+    createTask(
+      title: 'Update project documentation',
+      priority: LOW,
+      completed: false,
+      tags: ['docs', 'maintenance'],
+    ),
+    createTask(
+      title: 'Refactor networking code',
+      priority: MEDIUM,
+      completed: false,
+      estimatedHours: 4.0,
+      assignee: 'Bob',
+      tags: ['performance', 'backend'],
+    ),
+  ];
 
+  // Imprimir todas las tareas
+  print(tasks);
+
+  // TODO: Filtar tareas y mostrar estadisticas
 }
 
 // Función para crear una tarea con parámetros nombrados, algunos con valores por defecto.
@@ -83,12 +121,12 @@ void main() {
 Map<String, dynamic> createTask({
   required String title,
   required String priority,
-  required bool completed, // este parámetro es opcional y tiene un valor por defecto
-  double estimatedHours = 1.0, // este parámetro es opcional y tiene un valor por defecto
+  required bool completed,
+  double estimatedHours =
+      1.0, // este parámetro es opcional y tiene un valor por defecto
   String? assignee, // este parámetro es opcional y puede ser nulo
   List<String>? tags, // este parámetro es opcional y puede ser nulo
-}
-) {
+}) {
   // Generar un ID único para la tarea basado en la marca de tiempo actual
   final id = 'task_${DateTime.now().millisecondsSinceEpoch}';
 
@@ -102,6 +140,6 @@ Map<String, dynamic> createTask({
     'assignee': assignee,
     'tags': tags ?? [], // si tags es nulo, asignamos una lista vacía
     // fecha de creación en formato ISO 8601 para facilitar su lectura:
-    'createdAt': DateTime.now().toIso8601String(), 
-  }
+    'createdAt': DateTime.now().toIso8601String(),
+  };
 }
