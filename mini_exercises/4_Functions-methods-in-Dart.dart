@@ -76,7 +76,8 @@ void main() {
   // funciones sin olvidar los obligatorios.
   // Cada tarea sera creada dentro de la lista usando la funcion createTask:
   final tasks = [
-    // TODO aqui van las tareas creadas con createTask()
+    // TODO aqui van las tareas creadas con createTask(), las cuales son Maps que 
+    // sera cada tarea de la List
     createTask(
       title: 'Fix UI bug in profile screen',
       priority: highPriority,
@@ -116,6 +117,13 @@ void main() {
   printTasks(tasks);
 
   // TODO: Filtar tareas y mostrar estadisticas
+  // Vamos a hacer una prueba filtrando con un closure
+  // Utilizamos where para filtrar la lista de tareas, por eso la funcion 
+  // createPriorityFilter devuelve un boolean que indica si la tarea cumple con 
+  // el criterio de prioridad.
+  final highPriorityTasks = tasks.where(createPriorityFilter(highPriority)).toList();
+  print('\n--- High Priority Tasks ---\n');
+  printTasks(highPriorityTasks);
 }
 
 // Funcion para hacer mas grafico la prioridad al imprimir usando una funcion flecha
@@ -125,6 +133,7 @@ String getPrioritySymbol(String priority) => priority == highPriority
     ? '🟡'
     : '🟢';
 
+// Funcion para imprimir las tareas de forma clara y formateada
 void printTasks(List<Map<String, dynamic>> tasks) {
   if (tasks.isEmpty) {
     print('No tasks available.');
@@ -180,4 +189,20 @@ Map<String, dynamic> createTask({
     // fecha de creación en formato ISO 8601 para facilitar su lectura:
     'createdAt': DateTime.now().toIso8601String(),
   };
+}
+
+/// FILTROS usando CLOSURES
+/// 
+// Filtro por prioridad:  esta funcion se personalizara segun la prioridad
+// que se le pase como parametro y devolvera una funcion que podra ser usada
+// para filtrar las tareas.
+bool Function(Map<String, dynamic>) createPriorityFilter(String priority) {
+  return (Map<String, dynamic> task) => task['priority'] == priority;
+}
+
+// Filtro por tags: esta funcion se personalizara segun el tag que se le pase
+// como parametro y devolvera una funcion que podra ser usada para filtrar
+// las tareas.
+bool Function(Map<String, dynamic>) createTagFilter(String tag) {
+  return (Map<String, dynamic> task) => (task['tags'] as List).contains(tag);
 }
