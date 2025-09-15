@@ -76,7 +76,7 @@ void main() {
   // funciones sin olvidar los obligatorios.
   // Cada tarea sera creada dentro de la lista usando la funcion createTask:
   final tasks = [
-    // TODO aqui van las tareas creadas con createTask(), las cuales son Maps que 
+    // TODO aqui van las tareas creadas con createTask(), las cuales son Maps que
     // sera cada tarea de la List
     createTask(
       title: 'Fix UI bug in profile screen',
@@ -116,14 +116,19 @@ void main() {
   print('--- All Tasks ---\n');
   printTasks(tasks);
 
-  // TODO: Filtar tareas y mostrar estadisticas
+  // Filtar tareas y mostrar estadisticas
   // Vamos a hacer una prueba filtrando con un closure
-  // Utilizamos where para filtrar la lista de tareas, por eso la funcion 
-  // createPriorityFilter devuelve un boolean que indica si la tarea cumple con 
+  // Utilizamos where para filtrar la lista de tareas, por eso la funcion
+  // createPriorityFilter devuelve un boolean que indica si la tarea cumple con
   // el criterio de prioridad.
-  final highPriorityTasks = tasks.where(createPriorityFilter(highPriority)).toList();
+  final highPriorityTasks = tasks
+      .where(createPriorityFilter(highPriority))
+      .toList();
   print('\n--- High Priority Tasks ---\n');
   printTasks(highPriorityTasks);
+
+  // Imprimimos algunas estadisticas de tareas usando otra funcion
+  printTaskStatistics(tasks);
 }
 
 // Funcion para hacer mas grafico la prioridad al imprimir usando una funcion flecha
@@ -192,7 +197,7 @@ Map<String, dynamic> createTask({
 }
 
 /// FILTROS usando CLOSURES
-/// 
+
 // Filtro por prioridad:  esta funcion se personalizara segun la prioridad
 // que se le pase como parametro y devolvera una funcion que podra ser usada
 // para filtrar las tareas.
@@ -205,4 +210,32 @@ bool Function(Map<String, dynamic>) createPriorityFilter(String priority) {
 // las tareas.
 bool Function(Map<String, dynamic>) createTagFilter(String tag) {
   return (Map<String, dynamic> task) => (task['tags'] as List).contains(tag);
+}
+
+/// ESTADISTICAS
+// En esta funcion contamos el total de tareas y horas estimadas, ademas de
+// contar cuantas tareas hay de cada prioridad.
+void printTaskStatistics(List<Map<String, dynamic>> tasks) {
+  // Para sumar todas las horas usamos fold, que es una funcion que recorre
+  // toda la lista y va acumulando un valor, en este caso el total de horas.
+  final totalHours = tasks.fold(
+    0.0,
+    (sum, tarea) => sum + (tarea['estimatedHours'] as double),
+  );
+  // para sumar las tareas por prioridad usamnos where, que filtra la lista
+  // segun el criterio que le pasemos, y luego contamos la longitud de la
+  // lista resultante con length.
+  final high = tasks.where((tarea) => tarea['priority'] == highPriority).length;
+  final medium = tasks
+      .where((tarea) => tarea['priority'] == mediumPriority)
+      .length;
+  final low = tasks.where((tarea) => tarea['priority'] == lowPriority).length;
+  
+  // Imprimimos, volviendo a usar interpolacion de Strings
+  print('--- Task Statistics ---');
+  print('.  Total Tasks: ${tasks.length}');
+  // toStringAsFixed(1) fuerza a que se muestre con un decimal
+  print('.  Total Hours: ${totalHours.toStringAsFixed(1)}');
+  print('.  🔴 High: $high, 🟡 Medium: $medium, 🟢 Low: $low');
+  print('\n');
 }
