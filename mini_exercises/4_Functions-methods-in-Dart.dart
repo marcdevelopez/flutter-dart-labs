@@ -127,7 +127,7 @@ void main() {
   final highPriorityTasks = tasks
       .where(createPriorityFilter(highPriority))
       .toList();
-  print('\n--- High Priority Tasks ---\n');
+  print('--- High Priority Tasks ---\n');
   printTasks(highPriorityTasks);
 
   // Imprimimos algunas estadisticas de tareas usando otra funcion
@@ -137,11 +137,18 @@ void main() {
   print('\n-- Fetching Remote Tasks... ---');
   // Esta vez usamos .then en vez de async/await para demostrar otra forma
   // de manejar funciones asincronas. La diferencia es que con async/await
-  // el codigo es mas secuencial y facil de leer, mientras que con .then 
+  // el codigo es mas secuencial y facil de leer, mientras que con .then
   // se usan callbacks y se pueden encadenar varias operaciones de forma mas sencilla.
+  Map<String, dynamic> remoteTasks = {};
   fetchRemoteTasks().then((remoteTasks) {
     print('\n--- Remote Tasks Fetched ---\n');
     printTasks(remoteTasks);
+
+    // Imprimimos la carga de trabajo por asignado
+    // Primero combinamos las tareas locales y remotas con el operador spread (...)
+    final allTask = [...tasks, ...remoteTasks];
+    // Y ahora calculamos e imprimimos la carga de trabajo por asignado
+    calculateWorkloadDistribution(allTask);
   });
 }
 
@@ -247,10 +254,10 @@ void printTaskStatistics(List<Map<String, dynamic>> tasks) {
 
   // Imprimimos, volviendo a usar interpolacion de Strings
   print('--- Task Statistics ---\n');
-  print('.  Total Tasks: ${tasks.length}\n');
+  print('   Total Tasks: ${tasks.length}\n');
   // toStringAsFixed(1) fuerza a que se muestre con un decimal
-  print('.  Total Hours: ${totalHours.toStringAsFixed(1)}\n');
-  print('.  🔴 High: $high, 🟡 Medium: $medium, 🟢 Low: $low');
+  print('   Total Hours: ${totalHours.toStringAsFixed(1)}\n');
+  print('   🔴 High: $high, 🟡 Medium: $medium, 🟢 Low: $low');
   print('\n');
 }
 
@@ -263,6 +270,9 @@ Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
         title: 'Optimize performance',
         priority: highPriority,
         completed: true,
+        assignee: 'Alice',
+        estimatedHours: 6.0,
+        tags: ['performance'],
       ),
       createTask(
         title: 'Add analitics',
@@ -272,4 +282,27 @@ Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
       ),
     ];
   });
+}
+
+// Calculamos la carga de trabajo por cada asignado
+// Usaremos el parametro posicional opcional para permitir filtrar por
+// asignado si se desea.
+void calculateWorkloadDistribution(
+  List<Map<String, dynamic>> tasks, [
+  bool printDetails = true, // Este opcional pero sin no se pasa sera true
+]) {
+  final Map<String, double> workload = {};
+  for (var task in tasks) {
+    final who = task['assignee'] ?? 'Unassigned';
+    final hours = task['estimatedHours'] as double;
+    workload[who] = (workload[who] ?? 0) + hours;
+  }
+
+  if (printDetails) {
+    print('\--- Workload Distribution ---\n');
+    workload.forEach(
+      (dev, hrs) => print('   $dev: ${hrs.toStringAsFixed(1)} hours'),
+    );
+    print('\n');
+  }
 }
