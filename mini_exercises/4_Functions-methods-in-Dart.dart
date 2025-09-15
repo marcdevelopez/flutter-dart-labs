@@ -1,5 +1,3 @@
-import 'dart:async';
-
 /*
  * Mobile Developer Task Manager
  * ============================
@@ -65,22 +63,21 @@ import 'dart:async';
  * foundation to understand and manage your mobile development tasks.
  */
 
-// Constantes para prioridades (estas ayudaran en los filtros al desarrollar)
-
+// Priority constants (these will help with filters during development)
 const String highPriority = 'high';
 const String mediumPriority = 'medium';
 const String lowPriority = 'low';
 
-// Funcion principal
+// Main function
 void main() {
   print('\n\n===== TASK MANAGER FOR MOBILE DEVELOPERS =====\n\n');
 
-  // Crear lista de tareas (tasks) usando diferentes tipos de parametros en las
-  // funciones sin olvidar los obligatorios.
-  // Cada tarea sera creada dentro de la lista usando la funcion createTask:
+  // Create task list using different parameter types in functions
+  // without forgetting the required ones.
+  // Each task will be created within the list using the createTask function:
   final tasks = [
-    // TODO aqui van las tareas creadas con createTask(), las cuales son Maps que
-    // sera cada tarea de la List
+    // TODO tasks created with createTask() go here, which are Maps that
+    // will represent each task in the List
     createTask(
       title: 'Fix UI bug in profile screen',
       priority: highPriority,
@@ -115,73 +112,73 @@ void main() {
     ),
   ];
 
-  // Imprimir todas las tareas
+  // Print all tasks
   print('--- All Tasks ---\n');
   printTasks(tasks);
 
-  // Filtar tareas y mostrar estadisticas
-  // Vamos a hacer una prueba filtrando con un closure
-  // Utilizamos where para filtrar la lista de tareas, por eso la funcion
-  // createPriorityFilter devuelve un boolean que indica si la tarea cumple con
-  // el criterio de prioridad.
+  // Filter tasks and display statistics
+  // Let's test filtering with a closure
+  // We use where to filter the task list, which is why the
+  // createPriorityFilter function returns a boolean indicating if the task meets
+  // the priority criteria
   final highPriorityTasks = tasks
       .where(createPriorityFilter(highPriority))
       .toList();
   print('--- High Priority Tasks ---\n');
   printTasks(highPriorityTasks);
 
-  // Imprimimos algunas estadisticas de tareas usando otra funcion
+  // Print some task statistics using another function
   printTaskStatistics(tasks);
 
-  // Simulamos la recepcion de tareas remotas
+  // Simulate receiving remote tasks
   print('\n-- Fetching Remote Tasks... ---');
-  // Esta vez usamos .then en vez de async/await para demostrar otra forma
-  // de manejar funciones asincronas. La diferencia es que con async/await
-  // el codigo es mas secuencial y facil de leer, mientras que con .then
-  // se usan callbacks y se pueden encadenar varias operaciones de forma mas sencilla.
+  // This time we use .then instead of async/await to demonstrate another way
+  // to handle asynchronous functions. The difference is that with async/await
+  // the code is more sequential and easier to read, while with .then
+  // callbacks are used and multiple operations can be chained more easily
   Map<String, dynamic> remoteTasks = {};
   fetchRemoteTasks().then((remoteTasks) {
     print('\n--- Remote Tasks Fetched ---\n');
     printTasks(remoteTasks);
 
-    // Imprimimos la carga de trabajo por asignado
-    // Primero combinamos las tareas locales y remotas con el operador spread (...)
+    // Print the workload by assignee
+    // First we combine local and remote tasks with the spread operator (...)
     final allTask = [...tasks, ...remoteTasks];
-    // Y ahora calculamos e imprimimos la carga de trabajo por asignado
+    // And now we calculate and print the workload by assignee
     calculateWorkloadDistribution(allTask);
   });
 }
 
-// Funcion para hacer mas grafico la prioridad al imprimir usando una funcion flecha
+// Function to make priority more visual when printing using an arrow function
 String getPrioritySymbol(String priority) => priority == highPriority
     ? '🔴'
     : priority == mediumPriority
     ? '🟡'
     : '🟢';
 
-// Funcion para imprimir las tareas de forma clara y formateada
+// Function to print tasks in a clear and formatted way
 void printTasks(List<Map<String, dynamic>> tasks) {
   if (tasks.isEmpty) {
     print('No tasks available.');
     return;
   }
 
-  // Al hacer final task dentro del bucle for, se ahorra memoria y se mejora
-  // el rendimiento, ya que no es necesario reservar memoria adicional en cada
-  // iteracion.
-  // En esta funcion elegimos que datos queremos imprimir de cada tarea.
+  // By using final task within the for loop, memory is saved and performance
+  // is improved, as it's not necessary to allocate additional memory in each
+  // iteration.
+  // In this function, we choose which task data we want to print
   for (final task in tasks) {
     final priority = task['priority'];
     final title = task['title'];
-    // Esta variable puede ser nula, por eso usamos el operador ?? para asignar
-    // un valor por defecto en caso de que sea nula.
+    // This variable can be null, so we use the ?? operator to assign
+    // a default value in case it is null
     final assignee = task['assignee'] ?? 'Unassigned';
-    // Esta variable tiene un valor por defecto que es 1.0
+    // This variable has a default value of 1.0
     final estimatedHours = task['estimatedHours'];
-    // Ahora usamos el valor de prioridad para obtener el simbolo
+    // Now we use the priority value to get the symbol
     final symbol = getPrioritySymbol(priority);
 
-    // Finalmente con todos los datos imprimimos la tarea
+    // Finally with all the data we print the task
     print(
       '  $symbol $title${assignee != 'Unassigned' ? ' (assignee: $assignee)' : ''}, estimated hours: $estimatedHours hrs\n',
     );
@@ -189,81 +186,81 @@ void printTasks(List<Map<String, dynamic>> tasks) {
   print('\n');
 }
 
-// Función para crear una tarea con parámetros nombrados, algunos con valores por defecto.
-// Devuelve un Map con el valor dinámico para permitir diferentes tipos de datos.
+// Function to create a task with named parameters, some with default values.
+// Returns a Map with dynamic value to allow different data types.
 Map<String, dynamic> createTask({
   required String title,
   required String priority,
   required bool completed,
   double estimatedHours =
-      1.0, // este parámetro es opcional y tiene un valor por defecto
-  String? assignee, // este parámetro es opcional y puede ser nulo
-  List<String>? tags, // este parámetro es opcional y puede ser nulo
+      1.0, // this parameter is optional and has a default value
+  String? assignee, // this parameter is optional and can be null
+  List<String>? tags, // this parameter is optional and can be null
 }) {
-  // Generar un ID único para la tarea basado en la marca de tiempo actual
+  // Generate a unique ID for the task based on the current timestamp
   final id = 'task_${DateTime.now().millisecondsSinceEpoch}';
 
   return {
-    // rellenamos el mapa con los datos de la tarea
+    // fill the map with the task data
     'id': id,
     'title': title,
     'priority': priority,
-    'completed': false, // el valor por defecto sera false
+    'completed': false, // the default value will be false
     'estimatedHours': estimatedHours,
     'assignee': assignee,
-    'tags': tags ?? [], // si tags es nulo, asignamos una lista vacía
-    // fecha de creación en formato ISO 8601 para facilitar su lectura:
+    'tags': tags ?? [], // if tags is null, assign an empty list
+    // creation date in ISO 8601 format for easier reading:
     'createdAt': DateTime.now().toIso8601String(),
   };
 }
 
-/// FILTROS usando CLOSURES
+/// FILTERS using CLOSURES
 
-// Filtro por prioridad:  esta funcion se personalizara segun la prioridad
-// que se le pase como parametro y devolvera una funcion que podra ser usada
-// para filtrar las tareas.
+// Priority filter: this function will be customized according to the priority
+// passed as a parameter and will return a function that can be used
+// to filter tasks
 bool Function(Map<String, dynamic>) createPriorityFilter(String priority) {
   return (Map<String, dynamic> task) => task['priority'] == priority;
 }
 
-// Filtro por tags: esta funcion se personalizara segun el tag que se le pase
-// como parametro y devolvera una funcion que podra ser usada para filtrar
-// las tareas.
+// Tags filter: this function will be customized according to the tag
+// passed as a parameter and will return a function that can be used
+// to filter tasks
 bool Function(Map<String, dynamic>) createTagFilter(String tag) {
   return (Map<String, dynamic> task) => (task['tags'] as List).contains(tag);
 }
 
-/// ESTADISTICAS
-// En esta funcion contamos el total de tareas y horas estimadas, ademas de
-// contar cuantas tareas hay de cada prioridad.
+/// STATISTICS
+// In this function we count the total tasks and estimated hours, as well as
+// counting how many tasks there are of each priority
 void printTaskStatistics(List<Map<String, dynamic>> tasks) {
-  // Para sumar todas las horas usamos fold, que es una funcion que recorre
-  // toda la lista y va acumulando un valor, en este caso el total de horas.
+  // To sum all hours we use fold, which is a function that traverses
+  // the entire list and accumulates a value, in this case the total hours
   final totalHours = tasks.fold(
     0.0,
     (sum, tarea) => sum + (tarea['estimatedHours'] as double),
   );
-  // para sumar las tareas por prioridad usamnos where, que filtra la lista
-  // segun el criterio que le pasemos, y luego contamos la longitud de la
-  // lista resultante con length.
-  final high = tasks.where((tarea) => tarea['priority'] == highPriority).length;
+  // To count tasks by priority we use where, which filters the list
+  // according to the criteria we pass, and then we count the length of the
+  // resulting list with length
+  final high = tasks.where((taskEntry) => taskEntry['priority'] == highPriority).length;
   final medium = tasks
       .where((tarea) => tarea['priority'] == mediumPriority)
       .length;
   final low = tasks.where((tarea) => tarea['priority'] == lowPriority).length;
 
-  // Imprimimos, volviendo a usar interpolacion de Strings
+  // We print, using String interpolation again
   print('--- Task Statistics ---\n');
   print('   Total Tasks: ${tasks.length}\n');
-  // toStringAsFixed(1) fuerza a que se muestre con un decimal
+  // toStringAsFixed(1) forces it to be displayed with one decimal place
   print('   Total Hours: ${totalHours.toStringAsFixed(1)}\n');
   print('   🔴 High: $high, 🟡 Medium: $medium, 🟢 Low: $low');
   print('\n');
 }
 
-// Simulamos la recepcion de tareas remotas creandose en una funcion asincrona
+// We simulate receiving remote tasks by creating them in an asynchronous function
 Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
-  // Simulamos un retardo de 2 segundos
+  // We simulate a 2-second delay
   return Future.delayed(Duration(seconds: 2), () {
     return [
       createTask(
@@ -284,12 +281,12 @@ Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
   });
 }
 
-// Calculamos la carga de trabajo por cada asignado
-// Usaremos el parametro posicional opcional para permitir filtrar por
-// asignado si se desea.
+// We calculate the workload for each assignee
+// We'll use the optional positional parameter to allow filtering by
+// assignee if desired
 void calculateWorkloadDistribution(
   List<Map<String, dynamic>> tasks, [
-  bool printDetails = true, // Este opcional pero sin no se pasa sera true
+  bool printDetails = true, // This is optional but if not passed it will be true
 ]) {
   final Map<String, double> workload = {};
   for (var task in tasks) {
