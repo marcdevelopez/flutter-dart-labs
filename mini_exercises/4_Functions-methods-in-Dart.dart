@@ -1,3 +1,5 @@
+import 'dart:async';
+
 /*
  * Mobile Developer Task Manager
  * ============================
@@ -64,6 +66,7 @@
  */
 
 // Constantes para prioridades (estas ayudaran en los filtros al desarrollar)
+
 const String highPriority = 'high';
 const String mediumPriority = 'medium';
 const String lowPriority = 'low';
@@ -129,6 +132,17 @@ void main() {
 
   // Imprimimos algunas estadisticas de tareas usando otra funcion
   printTaskStatistics(tasks);
+
+  // Simulamos la recepcion de tareas remotas
+  print('\n-- Fetching Remote Tasks... ---');
+  // Esta vez usamos .then en vez de async/await para demostrar otra forma
+  // de manejar funciones asincronas. La diferencia es que con async/await
+  // el codigo es mas secuencial y facil de leer, mientras que con .then 
+  // se usan callbacks y se pueden encadenar varias operaciones de forma mas sencilla.
+  fetchRemoteTasks().then((remoteTasks) {
+    print('\n--- Remote Tasks Fetched ---\n');
+    printTasks(remoteTasks);
+  });
 }
 
 // Funcion para hacer mas grafico la prioridad al imprimir usando una funcion flecha
@@ -230,12 +244,32 @@ void printTaskStatistics(List<Map<String, dynamic>> tasks) {
       .where((tarea) => tarea['priority'] == mediumPriority)
       .length;
   final low = tasks.where((tarea) => tarea['priority'] == lowPriority).length;
-  
+
   // Imprimimos, volviendo a usar interpolacion de Strings
-  print('--- Task Statistics ---');
-  print('.  Total Tasks: ${tasks.length}');
+  print('--- Task Statistics ---\n');
+  print('.  Total Tasks: ${tasks.length}\n');
   // toStringAsFixed(1) fuerza a que se muestre con un decimal
-  print('.  Total Hours: ${totalHours.toStringAsFixed(1)}');
+  print('.  Total Hours: ${totalHours.toStringAsFixed(1)}\n');
   print('.  🔴 High: $high, 🟡 Medium: $medium, 🟢 Low: $low');
   print('\n');
+}
+
+// Simulamos la recepcion de tareas remotas creandose en una funcion asincrona
+Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
+  // Simulamos un retardo de 2 segundos
+  return Future.delayed(Duration(seconds: 2), () {
+    return [
+      createTask(
+        title: 'Optimize performance',
+        priority: highPriority,
+        completed: true,
+      ),
+      createTask(
+        title: 'Add analitics',
+        priority: mediumPriority,
+        completed: false,
+        assignee: 'Roman',
+      ),
+    ];
+  });
 }
