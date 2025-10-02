@@ -48,9 +48,9 @@ void main() {
   // printed, the second $ is to interpolate the variable
   print('Price: \$$productPrice');
   print('Stock: $productStock units');
-  // Aqui usamos un operador ternario para mostrar "Yes" o "No"
+  // Here we use a ternary operator to show "Yes" or "No"
   print('Available: ${isAvailable ? "Yes" : "No"}');
-  // Usamos el metodo join de List para convertir la lista en una cadena separada por comas
+  // We use the join method of List to convert the list into a comma-separated string
   print('Tags: ${productTags.join(', ')}');
   print('Supplier: ${supplierInfo['name']} ${supplierInfo['contact']}');
   // Check if 'productImage' is null before printing its value
@@ -62,7 +62,7 @@ void main() {
     print('Image: No image available');
   }
 
-  // Simulate changes in data (new name, stock change, new image) El producto ha cambiado
+  // Simulate changes in data (new name, stock change, new image) - The product has changed
   print('\n--- UPDATING PRODUCT DATA ---');
   productName = 'Ergonomic Wireless Mouse';
   productStock -= 3; // Sold 3 units
@@ -90,7 +90,7 @@ void main() {
 
   // Let's create a second product to demonstrate using a dynamic list
   // for a list of products, to which products could be added
-  print('\n===== ADING SECOND PRODUCT =====');
+  print('\n===== ADDING SECOND PRODUCT =====');
   final String productId2 = generateProductId();
   var productName2 = 'USB-C Hub';
   int productStock2 = 15;
