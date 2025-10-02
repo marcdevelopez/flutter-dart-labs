@@ -76,7 +76,7 @@ void main() {
   // without forgetting the required ones.
   // Each task will be created within the list using the createTask function:
   final tasks = [
-    // TODO tasks created with createTask() go here, which are Maps that
+    // Tasks created with createTask() go here, which are Maps that
     // will represent each task in the List
     createTask(
       title: 'Fix UI bug in profile screen',
@@ -243,7 +243,9 @@ void printTaskStatistics(List<Map<String, dynamic>> tasks) {
   // To count tasks by priority we use where, which filters the list
   // according to the criteria we pass, and then we count the length of the
   // resulting list with length
-  final high = tasks.where((taskEntry) => taskEntry['priority'] == highPriority).length;
+  final high = tasks
+      .where((taskEntry) => taskEntry['priority'] == highPriority)
+      .length;
   final medium = tasks
       .where((tarea) => tarea['priority'] == mediumPriority)
       .length;
@@ -272,7 +274,7 @@ Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
         tags: ['performance'],
       ),
       createTask(
-        title: 'Add analitics',
+        title: 'Add analytics',
         priority: mediumPriority,
         completed: false,
         assignee: 'Roman',
@@ -286,7 +288,8 @@ Future<List<Map<String, dynamic>>> fetchRemoteTasks() {
 // assignee if desired
 void calculateWorkloadDistribution(
   List<Map<String, dynamic>> tasks, [
-  bool printDetails = true, // This is optional but if not passed it will be true
+  bool printDetails =
+      true, // This is optional but if not passed it will be true
 ]) {
   final Map<String, double> workload = {};
   for (var task in tasks) {
