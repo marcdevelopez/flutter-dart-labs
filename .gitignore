@@ -2,12 +2,12 @@
 .dart_tool/
 .packages
 .pub-cache/
-build/
-ios/Pods/
-macos/Pods/
+**/build/
+**/Pods/
 **/DerivedData/
 **/*.iml
 **/.DS_Store
 .idea/
 .vscode/*
 !.vscode/settings.json
+**/notas_codigo/
