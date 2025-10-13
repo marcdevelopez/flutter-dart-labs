@@ -35,6 +35,24 @@ class Animal {
 
     // Getter para calcular años hasta ser considerado viejo (valor arbitrario de 15)
     int get yearsUntilOld => 15 - age;
+}
 
+// Clase Dog que hereda de Animal
+class Dog extends Animal {
+    // Constructor: pasa los valores al constructor de la clase base Animal
+    // Con los dos puntos (:) indicamos que estamos llamando al constructor de la clase padre
+    // El tercer parámetro es fijo para esta clase, ya que todos los perros son de la especie 'Dog'
+    Dog(String name, int age) : super(name, age, 'Dog');
+
+    // Método sobrescrito: hace un sonido específico para perros
+    @override
+    void makeSound() {
+        print('$name barks: Woof! Woof!');
+    }
+
+    // Método adicional específico para perros, que no está en la clase base Animal
+    void fetch() {
+        print('$name is fetching the ball!');
+    }
 
 }
