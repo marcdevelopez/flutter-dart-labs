@@ -44,7 +44,7 @@ class Dog extends Animal {
     // El tercer parámetro es fijo para esta clase, ya que todos los perros son de la especie 'Dog'
     Dog(String name, int age) : super(name, age, 'Dog');
 
-    // Método sobrescrito: hace un sonido específico para perros
+    // Método sobrescrito (requiere anotación @override): hace un sonido específico para perros
     @override
     void makeSound() {
         print('$name barks: Woof! Woof!');
@@ -54,5 +54,35 @@ class Dog extends Animal {
     void fetch() {
         print('$name is fetching the ball!');
     }
+}
 
+// Clase Cat que hereda de Animal
+class Cat extends Animal {
+    // Esatdo interno privado que representa el animo del gato
+    double _mood = 5.0; // Valor entre 0 y 10
+
+    // Constructor que inicializa con 'Cat' como especie fija
+    Cat(String name, int age) : super(name, age, 'Cat');
+
+    // Sobrescribe el sonido que hace el gato
+    @override
+    void makeSound() {
+        print('$name meows: Miau! Miau!');
+    }
+
+    // Método personalizado que incrementa el ánimo del gato
+    void play() {
+        _mood += 1.0;
+    }
+
+    // Getter para consultar el estado de ánimo del gato
+    double get mood => _mood;
+
+    // Setter que permite ajustar el estado de ánimo del gato con validación
+    set mood(double value) {
+        if (value >= 0 && value <= 10) {
+            _mood = value;
+        }
+        
+    }
 }
