@@ -86,3 +86,25 @@ class Cat extends Animal {
         
     }
 }
+
+// Clase ZooKeeper (guarda del zoológico)
+// Esta clase no necesita ser instanciada porque solo contiene métodos utilitarios (métodos estáticos)
+// que operan sobre listas de animales - por esos usaremos dos métodos estáticos.
+class ZooKeeper {
+    // Métopdo estático que simula alimentar a cada animal de una lista
+    static void feedAnimals(List<Animal> animals) {
+        // forEach recorre cada elemento de la lista "animals"
+        // La funcioón anínima recibe cada animal y ejecuta el cuerpo con él
+        animals.forEach((animal) {
+        // Accde a las propiedades públicas de cada animal
+        print('Feeding ${animal.name} the ${animal.species}.');
+        });
+     }
+         
+     // Método estático que pide a cada animal que haga su sonido
+     static void soundCheck(List<Animal> animals) {
+        // También usamos forEach con una función anónima en una sola línea
+        animals.forEach((animal) => animal.makeSound());
+     }
+
+}
