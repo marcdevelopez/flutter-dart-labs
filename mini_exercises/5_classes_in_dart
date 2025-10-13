@@ -1,0 +1,11 @@
+// NOTA IMPORTANTE:
+// En un proyecto real en Dart o Flutter, lo correcto sería separar cada clase en su propio archivo
+// dentro de una estructura de carpetas organizada (por ejemplo: models/, utils/, etc.).
+// Sin embargo, como este es un mini proyecto educativo y estamos en una etapa temprana del curso,
+// se ha decidido colocar todo en un solo archivo para facilitar la comprensión y práctica de los
+// conceptos fundamentales de clases, objetos, métodos, encapsulamiento, herencia, etc.
+// Esta simplificación permite enfocarnos en aprender sin complicar la estructura innecesariamente.
+
+void main() {
+    // Aquí comenzará la simulación del zoológico
+}
