@@ -9,3 +9,32 @@
 void main() {
     // Aquí comenzará la simulación del zoológico
 }
+
+// --------------------------- CLASES ---------------------------
+
+// Clase base para representar un animal
+class Animal {
+    // Propiedades comunes a todos los animales
+    String name;
+    int age;
+
+    // Propiedad privada (solo accesible dentro de esta clase)
+    final String _species;
+
+    // Constructor para inicializar las propiedades
+    Animal(this.name, this.age, this._species);
+    
+    // Método que representa un comportamiento comun a esta clase Animal
+    // Este método puede ser sobrescrito por las clases hijas
+    void makeSound() {
+        print('$name makes a generic animalsound.');
+    }
+
+    // Getter para acceder a la especie (no permite que se modifique directamente sin usar getter)
+    String get species => _species;
+
+    // Getter para calcular años hasta ser considerado viejo (valor arbitrario de 15)
+    int get yearsUntilOld => 15 - age;
+
+
+}
