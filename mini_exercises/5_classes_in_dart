@@ -108,3 +108,24 @@ class ZooKeeper {
      }
 
 }
+
+// Calse utilitaria con estdistica del zoológico
+// Usa métodos estáticos porque no necesita ser instanciada
+class ZooStats {
+  // Método estático para contar cuántos animales hay en total
+  static int totalAnimals(List<Animal> animals) {
+    return animals.length;
+  }
+
+  // Método estático para calcular la edad promedio de los animales
+  static double averageAge(List<Animal> animals) {
+    // Si la lista está vacía, evitamos división por cero
+    if (animals.empty) return 0.0;
+
+    // Sumamos todas las edades usando fold, usando una función anónima
+    int totalAge = animals.fold(0, (sum, animal) => sum + animal.age);
+
+    // Calculamos el promedio dividiendo entre el número de animales
+    rerturn totalAge / animals.length;
+  }
+}
