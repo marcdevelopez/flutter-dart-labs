@@ -8,6 +8,44 @@
 
 void main() {
     // Aquí comenzará la simulación del zoológico
+    // Creamos instancias de animales
+    Dog dog1 = Dog('Bobby', 3);
+    Cat cat1 = Cat('Negrita', 7);
+    Cat cat2 = Cat('Zape', 2);
+
+    // Lista de todos los animales en el zoológico
+    List<Animal> zoo = [dog1, cat1, cat2];
+
+    // El guardia del zoológico alimenta a todos los animales
+    print('\nFeeding time at the zoo:\n');
+    ZooKeeper.feedAnimals(zoo);
+    print('\nFeeding time is over.\n');
+
+    // El guardia hace una revisión de sonidos de todos los animales
+    print('Sound check:\n');
+    ZooKeeper.soundCheck(zoo);
+
+    // Interacción con metodos especificos de las clases hijas
+    print('\nDog fetch demo:');
+    dog1.fetch();
+
+    print('\nCat mood before playing:');
+    print('${cat1.name} mood: ${cat1.mood}');
+
+    // Jugar con el gato para mejorar su ánimo
+    cat1.play();
+
+    print('${cat1.name} mood after playing: ${cat1.mood}');
+
+    // Mostrar años hasta que el perro sea considerado viejo
+    print('\nYears until ${dog1.name} is old: ${dog1.yearsUntilOld} years.');
+    print('Now ${dog1.name} is ${dog1.age} years old.');
+
+    // Mostrar estadisticas del zoológico
+    print('\nZoo Statistics:');
+    print('Total animals: ${ZooStats.totalAnimals(zoo)}');
+    print('Ages of animals: ${zoo.map((animal) => '${animal.name} (${animal.age} years)').join(', ')}');
+    print('Average age: ${ZooStats.averageAge(zoo).toStringAsFixed(1)} years.');
 }
 
 // --------------------------- CLASES ---------------------------
@@ -120,12 +158,12 @@ class ZooStats {
   // Método estático para calcular la edad promedio de los animales
   static double averageAge(List<Animal> animals) {
     // Si la lista está vacía, evitamos división por cero
-    if (animals.empty) return 0.0;
+    if (animals.isEmpty) return 0.0;
 
     // Sumamos todas las edades usando fold, usando una función anónima
     int totalAge = animals.fold(0, (sum, animal) => sum + animal.age);
 
     // Calculamos el promedio dividiendo entre el número de animales
-    rerturn totalAge / animals.length;
+    return totalAge / animals.length;
   }
 }
