@@ -1,122 +1,118 @@
-// NOTA IMPORTANTE:
-// En un proyecto real en Dart o Flutter, lo correcto sería separar cada clase en su propio archivo
-// dentro de una estructura de carpetas organizada (por ejemplo: models/, utils/, etc.).
-// Sin embargo, como este es un mini proyecto educativo y estamos en una etapa temprana del curso,
-// se ha decidido colocar todo en un solo archivo para facilitar la comprensión y práctica de los
-// conceptos fundamentales de clases, objetos, métodos, encapsulamiento, herencia, etc.
-// Esta simplificación permite enfocarnos en aprender sin complicar la estructura innecesariamente.
+// IMPORTANT NOTE:
+// In a real Dart or Flutter project, the correct approach would be to separate each class
+// into its own file inside an organized folder structure (e.g., models/, utils/, etc.).
+// However, since this is an educational mini-project and we're still early in the course,
+// everything is placed in a single file to make it easier to understand and practice
+// the fundamental concepts of classes, objects, methods, encapsulation, inheritance, etc.
 
 void main() {
-    // Aquí comenzará la simulación del zoológico
-    // Creamos instancias de animales
+    // Create animal instances
     Dog dog1 = Dog('Bobby', 3);
     Cat cat1 = Cat('Negrita', 7);
     Cat cat2 = Cat('Zape', 2);
 
-    // Lista de todos los animales en el zoológico
+    // List of all animals in the zoo
     List<Animal> zoo = [dog1, cat1, cat2];
 
-    // El guardia del zoológico alimenta a todos los animales
-    print('\nFeeding time at the zoo:\n');
+    // The zookeeper feeds all animals
+    print('\nFeeding time at the zoo:');
     ZooKeeper.feedAnimals(zoo);
-    print('\nFeeding time is over.\n');
+    print('Feeding time is over.\n');
 
-    // El guardia hace una revisión de sonidos de todos los animales
-    print('Sound check:\n');
+    // The zookeeper checks the sound of each animal
+    print('Sound check:');
     ZooKeeper.soundCheck(zoo);
 
-    // Interacción con metodos especificos de las clases hijas
+    // Specific interaction with subclass methods
     print('\nDog fetch demo:');
     dog1.fetch();
 
     print('\nCat mood before playing:');
     print('${cat1.name} mood: ${cat1.mood}');
 
-    // Jugar con el gato para mejorar su ánimo
+    // Play with the cat to improve its mood
     cat1.play();
 
     print('${cat1.name} mood after playing: ${cat1.mood}');
 
-    // Mostrar años hasta que el perro sea considerado viejo
+    // Show years until the dog is considered old
     print('\nYears until ${dog1.name} is old: ${dog1.yearsUntilOld} years.');
     print('Now ${dog1.name} is ${dog1.age} years old.');
 
-    // Mostrar estadisticas del zoológico
+    // Show zoo statistics
     print('\nZoo Statistics:');
     print('Total animals: ${ZooStats.totalAnimals(zoo)}');
     print('Ages of animals: ${zoo.map((animal) => '${animal.name} (${animal.age} years)').join(', ')}');
-    print('Average age: ${ZooStats.averageAge(zoo).toStringAsFixed(1)} years.');
+    print('Average age: ${ZooStats.averageAge(zoo).toStringAsFixed(1)} years.\n');
 }
 
-// --------------------------- CLASES ---------------------------
+// ------------------------- CLASSES ---------------------------
 
-// Clase base para representar un animal
+// Class for representing an animal
 class Animal {
-    // Propiedades comunes a todos los animales
+    // Common properties for all animals
     String name;
     int age;
 
-    // Propiedad privada (solo accesible dentro de esta clase)
+    // Private property (only accessible inside this class)
     final String _species;
 
-    // Constructor para inicializar las propiedades
+    // Constructor to initialize the properties
     Animal(this.name, this.age, this._species);
-    
-    // Método que representa un comportamiento comun a esta clase Animal
-    // Este método puede ser sobrescrito por las clases hijas
+
+    // Method that represents a behavior common to this Animal class
+    // This method can be overridden by child classes
     void makeSound() {
-        print('$name makes a generic animalsound.');
+        print('$name makes a generic animal sound.');
     }
 
-    // Getter para acceder a la especie (no permite que se modifique directamente sin usar getter)
+    // Getter to access the species (without allowing external modification)
     String get species => _species;
 
-    // Getter para calcular años hasta ser considerado viejo (valor arbitrario de 15)
+    // Getter that calculates years until the animal is considered old (arbitrary value of 15)
     int get yearsUntilOld => 15 - age;
 }
 
-// Clase Dog que hereda de Animal
+// Class for representing a dog, inheriting from Animal
 class Dog extends Animal {
-    // Constructor: pasa los valores al constructor de la clase base Animal
-    // Con los dos puntos (:) indicamos que estamos llamando al constructor de la clase padre
-    // El tercer parámetro es fijo para esta clase, ya que todos los perros son de la especie 'Dog'
+    // Constructor: passes values to the parent Animal class
     Dog(String name, int age) : super(name, age, 'Dog');
 
-    // Método sobrescrito (requiere anotación @override): hace un sonido específico para perros
+    // Overridden method (requires @override annotation): makes a specific sound for dogs
     @override
     void makeSound() {
         print('$name barks: Woof! Woof!');
     }
 
-    // Método adicional específico para perros, que no está en la clase base Animal
+    // Additional method unique to dogs, not found in the Animal base class
     void fetch() {
         print('$name is fetching the ball!');
     }
 }
 
-// Clase Cat que hereda de Animal
+// Class for representing a cat, inheriting from Animal
 class Cat extends Animal {
-    // Esatdo interno privado que representa el animo del gato
-    double _mood = 5.0; // Valor entre 0 y 10
+    // Internal private state representing the cat's mood
+    double _mood = 5.0; // Value between 0 and 10
 
-    // Constructor que inicializa con 'Cat' como especie fija
+    // Constructor that initializes with 'Cat' as species
     Cat(String name, int age) : super(name, age, 'Cat');
 
-    // Sobrescribe el sonido que hace el gato
+    // Overridden method: specific sound for cats
     @override
     void makeSound() {
         print('$name meows: Miau! Miau!');
     }
 
-    // Método personalizado que incrementa el ánimo del gato
+    // Custom method to increase mood state
     void play() {
         _mood += 1.0;
     }
 
-    // Getter para consultar el estado de ánimo del gato
+    // Getter to read the mood value
     double get mood => _mood;
 
-    // Setter que permite ajustar el estado de ánimo del gato con validación
+    // Setter to modify mood with validation
     set mood(double value) {
         if (value >= 0 && value <= 10) {
             _mood = value;
@@ -125,45 +121,45 @@ class Cat extends Animal {
     }
 }
 
-// Clase ZooKeeper (guarda del zoológico)
-// Esta clase no necesita ser instanciada porque solo contiene métodos utilitarios (métodos estáticos)
-// que operan sobre listas de animales - por esos usaremos dos métodos estáticos.
+// Class for representing a zookeeper
+// This class doesn't need to be instantiated because it only contains utility methods (static methods)
+// that operate on lists of animals - for this we will use two static methods.
 class ZooKeeper {
-    // Métopdo estático que simula alimentar a cada animal de una lista
+    // Static method that simulates feeding each animal in a list
     static void feedAnimals(List<Animal> animals) {
-        // forEach recorre cada elemento de la lista "animals"
-        // La funcioón anínima recibe cada animal y ejecuta el cuerpo con él
+        // forEach iterates over each element in the "animals" list
+        // The anonymous function receives each animal and executes the body with it
         animals.forEach((animal) {
-        // Accde a las propiedades públicas de cada animal
+        // Access the public properties of each animal
         print('Feeding ${animal.name} the ${animal.species}.');
         });
      }
-         
-     // Método estático que pide a cada animal que haga su sonido
+
+     // Static method that asks each animal to make its sound
      static void soundCheck(List<Animal> animals) {
-        // También usamos forEach con una función anónima en una sola línea
+        // We also use forEach with an anonymous function in a single line
         animals.forEach((animal) => animal.makeSound());
      }
 
 }
 
-// Calse utilitaria con estdistica del zoológico
-// Usa métodos estáticos porque no necesita ser instanciada
+// Class for representing zoo statistics
+// Uses static methods because it doesn't need to be instantiated
 class ZooStats {
-  // Método estático para contar cuántos animales hay en total
+  // Static method to count how many animals are in total
   static int totalAnimals(List<Animal> animals) {
     return animals.length;
   }
 
-  // Método estático para calcular la edad promedio de los animales
+  // Static method to calculate the average age of the animals
   static double averageAge(List<Animal> animals) {
-    // Si la lista está vacía, evitamos división por cero
+    // If the list is empty, we avoid division by zero
     if (animals.isEmpty) return 0.0;
 
-    // Sumamos todas las edades usando fold, usando una función anónima
+    // We sum all ages using fold, with an anonymous function
     int totalAge = animals.fold(0, (sum, animal) => sum + animal.age);
 
-    // Calculamos el promedio dividiendo entre el número de animales
+    // We calculate the average by dividing by the number of animals
     return totalAge / animals.length;
   }
 }
