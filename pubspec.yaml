@@ -1,0 +1,8 @@
+name: flutter_dart_labs
+description: Flutter and Dart learning exercises and labs
+
+environment:
+  sdk: ^3.8.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
