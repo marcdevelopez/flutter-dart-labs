@@ -10,18 +10,38 @@ It follows **Conventional Commits**, adapted to your course structure and workfl
 ```
 flutter-dart-labs/
 ├─ COMMITS_GUIDE.md
+├─ GLOSSARY.md
+├─ README.md
 ├─ mini_exercises/
+│  ├─ exercise_1/
+│  ├─ exercise_2/
+│  └─ ...
 ├─ module1_introduction/
+│  ├─ notes/
+│  │  ├─ 1_Introduccion_a_Flutter.md
+│  │  ├─ 2_Entorno_de_desarrollo.md
+│  │  └─ ...
 │  └─ lab_hello_world_web/
 │     ├─ lib/
 │     ├─ pubspec.yaml
 │     └─ README.md
-├─ module2_dart-language/
-│  ├─ labs/
+├─ module2_dart-languaje/
 │  ├─ notes/
-│  ├─ pubspec.yaml
-│  └─ README.md
-└─ notes/
+│  │  ├─ 1_Internals_of_Dart.md
+│  │  ├─ 2_Expert_Viewpoints_Fundamentals_of_Dart.md
+│  │  ├─ 3_Variables_and_types.md
+│  │  ├─ 4_Functions_methods_in_Dart.md
+│  │  ├─ 5_Classes_in_Dart.md
+│  │  └─ 6_Libraries_in_Dart.md
+│  └─ labs_variables_functions_methods_Dart/
+│     ├─ lib/
+│     │  └─ main.dart
+│     ├─ pubspec.yaml
+│     └─ README.md
+└─ module3_flutter_basics/
+   ├─ notes/
+   └─ labs/
+
 ```
 
 ---
@@ -102,16 +122,77 @@ Each commit message must follow:
 
 - Keep it **under 100 characters**
 
+## 🏷 Tagging Progress (Modules, Notes, Labs, and Mini-Exercises)
+
+Tags help you keep track of progress and mark stable checkpoints in your learning path.
+Always use **annotated tags** (with `-a` and `-m`) so the tag stores author, date, and message.
+
+### 🔹 1. Labs completed
+
+When a **Lab** is finished and merged into `main`, create a tag:
+
+```bash
+git tag -a module1-lab1-done -m "Completed Lab 1: Hello World Web"
+git push --tags
+```
+
 ---
 
-## 🏷 Tags for Completed Labs
+### 🔹 2. Notes or theoretical sections completed
 
-When a Lab is finished and merged into `main`, tag it for easy tracking:
+When you finish a full **set of notes** within a module:
 
+```bash
+git tag -a module2-notes-done -m "Finished Module 2 notes: Variables, Functions, and Libraries in Dart"
+git push --tags
 ```
-git tag module1-lab1-done
-git push origin module1-lab1-done
+
+---
+
+### 🔹 3. Mini-Exercises completed
+
+When you finish a small independent exercise (in `/mini_exercises` or similar):
+
+```bash
+git tag -a exercise-dart-collections-done -m "Completed Mini-Exercise: Dart Collections practice"
+git push --tags
 ```
+
+---
+
+### 🔹 4. Full modules completed
+
+When you complete **all notes and labs** of a module:
+
+```bash
+git tag -a module2-done -m "Completed Module 2: Exploring Dart Language – notes and labs"
+git push --tags
+```
+
+---
+
+### 🧭 Tag naming rules summary
+
+| Purpose                | Tag Format                   | Example                          |
+| ---------------------- | ---------------------------- | -------------------------------- |
+| Finished Lab           | `moduleX-labY-done`          | `module2-lab1-done`              |
+| Finished Notes         | `moduleX-notes-done`         | `module2-notes-done`             |
+| Finished Mini-Exercise | `exercise-<short-name>-done` | `exercise-dart-collections-done` |
+| Full Module            | `moduleX-done`               | `module2-done`                   |
+
+
+All tags should use **English**, **lowercase**, and **hyphen-separated names**.
+
+---
+
+### 🧠 Why this matters
+
+Using consistent annotated tags lets you:
+
+* Return to any stage of your learning process (`git checkout <tag>`).
+* Track progress per module.
+* Present your repository as a structured and transparent learning archive.
+* Prepare for future “releases” if the repo evolves into a public reference.
 
 ---
 
