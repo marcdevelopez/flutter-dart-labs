@@ -1,177 +1,171 @@
-# 📘 Commit Guide for _IBM Flutter & Dart Labs Repository_
+# 📘 Commit & Branch Naming Guide for _IBM Flutter & Dart Labs Repository_
 
-This guide defines **how to name branches, commits, and tags** for every lab or module in your `flutter-dart-labs` project.
-It follows **Conventional Commits**, adapted to your course structure and workflow.
+This guide defines **how to name branches, commits, and tags** in the `flutter-dart-labs` repository.  
+It follows the **Conventional Commits** and **Conventional Branches** standards used in professional development workflows, adapted to your course structure.
 
 ---
 
 ## 🧭 Repository Structure
 
 ```
+
 flutter-dart-labs/
-├─ COMMITS_GUIDE.md
+├─ COMMITS\_GUIDE.md
 ├─ GLOSSARY.md
 ├─ README.md
-├─ mini_exercises/
-│  ├─ exercise_1/
-│  ├─ exercise_2/
+├─ mini\_exercises/
+│  ├─ exercise\_1/
+│  ├─ exercise\_2/
 │  └─ ...
-├─ module1_introduction/
+├─ module1\_introduction/
 │  ├─ notes/
-│  │  ├─ 1_Introduccion_a_Flutter.md
-│  │  ├─ 2_Entorno_de_desarrollo.md
-│  │  └─ ...
-│  └─ lab_hello_world_web/
-│     ├─ lib/
-│     ├─ pubspec.yaml
-│     └─ README.md
-├─ module2_dart-languaje/
+│  └─ lab\_hello\_world\_web/
+├─ module2\_dart-language/
 │  ├─ notes/
-│  │  ├─ 1_Internals_of_Dart.md
-│  │  ├─ 2_Expert_Viewpoints_Fundamentals_of_Dart.md
-│  │  ├─ 3_Variables_and_types.md
-│  │  ├─ 4_Functions_methods_in_Dart.md
-│  │  ├─ 5_Classes_in_Dart.md
-│  │  └─ 6_Libraries_in_Dart.md
-│  └─ labs_variables_functions_methods_Dart/
-│     ├─ lib/
-│     │  └─ main.dart
-│     ├─ pubspec.yaml
-│     └─ README.md
-└─ module3_flutter_basics/
-   ├─ notes/
-   └─ labs/
+│  └─ labs\_variables\_functions\_methods\_Dart/
+└─ module3\_flutter\_basics/
+├─ notes/
+└─ labs/
 
 ```
 
 ---
 
-## 🌿 Branch Naming Convention
+## 🌿 Branch Naming Convention (Professional Standard)
 
-Each lab should be developed in a **separate branch**, based on its module and lab name:
+Branches are named according to **what type of work you are doing** and **where it applies**.
 
-```
-moduleX/lab_<short-description>
-```
-
-**Examples:**
+### ✅ General Format
 
 ```
-git checkout -b module1/lab_hello_world_web
-git checkout -b module2/lab_variables_functions
+
+<type>/<scope>-<short-description>
+
 ```
+
+- **type** → the kind of work (feature, fix, docs, etc.)
+- **scope** → the module, lab, or section affected
+- **short-description** → optional, short summary of what’s being done
+
+### 🧱 Common Examples
+
+| Type prefix   | Purpose                                    | Example branch                         |
+|----------------|---------------------------------------------|----------------------------------------|
+| **feat/**     | New feature, lab, or implementation        | `feat/module2-lab-variables-functions` |
+| **fix/**      | Bug or issue fix                           | `fix/module2-lab-variables`            |
+| **docs/**     | Documentation (README, notes, glossary)    | `docs/module2-lab-notes`               |
+| **refactor/** | Code improvement without functional change | `refactor/module3-lab-widgets`         |
+| **chore/**    | Maintenance, config, or dependency updates | `chore/config-update`                  |
+| **test/**     | Unit or integration tests                  | `test/module3-lab-ui`                  |
+| **perf/**     | Performance improvements                   | `perf/module3-list-rendering`          |
 
 ---
 
-## 🧩 Commit Types Table
+### 💡 Why this convention?
 
-| Type         | When to Use It                                                 | Example                                                      |
-| ------------ | -------------------------------------------------------------- | ------------------------------------------------------------ |
-| **feat**     | When you add a new feature, widget, or functionality.          | `feat(module1-lab1): implement HelloWorld widget`            |
-| **fix**      | When you fix a bug or configuration issue.                     | `fix(module1-lab1): correct MaterialApp title`               |
-| **docs**     | For documentation or Markdown files (README, notes, glossary). | `docs(module1-lab1): write lab instructions and setup steps` |
-| **style**    | Code style changes (formatting, indentation, quotes…).         | `style(lab1): reformat Dart code with dart format`           |
-| **refactor** | Code improvement without changing functionality.               | `refactor(lab1): simplify widget build tree`                 |
-| **test**     | Add or modify test files.                                      | `test(lab1): add widget test for Hello World screen`         |
-| **chore**    | Dependency, configuration, or setup changes.                   | `chore(repo): add flutter_lints to analysis_options.yaml`    |
-| **perf**     | Performance optimizations.                                     | `perf(lab2): improve list rendering performance`             |
+- Immediately identifies **what** the branch is about (`feat`, `docs`, etc.)
+- Keeps structure modular by linking to **where** (`module2-lab`, `repo`, etc.)
+- Matches the same conventions used in most CI/CD pipelines and release tools.
 
 ---
 
-## 🗂 Scopes and Prefixes
+## ✍️ Commit Message Format (Conventional Commits)
 
-- **Scope** goes inside parentheses after the type → helps organize by context:
-  Examples:
-
-  - `feat(module1-lab1): implement HelloWorld widget`
-  - `docs(module2-lab2): add explanation for Dart functions`
-  - `fix(pubspec): correct missing dependency`
-
-- **Optional Prefixes for clarity:**
-
-  - `Lab:` → practical course lab commits
-  - `Exercise:` → small code exercises
-  - `Notes:` → Markdown notes and summaries
-
-✅ Example:
-`feat(Lab: module1-hello-world): implement main.dart base scaffold`
-
----
-
-## ✍️ Message Format
-
-Each commit message must follow:
+Each commit message follows the format:
 
 ```
+
 <type>(<scope>): <short imperative message>
+
+````
+
+### ✅ Examples
+
+| Example Commit                                                   | Description               |
+|------------------------------------------------------------------|---------------------------|
+| `feat(module2-lab): implement variables and functions lab`       | Adds a new lab or feature |
+| `docs(module2-lab-notes): update README with new Dart exercises` | Documentation updates     |
+| `fix(module3-lab): correct error in widget initialization`       | Bug fix                   |
+| `refactor(module2-lab): clean up function structure`             | Internal refactor         |
+| `chore(repo): update dependencies and analysis options`          | Maintenance               |
+| `test(module1-lab): add widget test for Hello World`             | Adds or modifies tests    |
+
+---
+
+### 🧠 Commit Message Rules
+
+- Always write messages in **English**.
+- Use **present tense** and **imperative mood** (`add`, `update`, `fix`, not `added`, `fixed`).
+- Keep messages **under 100 characters**.
+- Use **one commit per logical change** — avoid generic “update” commits.
+- Documentation commits (`docs`) should never include code changes.
+
+---
+
+## 🔀 Renaming a Branch (if you made a naming mistake)
+
+If you created a branch and later realized its name doesn’t follow the conventions, you can rename it safely **without losing your changes**.
+
+### 🧩 Case 1: You are currently *on* the branch you want to rename
+Just run:
+```bash
+git branch -m new-branch-name
+````
+
+Git automatically renames the current branch; no need to specify the old name.
+
+### 🧩 Case 2: You want to rename a branch while on another one
+
+Specify both:
+
+```bash
+git branch -m old-branch-name new-branch-name
 ```
 
-**Examples:**
+### 🧩 If the branch has already been pushed to GitHub
 
-- `feat(module1-lab1): implement basic HelloWorld widget`
-- `docs(module1-lab1): explain code flow and add screenshots`
-- `refactor(module2-lab1): extract function to utils.dart`
+You’ll need to delete the old remote reference and push the new one:
 
-**Rules:**
+```bash
+git push origin :old-branch-name
+git push -u origin new-branch-name
+```
 
-- Always in **English**
-- Use **present tense** and **imperative mood**
+✅ After this, your renamed branch will replace the old one in GitHub, keeping all commits and history intact.
 
-  - ✅ `add`, `fix`, `create`, `update`
-  - ❌ `added`, `fixed`, `created`, `updated`
-
-- Keep it **under 100 characters**
+---
 
 ## 🏷 Tagging Progress (Modules, Notes, Labs, and Mini-Exercises)
 
-Tags help you keep track of progress and mark stable checkpoints in your learning path.
-Always use **annotated tags** (with `-a` and `-m`) so the tag stores author, date, and message.
+Use **annotated tags** (`-a`, `-m`) to mark progress milestones in your course.
 
-### 🔹 1. Labs completed
-
-When a **Lab** is finished and merged into `main`, create a tag:
+### 🔹 Labs completed
 
 ```bash
 git tag -a module1-lab1-done -m "Completed Lab 1: Hello World Web"
 git push --tags
 ```
 
----
-
-### 🔹 2. Notes or theoretical sections completed
-
-When you finish a full **set of notes** within a module:
+### 🔹 Notes or theoretical sections completed
 
 ```bash
 git tag -a module2-notes-done -m "Finished Module 2 notes: Variables, Functions, and Libraries in Dart"
 git push --tags
 ```
 
----
-
-### 🔹 3. Mini-Exercises completed
-
-When you finish a small independent exercise (in `/mini_exercises` or similar):
+### 🔹 Mini-Exercises completed
 
 ```bash
 git tag -a exercise-dart-collections-done -m "Completed Mini-Exercise: Dart Collections practice"
 git push --tags
 ```
 
----
-
-### 🔹 4. Full modules completed
-
-When you complete **all notes and labs** of a module:
+### 🔹 Full modules completed
 
 ```bash
 git tag -a module2-done -m "Completed Module 2: Exploring Dart Language – notes and labs"
 git push --tags
 ```
-
----
-
-### 🧭 Tag naming rules summary
 
 | Purpose                | Tag Format                   | Example                          |
 | ---------------------- | ---------------------------- | -------------------------------- |
@@ -180,88 +174,70 @@ git push --tags
 | Finished Mini-Exercise | `exercise-<short-name>-done` | `exercise-dart-collections-done` |
 | Full Module            | `moduleX-done`               | `module2-done`                   |
 
-
-All tags should use **English**, **lowercase**, and **hyphen-separated names**.
-
 ---
 
-### 🧠 Why this matters
-
-Using consistent annotated tags lets you:
-
-* Return to any stage of your learning process (`git checkout <tag>`).
-* Track progress per module.
-* Present your repository as a structured and transparent learning archive.
-* Prepare for future “releases” if the repo evolves into a public reference.
-
----
-
-## 🔁 Example Workflow
+## 🔁 Example Complete Workflow
 
 ```bash
-# Create a new branch for the Lab
-git checkout -b module1/lab_hello_world_web
+# 1️⃣ Create a branch for the documentation update
+git checkout -b docs/repo-guides-update
 
-# Work on code...
-flutter run
+# 2️⃣ Edit the README or notes
+code README.md
 
-# Add and commit changes
-git add .
-git commit -m "feat(module1-lab1): implement Hello World web app"
+# 3️⃣ Stage and commit your changes
+git add README.md
+git commit -m "docs(repo): fix broken links and update commit guide"
 
-# Update README
-git commit -m "docs(module1-lab1): add execution steps and screenshots"
+# 4️⃣ Push and open PR
+git push -u origin docs/repo-guides-update
 
-# Push to remote
-git push -u origin module1/lab_hello_world_web
-
-# Open a PR and merge into main (squash if desired)
-# Then tag:
-git tag module1-lab1-done
-git push --tags
-```
-
----
-
-## 🧹 Additional Recommendations
-
-- Use **one commit per logical change** (avoid “misc updates”).
-- Keep **README and notes commits separate** from code commits.
-- Use `dart format .` before committing.
-- Include `analysis_options.yaml` for linter consistency.
-- Prefer short, clear, and self-explanatory commit messages.
-
----
-
-## ⚙️ Updating `.gitignore` — Important Rules
-
-The `.gitignore` file affects the **entire repository**, not just one branch.
-To avoid inconsistencies or files being tracked accidentally, follow these rules:
-
-### ✅ When and how to modify `.gitignore`
-
-1. **Only edit `.gitignore` in `main`** (or in a dedicated config branch like `config/gitignore-update`).
-2. **Never modify it inside feature branches**, unless the ignored file is directly related to that feature.
-3. **Always commit the change separately**, before merging or creating new branches.
-
-### 💡 Recommended workflow
-
-```bash
-# Switch to main
+# 5️⃣ Merge into main and tag progress
 git checkout main
-
-# Pull the latest version
-git pull
-
-# Edit .gitignore and save changes
-git add .gitignore
-git commit -m "chore(gitignore): update ignored files list"
-git push
+git merge docs/repo-guides-update
+git tag -a repo-docs-update -m "Updated README and commit guide"
+git push origin main --tags
 ```
 
-After that, any new branches will inherit the updated ignore rules.
+---
 
-### 🧠 Why this matters
+## 🧹 General Recommendations
 
-If you edit `.gitignore` in another branch, `main` won’t see those rules.
-That means files you intended to ignore (like temp code, logs, or drafts) could reappear when switching branches — causing confusion or untracked changes.
+* Keep branches **short-lived and specific**.
+* Rebase regularly with `main` before merging.
+* Use **Squash Merge** for cleaner history (one commit per feature).
+* Keep **code commits separate from docs commits**.
+* Always verify formatting with `dart format .` before committing.
+
+---
+
+## ⚙️ Updating `.gitignore`
+
+`.gitignore` changes affect the whole repository.
+Edit it **only in `main`** or in a dedicated config branch.
+
+```bash
+git checkout -b chore/config-gitignore-update
+# edit .gitignore
+git add .gitignore
+git commit -m "chore(config): update .gitignore to ignore build and cache files"
+git push -u origin chore/config-gitignore-update
+```
+
+After merging:
+
+```bash
+git checkout main
+git pull
+```
+
+---
+
+✅ **Summary of Conventions**
+
+| Area                | Example                                                |
+| ------------------- | ------------------------------------------------------ |
+| **Branch naming**   | `docs/repo-guides-update`                              |
+| **Commit message**  | `docs(repo): fix broken links and update commit guide` |
+| **Tag after merge** | `repo-docs-update`                                     |
+| **PR title**        | `[docs] Update global documentation and commit guide`  |

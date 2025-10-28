@@ -30,24 +30,24 @@ modulo5_final_project/     → Proyecto final de publicación
 
 - [x] **Módulo 1 – Introducción a Flutter y Dart**
 
-  - [x] [Introducción a Flutter](modulo1_introduccion/notas/1_Introduccion-a-Flutter.md)
-  - [x] [Entorno de desarrllo en Flutter](modulo1_introduccion/notas/2_Entorno-desarrollo-Flutter.md)
-  - [x] [Comparación de Flutter con otros frameworks](modulo1_introduccion/notas/3_Comparacion-flutter-otros-frameworks.md)
-  - [x] [Flutter Toolchain, SDK, & Tools](modulo1_introduccion/notas/4_Toolchain-flutter-sdk-herramientas.md)
-  - [x] [Introducción a utilidades de Flutter](modulo1_introduccion/notas/5_Utilidades-flutter.md)
-  - [x] [Opiniones de expertos: primeros pasos en Flutter](modulo1_introduccion/notas/6_Opiniones-expertos-primeros-pasos-Flutter.md)
-  - [x] [Basicos Dart](modulo1_introduccion/notas/7_Basicos-dart.md)
-  - [x] [Lab: Creando una Aplicación Web Flutter Hello World](modulo1_introduccion/lab_hello_world_web)
+  - [x] [Introducción a Flutter](module1_introduction/notes/1_Introduction-to-Flutter.md)
+  - [x] [Entorno de desarrllo en Flutter](module1_introduction/notes/2_Flutter-Development-Environment.md)
+  - [x] [Comparación de Flutter con otros frameworks](module1_introduction/notes/3_Comparison-Flutter-vs-Other-Frameworks.md)
+  - [x] [Flutter Toolchain, SDK, & Tools](module1_introduction/notes/4_Flutter-Toolchain-SDK-Tools.md)
+  - [x] [Introducción a utilidades de Flutter](module1_introduction/notes/5_Introduction-to-Flutter-Utilities.md)
+  - [x] [Opiniones de expertos: primeros pasos en Flutter](module1_introduction/notes/6_Expert-Viewpoints-Getting-Started-Flutter.md)
+  - [x] [Basicos Dart](module1_introduction/notes/7_Basics-of-Dart.md)
+  - [x] [Lab: Creando una Aplicación Web Flutter Hello World](module1_introduction/lab_hello_world_web/lib/main.dart)
 
 - [ ] **Módulo 2 – Exploring Dart Language**
 
   - [x] [Funcionamiento interno de Dart](module2_dart-languaje/notes/1_Internals_of_Dart.md)
   - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](module2_dart-languaje/notes/2_Expert_Viewpoints_Fundamentals_of_Dart.md)
   - [x] [Variables y Tipos](module2_dart-languaje/notes/3_Variables_and_types.md)
-  - [x] [Funciones y Métodos en Dart](module2_dart-languaje/notes/4_Functions-methods-in-Dart.md)
+  - [x] [Funciones y Métodos en Dart](module2_dart-languaje/notes/4_Functions_methods_in_Dart.md)
   - [x] [Classes in Dart](module2_dart-languaje/notes/5_Classes_in_Dart.md)
-  - [ ] Lab: Utilize Variables, Functions, and Methods in Dart
-  - [ ] Libraries in Dart
+  - [x] [Lab: Utilize Variables, Functions, and Methods in Dart](module2_dart-languaje/labs_variables_functions_methods_Dart/lib/main.dart)
+  - [x] [Libraries in Dart](module2_dart-languaje/notes/6_Libraries_in_Dart)
   - [ ] Lab: Libraries in Dart Using Cloud IDE
   - [ ] Command Line and Utilities
   - [ ] Lab: Debugging Dart Applications
