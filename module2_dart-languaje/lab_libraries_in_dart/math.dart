@@ -15,5 +15,8 @@ void main() {
 
   print('Sine: $sine');
   print('Cosine: $cosine');
+  // print a random number between 0 and 99
+  // because nextInt(100) from library dart:math
+  // generates numbers from 0 to 99
   print('Random Number: $randomNumber');
 }
