@@ -77,7 +77,7 @@ Data fetched!
 Name: Alice
 Age: 30
 {"name":"Bob","age":25}
-Formatted date: 2025-10-29
+Formatted date: 30/10/2025
 Full path: directory/file.txt
 Sum: 15
 Difference: 5
@@ -92,4 +92,3 @@ Difference: 5
 * Custom libraries require `library` declaration at the top and `import 'filename.dart';` to use them.
 
 ````
-
