@@ -23,7 +23,9 @@ flutter-dart-labs/
 ├─ module2\_dart-language/
 │  ├─ notes/
 │  └─ labs\_variables\_functions\_methods\_Dart/
-└─ module3\_flutter\_basics/
+│  └─ ...
+├─ module...
+
 ├─ notes/
 └─ labs/
 
@@ -50,7 +52,7 @@ Branches are named according to **what type of work you are doing** and **where 
 ### 🧱 Common Examples
 
 | Type prefix   | Purpose                                    | Example branch                         |
-|----------------|---------------------------------------------|----------------------------------------|
+| ------------- | ------------------------------------------ | -------------------------------------- |
 | **feat/**     | New feature, lab, or implementation        | `feat/module2-lab-variables-functions` |
 | **fix/**      | Bug or issue fix                           | `fix/module2-lab-variables`            |
 | **docs/**     | Documentation (README, notes, glossary)    | `docs/module2-lab-notes`               |
@@ -77,12 +79,12 @@ Each commit message follows the format:
 
 <type>(<scope>): <short imperative message>
 
-````
+```
 
 ### ✅ Examples
 
 | Example Commit                                                   | Description               |
-|------------------------------------------------------------------|---------------------------|
+| ---------------------------------------------------------------- | ------------------------- |
 | `feat(module2-lab): implement variables and functions lab`       | Adds a new lab or feature |
 | `docs(module2-lab-notes): update README with new Dart exercises` | Documentation updates     |
 | `fix(module3-lab): correct error in widget initialization`       | Bug fix                   |
@@ -102,15 +104,88 @@ Each commit message follows the format:
 
 ---
 
+## 🔁 Advanced Workflow Notes
+
+### ✅ Handling Renames + Parallel Branch Workflows
+
+When you rename files or folders in one branch **and** make edits to those same paths in other branches, Git cannot auto-merge cleanly — it may duplicate the old files.
+
+**Professional workflow to avoid duplication:**
+
+1. **Merge the rename branch first** (PR → Merge)
+2. Update your local `main`:
+
+   ```bash
+   git checkout main
+   git pull
+   ```
+
+3. **Rebase the remaining branches on top of updated `main`**:
+
+   ```bash
+   git checkout your-branch
+   git rebase main
+   ```
+
+This ensures Git rewrites commits on top of the renamed paths and prevents duplicated folders/files.
+
+If duplication still happens (normal when learning!), clean up like this:
+
+```bash
+git checkout -b chore/cleanup-duplicates
+rm -rf old_folder_name
+rm old_filename
+git add .
+git commit -m "chore(module2): remove leftover old folder after rename"
+git push -u origin chore/cleanup-duplicates
+```
+
+PR → merge → `git pull` ✅
+
+### 🚨 Do not manually delete duplicates in `main`
+
+Always perform cleanup in a **dedicated branch**.
+
+---
+
+## 🧹 General Recommendations
+
+- Keep branches **short-lived and specific**.
+- Rebase regularly with `main` before merging.
+- Use **Squash Merge** for cleaner history.
+- Keep **code commits separate from docs commits**.
+- Always run `dart format .` before commit.
+- **After merging in GitHub, always run:**
+
+  ```bash
+  git checkout main
+  git pull
+  ```
+
+---
+
+✅ **Summary of Conventions**
+
+| Area            | Example                              |
+| --------------- | ------------------------------------ |
+| Branch naming   | `docs/module2-notes-add-cli-md`      |
+| Commit message  | `docs(module2-notes): add CLI notes` |
+| Tag after merge | `module2-notes-done`                 |
+| PR title        | `[docs] Add CLI notes for module2`   |
+
+---
+
 ## 🔀 Renaming a Branch (if you made a naming mistake)
 
 If you created a branch and later realized its name doesn’t follow the conventions, you can rename it safely **without losing your changes**.
 
-### 🧩 Case 1: You are currently *on* the branch you want to rename
+### 🧩 Case 1: You are currently _on_ the branch you want to rename
+
 Just run:
+
 ```bash
 git branch -m new-branch-name
-````
+```
 
 Git automatically renames the current branch; no need to specify the old name.
 
@@ -203,11 +278,11 @@ git push origin main --tags
 
 ## 🧹 General Recommendations
 
-* Keep branches **short-lived and specific**.
-* Rebase regularly with `main` before merging.
-* Use **Squash Merge** for cleaner history (one commit per feature).
-* Keep **code commits separate from docs commits**.
-* Always verify formatting with `dart format .` before committing.
+- Keep branches **short-lived and specific**.
+- Rebase regularly with `main` before merging.
+- Use **Squash Merge** for cleaner history (one commit per feature).
+- Keep **code commits separate from docs commits**.
+- Always verify formatting with `dart format .` before committing.
 
 ---
 
