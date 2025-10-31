@@ -104,6 +104,31 @@ Each commit message follows the format:
 
 ---
 
+### ✅ Deleting branches cleanly (local + remote) after merge
+
+After a branch is merged into `main`, delete it locally and remotely to avoid clutter.
+
+**1️⃣ Delete local branch**
+```bash
+git branch -d your-branch-name
+```
+If Git warns it's not fully merged (rare if PR merged), force delete:
+```bash
+git branch -D your-branch-name
+```
+**2️⃣ Delete remote branch (GitHub)**
+```bash
+git push origin --delete your-branch-name
+```
+**3️⃣ Verify**
+```bash
+git branch # local
+git branch -r # remote
+```
+✅ This keeps your repo clean and matches real production workflows. (New)
+
+---
+
 ## 🔁 Advanced Workflow Notes
 
 ### ✅ Handling Renames + Parallel Branch Workflows
