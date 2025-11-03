@@ -1,160 +1,157 @@
-# 📘 Commit & Branch Naming Guide for _IBM Flutter & Dart Labs Repository_
+# 📘 Guía de Commits & Ramas para _Repositorio de Labs Flutter & Dart_
 
-This guide defines **how to name branches, commits, and tags** in the `flutter-dart-labs` repository.  
-It follows the **Conventional Commits** and **Conventional Branches** standards used in professional development workflows, adapted to your course structure.
+En esta guía defino **cómo nombrar ramas, commits y tags** en el repositorio `flutter-dart-labs`.
+Sigue los estándares **Conventional Commits** y **Conventional Branches** usados en flujos de trabajo profesionales, adaptados a tu estructura del curso.
 
 ---
 
-## 🧭 Repository Structure
+## 🧭 Estructura del Repositorio
 
 ```
-
 flutter-dart-labs/
-├─ COMMITS\_GUIDE.md
+├─ COMMITS_GUIDE.md
 ├─ GLOSSARY.md
 ├─ README.md
-├─ mini\_exercises/
-│  ├─ exercise\_1/
-│  ├─ exercise\_2/
+├─ mini_exercises/
+│  ├─ exercise_1/
+│  ├─ exercise_2/
 │  └─ ...
-├─ module1\_introduction/
+├─ module1_introduction/
 │  ├─ notes/
-│  └─ lab\_hello\_world\_web/
-├─ module2\_dart-language/
+│  └─ lab_hello_world_web/
+├─ module2_dart-language/
 │  ├─ notes/
-│  └─ labs\_variables\_functions\_methods\_Dart/
+│  └─ labs_variables_functions_methods_Dart/
 │  └─ ...
 ├─ module...
-
 ├─ notes/
 └─ labs/
-
 ```
 
 ---
 
-## 🌿 Branch Naming Convention (Professional Standard)
+## 🌿 Convención de Nombres de Ramas (Estándar Profesional)
 
-Branches are named according to **what type of work you are doing** and **where it applies**.
+Las ramas se nombran según **el tipo de trabajo** y **dónde aplica**.
 
-### ✅ General Format
-
-```
-
-<type>/<scope>-<short-description>
+### ✅ Formato General
 
 ```
+<tipo>/<área>-<descripción-corta>
+```
 
-- **type** → the kind of work (feature, fix, docs, etc.)
-- **scope** → the module, lab, or section affected
-- **short-description** → optional, short summary of what’s being done
+- **type** → tipo de trabajo (feature, fix, docs, etc.)
+- **scope** → módulo, lab o sección afectada
+- **short-description** → opcional, breve resumen
 
-### 🧱 Common Examples
+### 🧱 Ejemplos Comunes
 
-| Type prefix   | Purpose                                    | Example branch                         |
-| ------------- | ------------------------------------------ | -------------------------------------- |
-| **feat/**     | New feature, lab, or implementation        | `feat/module2-lab-variables-functions` |
-| **fix/**      | Bug or issue fix                           | `fix/module2-lab-variables`            |
-| **docs/**     | Documentation (README, notes, glossary)    | `docs/module2-lab-notes`               |
-| **refactor/** | Code improvement without functional change | `refactor/module3-lab-widgets`         |
-| **chore/**    | Maintenance, config, or dependency updates | `chore/config-update`                  |
-| **test/**     | Unit or integration tests                  | `test/module3-lab-ui`                  |
-| **perf/**     | Performance improvements                   | `perf/module3-list-rendering`          |
+| Prefijo       | Propósito                                | Ejemplo de rama                        |
+| ------------- | ---------------------------------------- | -------------------------------------- |
+| **feat/**     | Nueva funcionalidad o lab                | `feat/module2-lab-variables-functions` |
+| **fix/**      | Corrección de errores                    | `fix/module2-lab-variables`            |
+| **docs/**     | Documentación (README, notas, glosario)  | `docs/module2-lab-notes`               |
+| **refactor/** | Mejora interna sin cambiar funcionalidad | `refactor/module3-lab-widgets`         |
+| **chore/**    | Mantenimiento / dependencias             | `chore/config-update`                  |
+| **test/**     | Tests                                    | `test/module3-lab-ui`                  |
+| **perf/**     | Optimización de rendimiento              | `perf/module3-list-rendering`          |
 
 ---
 
-### 💡 Why this convention?
+### 💡 ¿Por qué esta convención?
 
-- Immediately identifies **what** the branch is about (`feat`, `docs`, etc.)
-- Keeps structure modular by linking to **where** (`module2-lab`, `repo`, etc.)
-- Matches the same conventions used in most CI/CD pipelines and release tools.
+- Identifica **qué** es (`feat`, `docs`, etc.)
+- Indica **dónde** (e.g., `module2-lab`)
+- Coincide con los estándares profesionales y CI/CD
 
 ---
 
-## ✍️ Commit Message Format (Conventional Commits)
+## ✍️ Formato de Mensajes de Commit (Conventional Commits)
 
-Each commit message follows the format:
+Formato del commit:
 
 ```
-
-<type>(<scope>): <short imperative message>
-
+<type>(<scope>): <mensaje corto en imperativo>
 ```
 
-### ✅ Examples
+### ✅ Ejemplos
 
-| Example Commit                                                   | Description               |
-| ---------------------------------------------------------------- | ------------------------- |
-| `feat(module2-lab): implement variables and functions lab`       | Adds a new lab or feature |
-| `docs(module2-lab-notes): update README with new Dart exercises` | Documentation updates     |
-| `fix(module3-lab): correct error in widget initialization`       | Bug fix                   |
-| `refactor(module2-lab): clean up function structure`             | Internal refactor         |
-| `chore(repo): update dependencies and analysis options`          | Maintenance               |
-| `test(module1-lab): add widget test for Hello World`             | Adds or modifies tests    |
-
----
-
-### 🧠 Commit Message Rules
-
-- Always write messages in **English**.
-- Use **present tense** and **imperative mood** (`add`, `update`, `fix`, not `added`, `fixed`).
-- Keep messages **under 100 characters**.
-- Use **one commit per logical change** — avoid generic “update” commits.
-- Documentation commits (`docs`) should never include code changes.
+| Commit                                                           | Descripción         |
+| ---------------------------------------------------------------- | ------------------- |
+| `feat(module2-lab): implement variables and functions lab`       | Nuevo lab o feature |
+| `docs(module2-lab-notes): update README with new Dart exercises` | Documentación       |
+| `fix(module3-lab): correct error in widget initialization`       | Corrección          |
+| `refactor(module2-lab): clean up function structure`             | Refactor interno    |
+| `chore(repo): update dependencies and analysis options`          | Mantenimiento       |
+| `test(module1-lab): add widget test for Hello World`             | Tests               |
 
 ---
 
-### ✅ Deleting branches cleanly (local + remote) after merge
+### 🧠 Reglas para Mensajes de Commit
 
-After a branch is merged into `main`, delete it locally and remotely to avoid clutter.
+- Siempre escribir en **inglés**
+- **Presente e imperativo** (`add`, `fix`, `update`)
+- < **100 caracteres**
+- Un cambio lógico por commit
+- Commits de docs no mezclan código
 
-**1️⃣ Delete local branch**
+---
+
+### ✅ Borrar ramas después de hacer merge (limpio)
+
+**1️⃣ Borrar rama local**
+
 ```bash
 git branch -d your-branch-name
 ```
-If Git warns it's not fully merged (rare if PR merged), force delete:
+
+Forzar si no está mergeada:
+
 ```bash
 git branch -D your-branch-name
 ```
-**2️⃣ Delete remote branch (GitHub)**
+
+**2️⃣ Borrar rama remota**
+
 ```bash
 git push origin --delete your-branch-name
 ```
-**3️⃣ Verify**
+
+**3️⃣ Verificar**
+
 ```bash
-git branch # local
-git branch -r # remote
+git branch
+git branch -r
 ```
-✅ This keeps your repo clean and matches real production workflows. (New)
+
+> Extra para pulcritud:  
+> Cuando se hace merge en GitHub y luego elimino las ramas allí, en local todavía quedan remote-tracking branches (origin/rama_eliminada). Para dejar el repo limpio, debo hacer:
+
+```bash
+git fetch --prune
+```
+
+Esto elimina las ramas remotas que ya no existen en GitHub de la vista local (origin/...).  
+--prune = borra las referencias locales a ramas remotas eliminadas.
 
 ---
 
-## 🔁 Advanced Workflow Notes
+## 🔁 Notas Avanzadas de Workflow
 
-### ✅ Handling Renames + Parallel Branch Workflows
+### ✅ Renombres + trabajo paralelo
 
-When you rename files or folders in one branch **and** make edits to those same paths in other branches, Git cannot auto-merge cleanly — it may duplicate the old files.
+Si nombro carpetas/archivos en una rama y luego edito en otras ramas:
 
-**Professional workflow to avoid duplication:**
+**Flujo recomendado:**
 
-1. **Merge the rename branch first** (PR → Merge)
-2. Update your local `main`:
+```bash
+git checkout main
+git pull
+git checkout your-branch
+git rebase main
+```
 
-   ```bash
-   git checkout main
-   git pull
-   ```
-
-3. **Rebase the remaining branches on top of updated `main`**:
-
-   ```bash
-   git checkout your-branch
-   git rebase main
-   ```
-
-This ensures Git rewrites commits on top of the renamed paths and prevents duplicated folders/files.
-
-If duplication still happens (normal when learning!), clean up like this:
+Si salen duplicados, limpiarlos en rama aparte:
 
 ```bash
 git checkout -b chore/cleanup-duplicates
@@ -165,166 +162,23 @@ git commit -m "chore(module2): remove leftover old folder after rename"
 git push -u origin chore/cleanup-duplicates
 ```
 
-PR → merge → `git pull` ✅
-
-### 🚨 Do not manually delete duplicates in `main`
-
-Always perform cleanup in a **dedicated branch**.
+> No borrar manualmente en `main`
 
 ---
 
-## 🧹 General Recommendations
+## 🧹 Recomendaciones Generales
 
-- Keep branches **short-lived and specific**.
-- Rebase regularly with `main` before merging.
-- Use **Squash Merge** for cleaner history.
-- Keep **code commits separate from docs commits**.
-- Always run `dart format .` before commit.
-- **After merging in GitHub, always run:**
-
-  ```bash
-  git checkout main
-  git pull
-  ```
-
----
-
-✅ **Summary of Conventions**
-
-| Area            | Example                              |
-| --------------- | ------------------------------------ |
-| Branch naming   | `docs/module2-notes-add-cli-md`      |
-| Commit message  | `docs(module2-notes): add CLI notes` |
-| Tag after merge | `module2-notes-done`                 |
-| PR title        | `[docs] Add CLI notes for module2`   |
-
----
-
-## 🔀 Renaming a Branch (if you made a naming mistake)
-
-If you created a branch and later realized its name doesn’t follow the conventions, you can rename it safely **without losing your changes**.
-
-### 🧩 Case 1: You are currently _on_ the branch you want to rename
-
-Just run:
+- Ramas **cortas y específicas**
+- Rebase antes de mergear
+- Usar **Squash Merge**
+- Separar código de documentación
+- Formatear antes de commit:
 
 ```bash
-git branch -m new-branch-name
+dart format .
 ```
 
-Git automatically renames the current branch; no need to specify the old name.
-
-### 🧩 Case 2: You want to rename a branch while on another one
-
-Specify both:
-
-```bash
-git branch -m old-branch-name new-branch-name
-```
-
-### 🧩 If the branch has already been pushed to GitHub
-
-You’ll need to delete the old remote reference and push the new one:
-
-```bash
-git push origin :old-branch-name
-git push -u origin new-branch-name
-```
-
-✅ After this, your renamed branch will replace the old one in GitHub, keeping all commits and history intact.
-
----
-
-## 🏷 Tagging Progress (Modules, Notes, Labs, and Mini-Exercises)
-
-Use **annotated tags** (`-a`, `-m`) to mark progress milestones in your course.
-
-### 🔹 Labs completed
-
-```bash
-git tag -a module1-lab1-done -m "Completed Lab 1: Hello World Web"
-git push --tags
-```
-
-### 🔹 Notes or theoretical sections completed
-
-```bash
-git tag -a module2-notes-done -m "Finished Module 2 notes: Variables, Functions, and Libraries in Dart"
-git push --tags
-```
-
-### 🔹 Mini-Exercises completed
-
-```bash
-git tag -a exercise-dart-collections-done -m "Completed Mini-Exercise: Dart Collections practice"
-git push --tags
-```
-
-### 🔹 Full modules completed
-
-```bash
-git tag -a module2-done -m "Completed Module 2: Exploring Dart Language – notes and labs"
-git push --tags
-```
-
-| Purpose                | Tag Format                   | Example                          |
-| ---------------------- | ---------------------------- | -------------------------------- |
-| Finished Lab           | `moduleX-labY-done`          | `module2-lab1-done`              |
-| Finished Notes         | `moduleX-notes-done`         | `module2-notes-done`             |
-| Finished Mini-Exercise | `exercise-<short-name>-done` | `exercise-dart-collections-done` |
-| Full Module            | `moduleX-done`               | `module2-done`                   |
-
----
-
-## 🔁 Example Complete Workflow
-
-```bash
-# 1️⃣ Create a branch for the documentation update
-git checkout -b docs/repo-guides-update
-
-# 2️⃣ Edit the README or notes
-code README.md
-
-# 3️⃣ Stage and commit your changes
-git add README.md
-git commit -m "docs(repo): fix broken links and update commit guide"
-
-# 4️⃣ Push and open PR
-git push -u origin docs/repo-guides-update
-
-# 5️⃣ Merge into main and tag progress
-git checkout main
-git merge docs/repo-guides-update
-git tag -a repo-docs-update -m "Updated README and commit guide"
-git push origin main --tags
-```
-
----
-
-## 🧹 General Recommendations
-
-- Keep branches **short-lived and specific**.
-- Rebase regularly with `main` before merging.
-- Use **Squash Merge** for cleaner history (one commit per feature).
-- Keep **code commits separate from docs commits**.
-- Always verify formatting with `dart format .` before committing.
-
----
-
-## ⚙️ Updating `.gitignore`
-
-`.gitignore` changes affect the whole repository.
-Edit it **only in `main`** or in a dedicated config branch.
-
-```bash
-git checkout -b chore/config-gitignore-update
-# edit .gitignore
-git add .gitignore
-git commit -m "chore(config): update .gitignore to ignore build and cache files"
-git push -u origin chore/config-gitignore-update
-```
-
-After merging:
+- Después de mergear:
 
 ```bash
 git checkout main
@@ -333,11 +187,122 @@ git pull
 
 ---
 
-✅ **Summary of Conventions**
+## ✅ Resumen
 
-| Area                | Example                                                |
-| ------------------- | ------------------------------------------------------ |
-| **Branch naming**   | `docs/repo-guides-update`                              |
-| **Commit message**  | `docs(repo): fix broken links and update commit guide` |
-| **Tag after merge** | `repo-docs-update`                                     |
-| **PR title**        | `[docs] Update global documentation and commit guide`  |
+| Área        | Ejemplo                              |
+| ----------- | ------------------------------------ |
+| Nombre rama | `docs/module2-notes-add-cli-md`      |
+| Commit      | `docs(module2-notes): add CLI notes` |
+| Tag         | `module2-notes-done`                 |
+| PR          | `[docs] Add CLI notes for module2`   |
+
+---
+
+## 🔀 Renombrar ramas sin perder cambios
+
+### Si estoy en la rama:
+
+```bash
+git branch -m new-branch-name
+```
+
+### Si estoy en otra rama:
+
+```bash
+git branch -m old-branch-name new-branch-name
+```
+
+### Si ya estaba subida a GitHub:
+
+```bash
+git push origin :old-branch-name
+git push -u origin new-branch-name
+```
+
+---
+
+## 🏷 Etiquetar Progreso (Tags)
+
+### Labs completados
+
+```bash
+git tag -a module1-lab1-done -m "Completed Lab 1: Hello World Web"
+git push --tags
+```
+
+### Notas completadas
+
+```bash
+git tag -a module2-notes-done -m "Finished Module 2 notes"
+git push --tags
+```
+
+### Mini-ejercicios
+
+```bash
+git tag -a exercise-dart-collections-done -m "Completed Dart collections exercise"
+git push --tags
+```
+
+### Módulo completo
+
+```bash
+git tag -a module2-done -m "Completed Module 2"
+git push --tags
+```
+
+| Propósito         | Formato              | Ejemplo                          |
+| ----------------- | -------------------- | -------------------------------- |
+| Lab finalizado    | `moduleX-labY-done`  | `module2-lab1-done`              |
+| Notas finalizadas | `moduleX-notes-done` | `module2-notes-done`             |
+| Ejercicio         | `exercise-name-done` | `exercise-dart-collections-done` |
+| Módulo completo   | `moduleX-done`       | `module2-done`                   |
+
+---
+
+## 🔁 Ejemplo de Workflow Completo
+
+```bash
+git checkout -b docs/repo-guides-update
+code README.md
+git add README.md
+git commit -m "docs(repo): fix broken links and update commit guide"
+git push -u origin docs/repo-guides-update
+
+git checkout main
+git merge docs/repo-guides-update
+git tag -a repo-docs-update -m "Updated README and commit guide"
+git push origin main --tags
+```
+
+---
+
+## ⚙️ Actualizar `.gitignore`
+
+Hacerlo en `main` o rama dedicada:
+
+```bash
+git checkout -b chore/config-gitignore-update
+# edit .gitignore
+git add .gitignore
+git commit -m "chore(config): update .gitignore"
+git push -u origin chore/config-gitignore-update
+```
+
+Después del merge:
+
+```bash
+git checkout main
+git pull
+```
+
+---
+
+## ✅ Resumen Final
+
+| Área   | Ejemplo                                                |
+| ------ | ------------------------------------------------------ |
+| Rama   | `docs/repo-guides-update`                              |
+| Commit | `docs(repo): fix broken links and update commit guide` |
+| Tag    | `repo-docs-update`                                     |
+| PR     | `[docs] Update global documentation and commit guide`  |
