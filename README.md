@@ -48,8 +48,9 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Classes in Dart](module2_dart-languaje/notes/5_Classes_in_Dart.md)
   - [x] [Lab: Utilize Variables, Functions, and Methods in Dart](module2_dart-languaje/labs_variables_functions_methods_Dart/lib/main.dart)
   - [x] [Libraries in Dart](module2_dart-languaje/notes/6_Libraries_in_Dart)
-  - [ ] Lab: Libraries in Dart Using Cloud IDE
-  - [ ] Command Line and Utilities
+  - [x] [Lab: Libraries in Dart](module2_dart-languaje/lab_libraries_in_dart)
+  - [x] [Command Line and Utilities](module2_dart-languaje/notes/7_Command-Line-and-Utilities.md)
+  - [x] [Editors and debuggers for Dart](module2_dart-languaje/notes/8_Editors-and-debuggers-for-Dart.md)
   - [ ] Lab: Debugging Dart Applications
 
 - [ ] **Módulo 3 – Working with Flutter**
