@@ -8,6 +8,8 @@ Términos clave con definiciones breves.
 
 **Access to Native Features through Plugins**: Funcionalidad que permite acceder a características del dispositivo (como cámara, GPS o almacenamiento) mediante paquetes o plugins integrables en Flutter.
 
+**analysis_options.yaml**: Este archivo se utiliza para configurar la herramienta de análisis estático de Dart. Puedes personalizar reglas para seguir guías específicas o ignorar ciertas reglas en todo tu proyecto.
+
 **AOT (Ahead-of-Time)**: Técnica de compilación que convierte código fuente en código máquina antes de su ejecución, mejorando el tiempo de arranque.
 
 **AppBar (widget)**: A material design app bar that can be placed at the top of the Scaffold.
@@ -18,11 +20,21 @@ Términos clave con definiciones breves.
 
 ---
 
+## B
+
+**bin/**: Este directorio contiene archivos ejecutables de Dart. Estos archivos son puntos de entrada para aplicaciones de línea de comandos o de servidor, a diferencia de lib/, que está destinado al código de biblioteca.
+
+**Breakpoint**: Un punto en el programa donde la ejecución se detendrá, permitiéndote inspeccionar el estado de la aplicación. Los breakpoints son esenciales para investigar el comportamiento del código en etapas específicas o bajo ciertas condiciones.
+
+---
+
 ## C
 
 **C# (C Sharp)**: Lenguaje de programación utilizado por el framework Xamarin para construir aplicaciones móviles.
 
 **Center (widget)**: Aligns its child widget to the center of the screen.
+
+**CHANGELOG.md**: Archivo Markdown que registra todos los cambios realizados en el proyecto a lo largo del tiempo. Suele incluir actualizaciones, correcciones y otras notas importantes para que los usuarios sepan qué ha cambiado entre versiones.
 
 **Clase (Class)**: Plano que define propiedades y métodos comunes para crear objetos.
 
@@ -32,6 +44,8 @@ Términos clave con definiciones breves.
 
 **Collections**: Estructuras que agrupan elementos, como listas (`List`), mapas (`Map`) o conjuntos (`Set`).
 
+**Conditional breakpoint**: Un breakpoint que se activa solo cuando se cumple una condición específica. Esto permite a los desarrolladores centrarse en escenarios concretos y puede acelerar significativamente el proceso de depuración.
+
 **Cupertino**: Estándares de diseño de Apple para iOS que los widgets de Flutter también pueden seguir, permitiendo interfaces personalizadas.
 
 **Customization Options**: Posibilidades que ofrece Flutter para personalizar completamente la interfaz de usuario mediante sus widgets y estilos propios.
@@ -39,6 +53,8 @@ Términos clave con definiciones breves.
 ---
 
 ## D
+
+**Debugger**: Una herramienta utilizada para probar y depurar programas, permitiendo al desarrollador avanzar paso a paso por el código, inspeccionar variables y controlar el flujo de ejecución. Los debuggers son fundamentales para diagnosticar y corregir problemas en el código.
 
 **Dart**: Lenguaje de programación desarrollado por Google, optimizado para UI. Soporta compilación AOT y JIT.
 
@@ -69,6 +85,8 @@ Términos clave con definiciones breves.
 **Emulador**: Simula un dispositivo real en la computadora para probar apps en diferentes resoluciones y sistemas.
 
 **Encapsulamiento (Encapsulation)**: Principio que restringe el acceso directo a ciertos componentes del objeto para proteger datos.
+
+**Exception**: Un error que ocurre durante la ejecución de un programa, interrumpiendo el flujo normal de instrucciones. Las exceptions pueden capturarse y manejarse para evitar que provoquen que el programa termine inesperadamente.
 
 ---
 
@@ -150,6 +168,8 @@ Términos clave con definiciones breves.
 
 ## L
 
+**lib/**: Este directorio contiene el código público en Dart del proyecto. En una aplicación o paquete típico, la mayoría de los archivos Dart, incluido el punto de entrada (normalmente un archivo como main.dart), se colocan aquí.
+
 **List**: Tipo de dato que representa una colección ordenada de elementos.
 
 **ListView**: Widget que permite mostrar listas desplazables.
@@ -202,9 +222,15 @@ Términos clave con definiciones breves.
 
 **Provider**: Biblioteca para gestión de estado.
 
+**pubspec.lock**: Archivo generado automáticamente por el gestor de paquetes de Dart que incluye una lista de todos los paquetes de los que depende tu aplicación, junto con las versiones específicas instaladas. Esto garantiza entornos consistentes y control de versiones para todas las dependencias del proyecto.
+
+**pubspec.yaml**: Este archivo sirve como el manifiesto del proyecto. Incluye metadatos sobre el proyecto, como nombre, versión y dependencias. Es utilizado por el gestor de paquetes de Dart para administrar los paquetes de Dart de los que depende tu proyecto.
+
 ---
 
 ## R
+
+**README.md**: Archivo Markdown que normalmente contiene una descripción general del proyecto, cómo configurarlo y cómo usarlo. Generalmente es el primer archivo que usuarios y colaboradores consultan al acceder a tu repositorio.
 
 **React Native**: Framework de Facebook que permite crear apps con JavaScript y React.
 
@@ -224,6 +250,8 @@ Términos clave con definiciones breves.
 
 **SQLite**: Base de datos local para Flutter.
 
+**Stack trace**: Un informe que proporciona la ruta de ejecución a través del programa en el punto donde ocurre una exception. Muestra la secuencia de llamadas de funciones que llevaron al error, lo cual ayuda a identificar la ubicación del problema dentro del código.
+
 **State**: Información que puede cambiar durante la vida de una app.
 
 **State Management**: Manejo de los cambios de estado.
@@ -232,6 +260,14 @@ Términos clave con definiciones breves.
 
 **Stateless Widget**: Widget sin estado.
 
+**Step over/into/out**: Comandos de depuración que controlan la ejecución del programa:
+
+**Step into**: Ejecuta la siguiente línea de código y, si es una llamada a una función, el debugger entra en la función llamada, permitiéndote depurar su código.
+
+**Step over**: Ejecuta la siguiente línea de código, pero no entra en ninguna función que sea llamada por esa línea, simplemente se ejecuta y pasas a la siguiente línea.
+
+**Step out**: Continúa ejecutando las líneas restantes de la función actual (siempre se ejecuta mientras se esté dentro de una función) y regresa a la función que la llamó, de modo que ejecuta el resto de la función sin detenerse más dentro y vuelve a la función que la llamó.
+
 **Stream**: Flujo de múltiples eventos asincrónicos.
 
 **String interpolation**: Insertar variables dentro de una cadena de texto.
@@ -239,6 +275,8 @@ Términos clave con definiciones breves.
 ---
 
 ## T
+
+**test/**: Contiene archivos Dart para probar la aplicación o biblioteca. Dart utiliza un paquete potente llamado test para escribir y ejecutar pruebas unitarias.
 
 **Text (widget)**: Muestra texto en pantalla.
 
@@ -252,11 +290,15 @@ Términos clave con definiciones breves.
 
 ## V
 
-**Variables (en Dart)**: Elementos para almacenar datos.
+**Variable (en Dart)**: Elemento para almacenar datos.
+
+**Variable inspection**: El proceso de revisar los valores de las variables en ciertos puntos del programa durante la depuración. Esto es crucial para comprender el estado de la aplicación y determinar la causa de los problemas.
 
 ---
 
 ## W
+
+**Watch expression**: Una función disponible en muchos debuggers que permite especificar expresiones basadas en variables del código, las cuales el debugger evaluará y mostrará durante la ejecución del programa. Esto ayuda a monitorear cambios en los datos a lo largo de la ejecución.
 
 **Widget**: Elemento visual reutilizable de la UI en Flutter.
 
