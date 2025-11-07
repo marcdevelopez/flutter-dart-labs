@@ -1,4 +1,6 @@
 // Define an enum for different game actions
+// ignore_for_file: unreachable_switch_default
+
 enum Action { move, take, open, look }
 
 // Class to simulate game logic
