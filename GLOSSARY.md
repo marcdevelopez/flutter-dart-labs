@@ -10,11 +10,25 @@ Términos clave con definiciones breves.
 
 **analysis_options.yaml**: Este archivo se utiliza para configurar la herramienta de análisis estático de Dart. Puedes personalizar reglas para seguir guías específicas o ignorar ciertas reglas en todo tu proyecto.
 
+**Anonymous functions (Dart)**: Usadas para funciones de una sola expresión; también conocidas como lambdas o closures
+
+```dart
+var list = ['apples', 'bananas', 'oranges'];
+
+list.forEach((item) {
+  print(item);
+});
+```
+
 **AOT (Ahead-of-Time)**: Técnica de compilación que convierte código fuente en código máquina antes de su ejecución, mejorando el tiempo de arranque.
 
 **AppBar (widget)**: A material design app bar that can be placed at the top of the Scaffold.
 
-**Arrow Function**: Forma concisa de definir funciones de una sola expresión usando la sintaxis `=>` en lugar de `{}`.
+**Arrow Function (arrow syntax)**: Forma concisa de definir funciones de una sola expresión usando la sintaxis `=>` en lugar de `{}`. Usa la sintaxis de flecha para una declaración de función concisa.
+
+```dart
+void printItem(item) => print(item);
+```
 
 **Async/Await**: Palabras clave que permiten operaciones asíncronas sin bloquear el hilo principal.
 
@@ -36,9 +50,27 @@ Términos clave con definiciones breves.
 
 **CHANGELOG.md**: Archivo Markdown que registra todos los cambios realizados en el proyecto a lo largo del tiempo. Suele incluir actualizaciones, correcciones y otras notas importantes para que los usuarios sepan qué ha cambiado entre versiones.
 
-**Clase (Class)**: Plano que define propiedades y métodos comunes para crear objetos.
+**Class (Dart)**: Define una clase simple con propiedades. Plano que define propiedades y métodos comunes para crear objetos.
 
-**Closure (Clausura)**: Función que captura variables de su entorno léxico y las retiene incluso cuando dicho entorno ha terminado su ejecución.
+```dart
+class Person {
+  String name;
+  int age;
+}
+```
+
+**CLI commands (Dart)**: Compila código Dart a un ejecutable nativo
+
+```bash
+dart compile exe test.dart
+```
+
+**Closures (Dart)**: Funciones anónimas que pueden capturar variables de su contexto. Las retiene incluso cuando dicho entorno ha terminado su ejecución.
+
+```dart
+List<int> numbers = [1, 2, 3];
+numbers.forEach((number) => print(number * 2));
+```
 
 **Code reusability**: Capacidad de Flutter para usar una sola base de código para crear apps en iOS, Android, web y escritorio.
 
@@ -46,9 +78,23 @@ Términos clave con definiciones breves.
 
 **Conditional breakpoint**: Un breakpoint que se activa solo cuando se cumple una condición específica. Esto permite a los desarrolladores centrarse en escenarios concretos y puede acelerar significativamente el proceso de depuración.
 
+**Const (Dart)**: Constante en tiempo de compilación
+
+```dart
+const PI = 3.14;
+```
+
 **Cupertino**: Estándares de diseño de Apple para iOS que los widgets de Flutter también pueden seguir, permitiendo interfaces personalizadas.
 
 **Customization Options**: Posibilidades que ofrece Flutter para personalizar completamente la interfaz de usuario mediante sus widgets y estilos propios.
+
+**Custom libraries (Dart)**: Creación y uso de tu propia librería.
+
+```dart
+library my_utils;
+
+int add(int a, int b) => a + b;
+```
 
 ---
 
@@ -76,7 +122,23 @@ Términos clave con definiciones breves.
 
 **Data types (tipos de datos)**: Dart soporta tipos como `int`, `double`, `String`, `bool` y `List`, que definen el tipo de dato que puede almacenar una variable.
 
-**DevTools**: Conjunto de herramientas de depuración para aplicaciones Flutter.
+**Default parameters (Dart)**: Permiten valores predeterminados si no se proporcionan en la llamada a la función
+
+```dart
+String describe(String name, {int age = 30, String city = 'Unknown'})
+```
+
+**DevTools (Dart)**: Suite para depuración y análisis de rendimiento.
+
+```text
+Performance profiling, memory analysis, and widget inspection
+```
+
+**Dynamic (Dart)**: El tipo de variable puede cambiar dinámicamente
+
+```dart
+dynamic x = 42;
+```
 
 ---
 
@@ -84,13 +146,27 @@ Términos clave con definiciones breves.
 
 **Emulador**: Simula un dispositivo real en la computadora para probar apps en diferentes resoluciones y sistemas.
 
-**Encapsulamiento (Encapsulation)**: Principio que restringe el acceso directo a ciertos componentes del objeto para proteger datos.
+**Encapsulation (Dart)**: Usa métodos de clase y niveles de visibilidad para aplicar encapsulación. Principio que restringe el acceso directo a ciertos componentes del objeto para proteger datos.
+
+```dart
+class Person {
+  String name; // Propiedad pública
+  int _age;    // Propiedad privada, prefijo guion bajo en Dart
+}
+```
+
 
 **Exception**: Un error que ocurre durante la ejecución de un programa, interrumpiendo el flujo normal de instrucciones. Las exceptions pueden capturarse y manejarse para evitar que provoquen que el programa termine inesperadamente.
 
 ---
 
 ## F
+
+**Final (Dart)**: Constante en tiempo de ejecución
+
+```dart
+final cityName = 'New York';
+```
 
 **Firebase**: Plataforma de Google para desarrollo móvil que provee autenticación, base de datos en tiempo real, y funciones en la nube.
 
@@ -132,11 +208,31 @@ Términos clave con definiciones breves.
 
 **Getter**: Función que se usa para obtener el valor de una propiedad, a menudo realizando algún cálculo.
 
+**Getters and Setters (Dart)**: Controlan el acceso a las propiedades de la clase
+
+```dart
+class Person {
+  int _age;
+
+  int get age => _age; // Getter
+  set age(int value) {  // Setter
+    _age = value;
+  }
+}
+```
+
 ---
 
 ## H
 
-**Herencia (Inheritance)**: Mecanismo que permite que una clase derive de otra, reutilizando su funcionalidad.
+**Herencia (Inheritance, Dart)**: Mecanismo que permite que una clase derive de otra, reutilizando su funcionalidad.
+
+```dart
+class Employee extends Person {
+  int salary;
+}
+```
+
 
 **Hot reload**: A feature that enables instant viewing of code changes without restarting the app, preserving its current state.
 
@@ -147,6 +243,12 @@ Términos clave con definiciones breves.
 ## I
 
 **IDE (Integrated Development Environment)**: Tools like Visual Studio Code, Android Studio, and IntelliJ IDEA.
+
+**Import (Dart)**: Permite acceder a las librerías integradas de Dart
+
+```dart
+import 'dart:math';
+```
 
 **Incremental compilation**: Técnica que recompila solo el código que ha cambiado desde la última ejecución.
 
@@ -170,7 +272,25 @@ Términos clave con definiciones breves.
 
 **lib/**: Este directorio contiene el código público en Dart del proyecto. En una aplicación o paquete típico, la mayoría de los archivos Dart, incluido el punto de entrada (normalmente un archivo como main.dart), se colocan aquí.
 
-**List**: Tipo de dato que representa una colección ordenada de elementos.
+**LinkedLists (Dart)**: Estructura enlazada donde cada nodo contiene un valor y una referencia al siguiente. Requiere que los elementos extiendan LinkedListEntry<T>.
+
+```dart
+import 'dart:collection';
+
+class Node extends LinkedListEntry<Node> {
+  int value;
+  Node(this.value);
+}
+
+final linkedList = LinkedList<Node>()..add(Node(1));
+```
+
+**List (Dart)**: Tipo de dato que representa una colección ordenada de elementos.
+
+```dart
+List<int> numbers = [1, 2, 3];
+```
+
 
 **ListView**: Widget que permite mostrar listas desplazables.
 
@@ -179,6 +299,12 @@ Términos clave con definiciones breves.
 ## M
 
 **main (función)**: Punto de entrada obligatorio en toda aplicación Dart.
+
+**Map (Dart)**: Colección de pares clave-valor
+
+```dart
+Map<String, int> ages = {'Alice': 18, 'Bob': 20};
+```
 
 **MaterialApp (widget)**: A convenience widget that wraps several widgets commonly required for Material Design applications.
 
@@ -194,6 +320,13 @@ Términos clave con definiciones breves.
 
 ## N
 
+**Named parameters (Dart)**: Especificados por nombre; pueden ser obligatorios u opcionales con valores predeterminados, y se encierran entre llaves
+
+```dart
+void greet({required String name, String greeting = 'Hello'}) =>
+    print('$greeting, $name!');
+```
+
 **Native development**: Creación de apps con lenguajes nativos (Swift, Kotlin, Java).
 
 **Nullable (anulable)**: Variable que puede tener un valor nulo.
@@ -208,6 +341,13 @@ Términos clave con definiciones breves.
 
 **Objeto (Object)**: Instancia de una clase.
 
+**Optional positional parameters (Dart)**: Pueden omitirse; se encierran entre corchetes
+
+```dart
+String fullName(String firstName, [String middleName, String lastName])
+```
+
+
 ---
 
 ## P
@@ -220,11 +360,44 @@ Términos clave con definiciones breves.
 
 **print (función)**: Función nativa de Dart usada para imprimir texto en consola.
 
+**Private properties (Dart)**: Se prefijan con un guion bajo y solo pueden accederse dentro de la clase
+
+```dart
+class Person {
+  int _age; // Propiedad privada
+}
+```
+
 **Provider**: Biblioteca para gestión de estado.
+
+**Pub tool (Dart)**: Gestor de paquetes para manejar dependencias
+
+```bash
+dart pub get, dart pub add http
+```
+
+**Public properties (Dart)**: Pueden accederse desde cualquier ubicación donde el objeto sea visible
+
+```dart
+class Person {
+  String name; // Propiedad pública
+}
+```
 
 **pubspec.lock**: Archivo generado automáticamente por el gestor de paquetes de Dart que incluye una lista de todos los paquetes de los que depende tu aplicación, junto con las versiones específicas instaladas. Esto garantiza entornos consistentes y control de versiones para todas las dependencias del proyecto.
 
 **pubspec.yaml**: Este archivo sirve como el manifiesto del proyecto. Incluye metadatos sobre el proyecto, como nombre, versión y dependencias. Es utilizado por el gestor de paquetes de Dart para administrar los paquetes de Dart de los que depende tu proyecto.
+
+---
+
+## Q
+
+**Queues (Dart)**: Colección FIFO (primero en entrar, primero en salir) para elementos
+
+```dart
+Queue<int> queue = Queue();
+queue.addAll([1, 2, 3]);
+```
 
 ---
 
@@ -234,6 +407,12 @@ Términos clave con definiciones breves.
 
 **React Native**: Framework de Facebook que permite crear apps con JavaScript y React.
 
+**Required parameters (Dart)**: Deben proporcionarse explícitamente en la llamada a la función
+
+```dart
+int multiply(int a, int b) => a * b;
+```
+
 ---
 
 ## S
@@ -241,6 +420,18 @@ Términos clave con definiciones breves.
 **Scaffold**: A top-level container in Flutter that provides an app structure.
 
 **Scaffold (widget)**: Proporciona estructura para la UI, incluyendo AppBar, Body, etc.
+
+**SDK (Dart)**: Herramienta esencial para ejecutar y administrar aplicaciones Dart
+
+```bash
+dart run, dart create
+```
+
+**Set (Dart)**: Colección no ordenada de elementos únicos
+
+```dart
+Set<String> names = {'Alice', 'Bob'};
+```
 
 **Setter**: Función que se usa para establecer el valor de una propiedad.
 
@@ -259,6 +450,16 @@ Términos clave con definiciones breves.
 **Stateful Widget**: Widget con estado interno.
 
 **Stateless Widget**: Widget sin estado.
+
+**Static methods (Dart)**: Pertenecen a la clase en lugar de a una instancia y pueden llamarse sin crear un objeto
+
+```dart
+class Utility {
+  static int add(int a, int b) {
+    return a + b;
+  }
+}
+```
 
 **Step over/into/out**: Comandos de depuración que controlan la ejecución del programa:
 
@@ -290,7 +491,10 @@ Términos clave con definiciones breves.
 
 ## V
 
-**Variable (en Dart)**: Elemento para almacenar datos.
+**Var (Dart)**: Variable de tipo inferido
+```dart
+var name = 'Dart';
+```
 
 **Variable inspection**: El proceso de revisar los valores de las variables en ciertos puntos del programa durante la depuración. Esto es crucial para comprender el estado de la aplicación y determinar la causa de los problemas.
 
