@@ -1,5 +1,7 @@
 // We use 'const' because this value is fixed and known at compile time
 // We declare it outside of 'main' so it's available throughout the file
+// ignore_for_file: dead_code, unnecessary_null_comparison
+
 const String storeName = 'Tech Store';
 
 // This code could be greatly improved with a class serving as a product model

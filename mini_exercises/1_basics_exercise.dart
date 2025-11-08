@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:math' as math;
 
 /// Every Dart app starts with the main function.
