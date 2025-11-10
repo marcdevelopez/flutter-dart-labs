@@ -11,3 +11,5 @@
 .vscode/*
 !.vscode/settings.json
 **/notas_codigo/
+settings.json
+AGENTS.md
