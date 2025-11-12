@@ -58,7 +58,6 @@ class GalleryHomePage extends StatefulWidget {
 
 // Y esta es la clase de estado asociada
 // La lógica interactiva vive aquí
-
 class _GalleryHomePageState extends State<GalleryHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -77,8 +76,19 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
       // Y gracias a este widget podemos agregar contenido al cuerpo de la app
       body: ListView(
         padding: const EdgeInsets.all(16),
-        children: const [
+        children: [
           // Iremos agregando secciones aquí…
+          // Vamos a integrar el helper _buildSectionTitle para los títulos
+          _buildSectionTitle('1) Basic Widgets'),
+          // (Sección 1 irá aquí))
+          _buildSectionTitle('2) Layout Widgets'),
+          // (Sección 2 irá aquí))
+          _buildSectionTitle('1) Input Widgets'),
+          // (Sección 3 irá aquí))
+          _buildSectionTitle('1) Button Widgets'),
+          // (Sección 4 irá aquí))
+          _buildSectionTitle('1) Interactive Example'),
+          // (Sección 5 irá aquí))
         ],
       ),
     );
