@@ -32,7 +32,8 @@ void main() {
   runApp(const WidgetGalleryApp());
 }
 
-// StatelessWidget que representa la app entera con su configuracion básica
+// StatelessWidget que representa la app entera con su configuracion global básica
+// Y define la pagina de inicio
 class WidgetGalleryApp extends StatelessWidget {
   const WidgetGalleryApp({super.key});
 
@@ -41,6 +42,7 @@ class WidgetGalleryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Widget Gallery',
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+      // Apunta a la pagina de inicio
       home: const GalleryHomePage(),
     );
   }
@@ -48,10 +50,9 @@ class WidgetGalleryApp extends StatelessWidget {
 
 // Este es un widget con estado, que puede cambiar durante la ejecucion
 // Util para widgets que necesitan actualizar su UI en respuesta a eventos
-// Esta es la clse del widget con estado
+// Esta es la clase (Home) del widget con estado
 class GalleryHomePage extends StatefulWidget {
   const GalleryHomePage({super.key});
-
   @override
   State<StatefulWidget> createState() => _GalleryHomePageState();
 }
@@ -59,12 +60,26 @@ class GalleryHomePage extends StatefulWidget {
 // Y esta es la clase de estado asociada
 // La lógica interactiva vive aquí
 class _GalleryHomePageState extends State<GalleryHomePage> {
+  // Estado minimo y variables de control
+  // State variables for interactive widgets
+  // Necesario para preparar el estado inicial
+  bool _checkboxValue = false;
+  bool _switchValue = true;
+  int _radioValue = 1;
+  // Para el TextField
+  String _textFieldValue = '';
+  // Para la demo de botones
+  int _likeCount = 0;
+
   @override
+  // Es la estructura visual del widget con AppBar y Body con ListView
+  // En este caso será un Marcos estándar y una lista de secciones
   Widget build(BuildContext context) {
     // Scaffold es un layout básico que proporciona estructura visual
     return Scaffold(
       // Gracias a este widget appBar podemos tener una barra superior
       appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
         title: const Text('Widget Gallery'),
         actions: [
           IconButton(
@@ -79,15 +94,15 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
         children: [
           // Iremos agregando secciones aquí…
           // Vamos a integrar el helper _buildSectionTitle para los títulos
-          _buildSectionTitle('1) Basic Widgets'),
+          _buildSectionTitle('Basic Widgets'),
           // (Sección 1 irá aquí))
-          _buildSectionTitle('2) Layout Widgets'),
+          _buildSectionTitle('Layout Widgets'),
           // (Sección 2 irá aquí))
-          _buildSectionTitle('1) Input Widgets'),
+          _buildSectionTitle('Input Widgets'),
           // (Sección 3 irá aquí))
-          _buildSectionTitle('1) Button Widgets'),
+          _buildSectionTitle('Button Widgets'),
           // (Sección 4 irá aquí))
-          _buildSectionTitle('1) Interactive Example'),
+          _buildSectionTitle('Interactive Example'),
           // (Sección 5 irá aquí))
         ],
       ),
@@ -96,15 +111,26 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
 
   // Helper visual para títulos de sección
   // Reutiliza estilo y mantiene el código limpio
-  Widget _buildSectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+Widget _buildSectionTitle(String title) {
+  // Envolvemos en un Card para que sea más agradable visualmente.
+  return Card(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+    ),
+    elevation: 2,
+    margin: const EdgeInsets.symmetric(vertical: 8),
+    child: Padding(
+      padding: const EdgeInsets.all(16),
       child: Text(
         title,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   // Muestra un dialogo con informacion sobre la app
   void _showInfoDialog(BuildContext context) {
