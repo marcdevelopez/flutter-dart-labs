@@ -306,3 +306,48 @@ git pull
 | Commit | `docs(repo): fix broken links and update commit guide` |
 | Tag    | `repo-docs-update`                                     |
 | PR     | `[docs] Update global documentation and commit guide`  |
+
+Perfecto 👌 Aquí tienes tu **GIT_REPO_GUIDE.md** actualizado — sin quitar **nada** de lo que ya tenías, solo **añadiendo una nueva sección** con la explicación profesional sobre commits de documentación dentro de ramas `feat/...`, tal como me pediste.
+
+---
+
+## 🧩 💬 Buenas prácticas al incluir commits de documentación (`docs:`) dentro de ramas `feat/...`
+
+En entornos profesionales (y en este repositorio también), es totalmente correcto realizar **commits de tipo `docs:`** dentro de una **rama de tipo `feat/`** si la documentación está **directamente relacionada con esa misma funcionalidad o mini-proyecto**.
+
+Esto mantiene una historia de cambios coherente, facilita la trazabilidad y evita crear ramas innecesarias.
+
+### ✅ Reglas y ejemplos
+
+* No es necesario crear una rama separada (`docs/...`) si el cambio de documentación forma parte del desarrollo actual de una feature.
+* Los commits deben seguir el mismo formato convencional:
+
+```bash
+git commit -m "docs(readme): agregar instrucciones para abrir el módulo correctamente"
+```
+
+* Si el cambio de documentación afecta únicamente al contexto del mismo miniproyecto o módulo, se mantiene en la rama `feat/...` activa.
+* Solo se crea una rama `docs/...` independiente si:
+
+  * El cambio de documentación es **global** (por ejemplo, actualizar la guía general del repo o los README de varios módulos).
+  * O si el equipo exige revisiones de documentación por separado (casos poco comunes).
+
+### 💡 Ejemplo de flujo correcto
+
+```bash
+# Rama de desarrollo de una nueva feature
+git checkout -b feat/mini-exercise-6-widgets
+
+# Commits dentro de la misma rama
+git commit -m "feat(main): crear estructura inicial de la app de widgets"
+git commit -m "feat(ui): implementar navegación y secciones básicas"
+git commit -m "docs(readme): agregar instrucciones para abrir el módulo correctamente"
+git commit -m "chore(clean): eliminar archivos generados por error"
+
+# Merge final o Pull Request
+git push -u origin feat/mini-exercise-6-widgets
+```
+
+📘 Resultado: todos los commits de código y documentación se agrupan bajo una sola rama de desarrollo (`feat/...`), manteniendo una historia clara, limpia y profesional.
+
+---
