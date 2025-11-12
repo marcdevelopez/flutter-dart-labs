@@ -94,15 +94,15 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
         children: [
           // Iremos agregando secciones aquí…
           // Vamos a integrar el helper _buildSectionTitle para los títulos
-          _buildSectionTitle('1) Basic Widgets'),
+          _buildSectionTitle('Basic Widgets'),
           // (Sección 1 irá aquí))
-          _buildSectionTitle('2) Layout Widgets'),
+          _buildSectionTitle('Layout Widgets'),
           // (Sección 2 irá aquí))
-          _buildSectionTitle('1) Input Widgets'),
+          _buildSectionTitle('Input Widgets'),
           // (Sección 3 irá aquí))
-          _buildSectionTitle('1) Button Widgets'),
+          _buildSectionTitle('Button Widgets'),
           // (Sección 4 irá aquí))
-          _buildSectionTitle('1) Interactive Example'),
+          _buildSectionTitle('Interactive Example'),
           // (Sección 5 irá aquí))
         ],
       ),
@@ -117,7 +117,7 @@ Widget _buildSectionTitle(String title) {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
     ),
-    elevation: 3,
+    elevation: 2,
     margin: const EdgeInsets.symmetric(vertical: 8),
     child: Padding(
       padding: const EdgeInsets.all(16),
