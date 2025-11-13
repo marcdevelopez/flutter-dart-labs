@@ -98,7 +98,8 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           _buildBasicWidgetsDemo(),
           const SizedBox(height: 24),
           _buildSectionTitle('Layout Widgets'),
-          // (Sección 2 irá aquí))
+          _buildLayoutWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Input Widgets'),
           // (Sección 3 irá aquí))
           _buildSectionTitle('Button Widgets'),
@@ -161,7 +162,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
               Icon(Icons.star_border, color: Colors.amber),
               SizedBox(width: 8),
               Text('4.5/5'),
-           ],
+            ],
           ),
           const SizedBox(height: 8),
 
@@ -174,6 +175,62 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
             color: Colors.grey.shade300,
             child: const Icon(Icons.image, size: 50, color: Colors.grey),
           ),
+        ],
+      ),
+    );
+  }
+
+  // Seccion "Layout Widgets" (2)
+  // Demonstrates: Column, Row, Container, Stack
+  Widget _buildLayoutWidgetsDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.green.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Column & Row Layout',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            // Añadamos un espacio proporcional entre los elementos
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // Voy a hacer tres contenedores numerados para mostrar
+              // cómo Row distribuye espacio y alinea elementos:
+              Container(
+                width: 60,
+                height: 60,
+                color: Colors.red,
+                child: const Center(
+                  child: Text('1', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              Container(
+                width: 60,
+                height: 60,
+                color: Colors.green,
+                child: const Center(
+                  child: Text('2', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              Container(
+                width: 60,
+                height: 60,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text('3', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
+          // Añadimos una separacion vertical antes de la siguiente seccion
+          const SizedBox(height: 16),
         ],
       ),
     );
