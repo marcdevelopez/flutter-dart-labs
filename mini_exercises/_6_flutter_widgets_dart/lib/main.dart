@@ -231,6 +231,39 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           ),
           // Añadimos una separacion vertical antes de la siguiente seccion
           const SizedBox(height: 16),
+          const Text(
+            'Stack Layout',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          // Ahora un Stack para superponer elementos
+          // Stack example with overlapping containers
+          Stack(
+            children: [
+              // Este es el container base
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue.shade200,    
+              ),
+              // Este container se superpone arriba a la izquierda
+              Positioned(
+                top: 20,
+                left: 20,
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  color: Colors.red.shade300,
+                ),
+              ),
+              // Este containmer se superpone abajo a la derecha
+              const Positioned(
+                bottom: 10,
+                right: 10,
+                child: Icon(Icons.layers, size: 40, color: Colors.white),
+              ),
+            ]
+          ),
         ],
       ),
     );
