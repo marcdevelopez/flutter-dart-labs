@@ -95,9 +95,11 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           // Iremos agregando secciones aquí…
           // Vamos a integrar el helper _buildSectionTitle para los títulos
           _buildSectionTitle('Basic Widgets'),
-          // (Sección 1 irá aquí))
+          _buildBasicWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Layout Widgets'),
-          // (Sección 2 irá aquí))
+          _buildLayoutWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Input Widgets'),
           // (Sección 3 irá aquí))
           _buildSectionTitle('Button Widgets'),
@@ -111,26 +113,161 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
 
   // Helper visual para títulos de sección
   // Reutiliza estilo y mantiene el código limpio
-Widget _buildSectionTitle(String title) {
-  // Envolvemos en un Card para que sea más agradable visualmente.
-  return Card(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
-    ),
-    elevation: 2,
-    margin: const EdgeInsets.symmetric(vertical: 8),
-    child: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
+  Widget _buildSectionTitle(String title) {
+    // Envolvemos en un Card para que sea más agradable visualmente.
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 2,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
+
+  // Seccion "Basic Widgets" (1)
+  // Aquí está el código para la sección de Basic Widgets
+  // Demuestra Text, Icon e Image
+  Widget _buildBasicWidgetsDemo() {
+    return Container(
+      // Voy a aplicar un fondo azul muy suave y redondear las esquinas porque
+      // esto ayuda a separar visualmente la sección del resto del contenido
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.blue.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      // En esta columna vamos a poner los widgets básicos
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Text widget example
+          const Text(
+            'Text Widget Example',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+
+          // Row with Icon widgets example
+          Row(
+            children: const [
+              Icon(Icons.star, color: Colors.amber),
+              Icon(Icons.star, color: Colors.amber),
+              Icon(Icons.star, color: Colors.amber),
+              Icon(Icons.star_half, color: Colors.amber),
+              Icon(Icons.star_border, color: Colors.amber),
+              SizedBox(width: 8),
+              Text('4.5/5'),
+            ],
+          ),
+          const SizedBox(height: 8),
+
+          // Image placeholder (using Icon as a placeholder for simplicity)
+          // Quiero simular dónde iría una imagen, sin preocuparme todavía por URLs.
+          // Creo un contenedor gris y pongo un ícono de imagen dentro:
+          Container(
+            width: 100,
+            height: 100,
+            color: Colors.grey.shade300,
+            child: const Icon(Icons.image, size: 50, color: Colors.grey),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Seccion "Layout Widgets" (2)
+  // Demonstrates: Column, Row, Container, Stack
+  Widget _buildLayoutWidgetsDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.green.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Column & Row Layout',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            // Añadamos un espacio proporcional entre los elementos
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // Voy a hacer tres contenedores numerados para mostrar
+              // cómo Row distribuye espacio y alinea elementos:
+              Container(
+                width: 60,
+                height: 60,
+                color: Colors.red,
+                child: const Center(
+                  child: Text('1', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              Container(
+                width: 60,
+                height: 60,
+                color: Colors.green,
+                child: const Center(
+                  child: Text('2', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              Container(
+                width: 60,
+                height: 60,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text('3', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
+          // Añadimos una separacion vertical antes de la siguiente seccion
+          const SizedBox(height: 16),
+          const Text(
+            'Stack Layout',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          // Ahora un Stack para superponer elementos
+          // Stack example with overlapping containers
+          Stack(
+            children: [
+              // Este es el container base
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue.shade200,    
+              ),
+              // Este container se superpone arriba a la izquierda
+              Positioned(
+                top: 20,
+                left: 20,
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  color: Colors.red.shade300,
+                ),
+              ),
+              // Este containmer se superpone abajo a la derecha
+              const Positioned(
+                bottom: 10,
+                right: 10,
+                child: Icon(Icons.layers, size: 40, color: Colors.white),
+              ),
+            ]
+          ),
+        ],
+      ),
+    );
+  }
 
   // Muestra un dialogo con informacion sobre la app
   void _showInfoDialog(BuildContext context) {
