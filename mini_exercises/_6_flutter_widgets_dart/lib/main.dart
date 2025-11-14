@@ -101,7 +101,8 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           _buildLayoutWidgetsDemo(),
           const SizedBox(height: 24),
           _buildSectionTitle('Input Widgets'),
-          // (Sección 3 irá aquí))
+          _buildInputWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Button Widgets'),
           // (Sección 4 irá aquí))
           _buildSectionTitle('Interactive Example'),
@@ -241,11 +242,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           Stack(
             children: [
               // Este es el container base
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue.shade200,    
-              ),
+              Container(width: 150, height: 150, color: Colors.blue.shade200),
               // Este container se superpone arriba a la izquierda
               Positioned(
                 top: 20,
@@ -262,9 +259,159 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
                 right: 10,
                 child: Icon(Icons.layers, size: 40, color: Colors.white),
               ),
-            ]
+            ],
           ),
         ],
+      ),
+    );
+  }
+
+  // Seccion "Input Widgets" (3)
+  // Esta sección demostrará widgets de entrada: TextField, Checkbox, Radio y Switch.
+  Widget _buildInputWidgetsDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.purple.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Input Widgets Demo',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+
+          // TextField example
+          const Text(
+            'TextField',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            decoration: const InputDecoration(
+              hintText: 'Enter your name',
+              border: OutlineInputBorder(),
+              prefixIcon: Icon(Icons.person),
+            ),
+            onChanged: (value) {
+              setState(() {
+                _textFieldValue = value;
+              });
+            },
+          ),
+          if (_textFieldValue.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text('Hello, $_textFieldValue!'),
+            ),
+          const SizedBox(height: 12),
+
+          // Checkbox example
+          const Text(
+            'Checkbox',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          CheckboxListTile(
+            title: const Text('Checkbox Widget'),
+            value: _checkboxValue,
+            // Un checkbox necesita un booleano para su estado
+            // Cuando el usuario hace click, onChanged recibe el nuevo valor
+            onChanged: _onCheckboxChanged,
+          ),
+          const SizedBox(height: 12),
+
+          // Radio buttons example
+          const Text(
+            'Radio Buttons',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          RadioListTile<int>(
+            title: const Text('Option 1'),
+            value: 1,
+            groupValue: _radioValue,
+            onChanged: _onRadioChanged,
+          ),
+          RadioListTile<int>(
+            title: const Text('Option 2'),
+            value: 2,
+            groupValue: _radioValue,
+            onChanged: _onRadioChanged,
+          ),
+          const SizedBox(height: 12),
+
+          // Switch example
+          const Text(
+            'Switch',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          SwitchListTile(
+            title: const Text('Switch Widget'),
+            value: _switchValue,
+            onChanged: _onSwitchChanged,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Manejador de cambio para los Radio buttons
+  void _onRadioChanged(int? value) {
+    if (value == null) return;
+
+    setState(() {
+      _radioValue = value;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Center(
+          child: Text('Elegiste la opción $value', textAlign: TextAlign.center),
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Manejador de cambio para el Switch
+  void _onSwitchChanged(bool value) {
+    setState(() {
+      _switchValue = value;
+    });
+
+    final estado = value ? 'activado' : 'desactivado';
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Center(
+          child: Text('Switch $estado', textAlign: TextAlign.center),
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Manejador de cambio para el Checkbox
+  void _onCheckboxChanged(bool? value) {
+    final newValue = value ?? false;
+
+    setState(() {
+      _checkboxValue = newValue;
+    });
+
+    final estado = newValue ? 'marcado' : 'desmarcado';
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Center(
+          child: Text('Checkbox $estado', textAlign: TextAlign.center),
+        ),
+        duration: Duration(seconds: 2),
       ),
     );
   }
