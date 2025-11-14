@@ -104,7 +104,8 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           _buildInputWidgetsDemo(),
           const SizedBox(height: 24),
           _buildSectionTitle('Button Widgets'),
-          // (Sección 4 irá aquí))
+          _buildButtonWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Interactive Example'),
           // (Sección 5 irá aquí))
         ],
@@ -360,6 +361,78 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
     );
   }
 
+  // Seccion "Button Widgets" (4)
+  // Esta sección demostrará los tres tipos principales de botones: ElevatedButton, TextButton e IconButton.
+  Widget _buildButtonWidgetsDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.purple.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // ElevatedButton
+          ElevatedButton(
+            onPressed: () {
+              _showSnackBar('Elevated Button Pressed!');
+            },
+            child: const Text('Elevated Button'),
+          ),
+          const SizedBox(height: 8),
+          
+          // TextButton
+          TextButton(
+            onPressed: () {
+              _showSnackBar('Text Button Pressed!');
+            },
+            child: const Text('Text Button'),
+          ),
+          const SizedBox(height: 8),
+          
+          // Row of IconButtons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.thumb_up),
+                onPressed: () {
+                  _showSnackBar('Liked!');
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.share),
+                onPressed: () {
+                  _showSnackBar('Shared!');
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.bookmark),
+                onPressed: () {
+                  _showSnackBar('Bookmarked!');
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Helper method to show SnackBar
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          textAlign: TextAlign.center,
+        ),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
   // Manejador de cambio para los Radio buttons
   void _onRadioChanged(int? value) {
     if (value == null) return;
@@ -416,7 +489,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
     );
   }
 
-  // Muestra un dialogo con informacion sobre la app
+  // Helper method to show a dialog with information about the app
   void _showInfoDialog(BuildContext context) {
     showDialog(
       context: context,
