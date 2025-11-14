@@ -101,11 +101,14 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           _buildLayoutWidgetsDemo(),
           const SizedBox(height: 24),
           _buildSectionTitle('Input Widgets'),
-          // (Sección 3 irá aquí))
+          _buildInputWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Button Widgets'),
-          // (Sección 4 irá aquí))
+          _buildButtonWidgetsDemo(),
+          const SizedBox(height: 24),
           _buildSectionTitle('Interactive Example'),
-          // (Sección 5 irá aquí))
+          _buildInteractiveDemo(),
+          const SizedBox(height: 24),
         ],
       ),
     );
@@ -138,7 +141,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
       // esto ayuda a separar visualmente la sección del resto del contenido
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
+        color: Colors.purple.shade50,
         borderRadius: BorderRadius.circular(8.0),
       ),
       // En esta columna vamos a poner los widgets básicos
@@ -186,7 +189,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.green.shade50,
+        color: Colors.purple.shade50,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Column(
@@ -241,11 +244,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           Stack(
             children: [
               // Este es el container base
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue.shade200,    
-              ),
+              Container(width: 150, height: 150, color: Colors.blue.shade200),
               // Este container se superpone arriba a la izquierda
               Positioned(
                 top: 20,
@@ -262,14 +261,314 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
                 right: 10,
                 child: Icon(Icons.layers, size: 40, color: Colors.white),
               ),
-            ]
+            ],
           ),
         ],
       ),
     );
   }
 
-  // Muestra un dialogo con informacion sobre la app
+  // Seccion "Input Widgets" (3)
+  // Esta sección demostrará widgets de entrada: TextField, Checkbox, Radio y Switch.
+  Widget _buildInputWidgetsDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.purple.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Input Widgets Demo',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+
+          // TextField example
+          const Text(
+            'TextField',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            decoration: const InputDecoration(
+              hintText: 'Enter your name',
+              border: OutlineInputBorder(),
+              prefixIcon: Icon(Icons.person),
+            ),
+            onChanged: (value) {
+              setState(() {
+                _textFieldValue = value;
+              });
+            },
+          ),
+          if (_textFieldValue.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text('Hello, $_textFieldValue!'),
+            ),
+          const SizedBox(height: 12),
+
+          // Checkbox example
+          const Text(
+            'Checkbox',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          CheckboxListTile(
+            title: const Text('Checkbox Widget'),
+            value: _checkboxValue,
+            // Un checkbox necesita un booleano para su estado
+            // Cuando el usuario hace click, onChanged recibe el nuevo valor
+            onChanged: _onCheckboxChanged,
+          ),
+          const SizedBox(height: 12),
+
+          // Radio buttons example
+          const Text(
+            'Radio Buttons',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          RadioListTile<int>(
+            title: const Text('Option 1'),
+            value: 1,
+            groupValue: _radioValue,
+            onChanged: _onRadioChanged,
+          ),
+          RadioListTile<int>(
+            title: const Text('Option 2'),
+            value: 2,
+            groupValue: _radioValue,
+            onChanged: _onRadioChanged,
+          ),
+          const SizedBox(height: 12),
+
+          // Switch example
+          const Text(
+            'Switch',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          SwitchListTile(
+            title: const Text('Switch Widget'),
+            value: _switchValue,
+            onChanged: _onSwitchChanged,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Seccion "Button Widgets" (4)
+  // Esta sección demostrará los tres tipos principales de botones: ElevatedButton, TextButton e IconButton.
+  Widget _buildButtonWidgetsDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.purple.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // ElevatedButton
+          ElevatedButton(
+            onPressed: () {
+              _showSnackBar('Elevated Button Pressed!');
+            },
+            child: const Text('Elevated Button'),
+          ),
+          const SizedBox(height: 8),
+
+          // TextButton
+          TextButton(
+            onPressed: () {
+              _showSnackBar('Text Button Pressed!');
+            },
+            child: const Text('Text Button'),
+          ),
+          const SizedBox(height: 8),
+
+          // Row of IconButtons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.thumb_up),
+                onPressed: () {
+                  setState(() {
+                    _likeCount++;
+                  });
+                  _showSnackBar('Likes: $_likeCount');
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.share),
+                onPressed: () {
+                  _showSnackBar('Shared!');
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.bookmark),
+                onPressed: () {
+                  _showSnackBar('Bookmarked!');
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Seccion "Interactive Example" (5)
+  // Combina el estado de los widgets anteriores para crear una tarjeta de
+  // usuario personalizada
+  Widget _buildInteractiveDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.pink.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        children: [
+          const Text(
+            'Like Counter',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+
+          // Stack with counter
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.pink.shade100,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.favorite, size: 50, color: Colors.red),
+                  const SizedBox(height: 8),
+                  Text(
+                    '$_likeCount',
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+
+          // Buttons to control counter
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton.icon(
+                onPressed: () {
+                  setState(() {
+                    _likeCount++;
+                  });
+                },
+                icon: const Icon(Icons.add),
+                label: const Text('Like'),
+              ),
+              const SizedBox(width: 16),
+              TextButton.icon(
+                onPressed: () {
+                  setState(() {
+                    _likeCount = 0;
+                  });
+                },
+                icon: const Icon(Icons.refresh),
+                label: const Text('Reset'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Helper method to show SnackBar
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message, textAlign: TextAlign.center),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Manejador de cambio para los Radio buttons
+  void _onRadioChanged(int? value) {
+    if (value == null) return;
+
+    setState(() {
+      _radioValue = value;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Center(
+          child: Text('Elegiste la opción $value', textAlign: TextAlign.center),
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Manejador de cambio para el Switch
+  void _onSwitchChanged(bool value) {
+    setState(() {
+      _switchValue = value;
+    });
+
+    final estado = value ? 'activado' : 'desactivado';
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Center(
+          child: Text('Switch $estado', textAlign: TextAlign.center),
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Manejador de cambio para el Checkbox
+  void _onCheckboxChanged(bool? value) {
+    final newValue = value ?? false;
+
+    setState(() {
+      _checkboxValue = newValue;
+    });
+
+    final estado = newValue ? 'marcado' : 'desmarcado';
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Center(
+          child: Text('Checkbox $estado', textAlign: TextAlign.center),
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Helper method to show a dialog with information about the app
   void _showInfoDialog(BuildContext context) {
     showDialog(
       context: context,
