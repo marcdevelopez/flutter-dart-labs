@@ -107,7 +107,8 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
           _buildButtonWidgetsDemo(),
           const SizedBox(height: 24),
           _buildSectionTitle('Interactive Example'),
-          // (Sección 5 irá aquí))
+          _buildInteractiveDemo(),
+          const SizedBox(height: 24),
         ],
       ),
     );
@@ -140,7 +141,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
       // esto ayuda a separar visualmente la sección del resto del contenido
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
+        color: Colors.purple.shade50,
         borderRadius: BorderRadius.circular(8.0),
       ),
       // En esta columna vamos a poner los widgets básicos
@@ -188,7 +189,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.green.shade50,
+        color: Colors.purple.shade50,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Column(
@@ -381,7 +382,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
             child: const Text('Elevated Button'),
           ),
           const SizedBox(height: 8),
-          
+
           // TextButton
           TextButton(
             onPressed: () {
@@ -390,7 +391,7 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
             child: const Text('Text Button'),
           ),
           const SizedBox(height: 8),
-          
+
           // Row of IconButtons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -398,7 +399,10 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
               IconButton(
                 icon: const Icon(Icons.thumb_up),
                 onPressed: () {
-                  _showSnackBar('Liked!');
+                  setState(() {
+                    _likeCount++;
+                  });
+                  _showSnackBar('Likes: $_likeCount');
                 },
               ),
               IconButton(
@@ -420,14 +424,89 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
     );
   }
 
+  // Seccion "Interactive Example" (5)
+  // Combina el estado de los widgets anteriores para crear una tarjeta de
+  // usuario personalizada
+  Widget _buildInteractiveDemo() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.pink.shade50,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        children: [
+          const Text(
+            'Like Counter',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+
+          // Stack with counter
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.pink.shade100,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.favorite, size: 50, color: Colors.red),
+                  const SizedBox(height: 8),
+                  Text(
+                    '$_likeCount',
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+
+          // Buttons to control counter
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton.icon(
+                onPressed: () {
+                  setState(() {
+                    _likeCount++;
+                  });
+                },
+                icon: const Icon(Icons.add),
+                label: const Text('Like'),
+              ),
+              const SizedBox(width: 16),
+              TextButton.icon(
+                onPressed: () {
+                  setState(() {
+                    _likeCount = 0;
+                  });
+                },
+                icon: const Icon(Icons.refresh),
+                label: const Text('Reset'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   // Helper method to show SnackBar
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          message,
-          textAlign: TextAlign.center,
-        ),
+        content: Text(message, textAlign: TextAlign.center),
         duration: const Duration(seconds: 2),
       ),
     );
