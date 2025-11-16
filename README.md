@@ -110,6 +110,36 @@ modulo5_final_project/     → Proyecto final de publicación
 
 ---
 
+### ⚠ Importante: abrir correctamente cada lab Flutter en VS Code
+
+Para evitar el error común:
+
+```
+
+Target of URI doesn't exist: 'package:flutter/material.dart'
+
+````
+
+es necesario abrir **cada proyecto Flutter como raíz del workspace** en VS Code.  
+Esto significa que NO debes abrir la carpeta completa del repositorio `flutter-dart-labs/`, sino entrar al lab correspondiente, por ejemplo:
+
+```bash
+cd module1_introduction/lab_hello_world_web
+code .
+````
+
+Cada lab contiene su propio `pubspec.yaml`, por lo que Flutter solo funcionará correctamente si ese archivo está en la raíz del proyecto abierto.
+
+Después de abrirlo, ejecutar:
+
+```bash
+flutter clean
+flutter pub get
+flutter run -d chrome
+```
+
+---
+
 ## 🔖 Notas finales
 
 Este README irá evolucionando a medida que avance en el curso y en mis proyectos.  

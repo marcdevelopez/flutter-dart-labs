@@ -64,6 +64,32 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+### ⚠ Importante antes de ejecutar
+
+Para evitar el error:
+
+```
+
+Target of URI doesn't exist: 'package:flutter/material.dart'
+
+````
+
+debes abrir esta carpeta como **proyecto raíz** en VS Code, ya que este lab contiene su propio `pubspec.yaml`.
+
+Ejemplo:
+
+```bash
+cd module1_introduction/lab_hello_world_web
+code .
+````
+
+Luego ejecutar:
+
+```bash
+flutter clean
+flutter pub get
+```
+
 ---
 
 ### 4. Ejecutar la app en navegador
