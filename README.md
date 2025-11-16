@@ -51,12 +51,12 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Lab: Libraries in Dart](module2_dart-languaje/lab_libraries_in_dart)
   - [x] [Command Line and Utilities](module2_dart-languaje/notes/7_Command-Line-and-Utilities.md)
   - [x] [Editors and debuggers for Dart](module2_dart-languaje/notes/8_Editors-and-debuggers-for-Dart.md)
-  - [ ] Lab: Debugging Dart Applications
+  - [x] [Lab: Debugging Dart Applications](Module2_Dart-languaje/lab_debugging_dart_app/dart_debug/lib/complex_debug.dart)
 
 - [ ] **Módulo 3 – Working with Flutter**
 
-  - [ ] Development Process of Flutter Apps
-  - [ ] Flutter Widgets
+  - [x] [Development Process of Flutter Apps](Module3_Working-with-Flutter/notes/1_Development-Process-of-Flutter-Apps.md)
+  - [x] [Flutter Widgets](Module3_Working-with-Flutter/notes/2_Flutter-Widgets.md)
   - [ ] Expert Viewpoints: Flutter Widgets and the Flutter Widget Catalog
   - [ ] Interaction and Forms in Flutter
   - [ ] Navigation in Flutter
