@@ -192,6 +192,8 @@ final cityName = 'New York';
 
 **Flutter Toolchain**: Conjunto de herramientas y bibliotecas que permiten el desarrollo, prueba y despliegue de apps Flutter. Incluye Dart SDK, Flutter framework, Flutter engine y herramientas de desarrollo.
 
+**Form (Formulario)**: Un grupo de campos de entrada con lógica de validación.
+
 **Function (función)**: Bloque de código reutilizable que puede recibir parámetros y devolver valores.
 
 **Función anónima (Anonymous Function)**: Función sin nombre, utilizada para operaciones simples o como argumentos.
@@ -270,6 +272,8 @@ import 'dart:math';
 
 ## L
 
+**Layout (Diseño)**: Cómo se organizan los elementos visuales dentro de una app.
+
 **lib/**: Este directorio contiene el código público en Dart del proyecto. En una aplicación o paquete típico, la mayoría de los archivos Dart, incluido el punto de entrada (normalmente un archivo como main.dart), se colocan aquí.
 
 **LinkedLists (Dart)**: Estructura enlazada donde cada nodo contiene un valor y una referencia al siguiente. Requiere que los elementos extiendan LinkedListEntry<T>.
@@ -328,6 +332,8 @@ void greet({required String name, String greeting = 'Hello'}) =>
 ```
 
 **Native development**: Creación de apps con lenguajes nativos (Swift, Kotlin, Java).
+
+**Navigator (Navegador/Navegador de rutas)**: Un widget que gestiona una pila de objetos de ruta (routes) y proporciona métodos para navegar entre rutas/pantallas.
 
 **Nullable (anulable)**: Variable que puede tener un valor nulo.
 
@@ -412,6 +418,8 @@ queue.addAll([1, 2, 3]);
 ```dart
 int multiply(int a, int b) => a * b;
 ```
+
+**Route (Ruta)**: Una abstracción que representa una pantalla o página en una app Flutter.
 
 ---
 
@@ -504,7 +512,7 @@ var name = 'Dart';
 
 **Watch expression**: Una función disponible en muchos debuggers que permite especificar expresiones basadas en variables del código, las cuales el debugger evaluará y mostrará durante la ejecución del programa. Esto ayuda a monitorear cambios en los datos a lo largo de la ejecución.
 
-**Widget**: Elemento visual reutilizable de la UI en Flutter.
+**Widget**: Elemento visual reutilizable de la UI en Flutter. El bloque básico de construcción de la interfaz de usuario en una app Flutter. Todo en Flutter es un widget.
 
 **Widgets de Material Design y Cupertino**: Conjuntos de widgets preconstruidos que siguen guías de diseño.
 
