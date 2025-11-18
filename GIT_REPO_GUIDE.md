@@ -24,8 +24,8 @@ flutter-dart-labs/
 │  └─ labs_variables_functions_methods_Dart/
 │  └─ ...
 ├─ module...
-├─ notes/
-└─ labs/
+│  ├─ notes/
+│  └─ labs/
 ```
 
 ---
@@ -319,18 +319,18 @@ Esto mantiene una historia de cambios coherente, facilita la trazabilidad y evit
 
 ### ✅ Reglas y ejemplos
 
-* No es necesario crear una rama separada (`docs/...`) si el cambio de documentación forma parte del desarrollo actual de una feature.
-* Los commits deben seguir el mismo formato convencional:
+- No es necesario crear una rama separada (`docs/...`) si el cambio de documentación forma parte del desarrollo actual de una feature.
+- Los commits deben seguir el mismo formato convencional:
 
 ```bash
 git commit -m "docs(readme): agregar instrucciones para abrir el módulo correctamente"
 ```
 
-* Si el cambio de documentación afecta únicamente al contexto del mismo miniproyecto o módulo, se mantiene en la rama `feat/...` activa.
-* Solo se crea una rama `docs/...` independiente si:
+- Si el cambio de documentación afecta únicamente al contexto del mismo miniproyecto o módulo, se mantiene en la rama `feat/...` activa.
+- Solo se crea una rama `docs/...` independiente si:
 
-  * El cambio de documentación es **global** (por ejemplo, actualizar la guía general del repo o los README de varios módulos).
-  * O si el equipo exige revisiones de documentación por separado (casos poco comunes).
+  - El cambio de documentación es **global** (por ejemplo, actualizar la guía general del repo o los README de varios módulos).
+  - O si el equipo exige revisiones de documentación por separado (casos poco comunes).
 
 ### 💡 Ejemplo de flujo correcto
 
