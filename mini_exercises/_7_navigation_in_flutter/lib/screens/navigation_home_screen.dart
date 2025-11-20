@@ -7,7 +7,13 @@ import 'settings_screen.dart';
 import 'about_screen.dart';
 
 class NavigationHomeScreen extends StatelessWidget {
-  const NavigationHomeScreen({super.key});
+  final ThemeMode themeMode;
+  final VoidCallback onToggleTheme;
+  const NavigationHomeScreen({
+    super.key,
+    required this.themeMode,
+    required this.onToggleTheme,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +22,16 @@ class NavigationHomeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Navigation Playground'),
+          actions: [
+            IconButton(
+              icon: Icon(
+                themeMode == ThemeMode.light
+                    ? Icons.dark_mode
+                    : Icons.light_mode,
+              ),
+              onPressed: onToggleTheme,
+            ),
+          ],
           bottom: const TabBar(
             tabs: [
               Tab(text: 'Stack'),
