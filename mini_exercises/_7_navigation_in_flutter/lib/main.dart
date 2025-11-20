@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'screens/stack_navigation_demo.dart';
+import 'screens/navigation_home_screen.dart';
 
 void main() {
-  runApp(const StackNavigationApp());
+  runApp(const NavigationPlaygroundApp());
 }
 
-class StackNavigationApp extends StatelessWidget {
-  const StackNavigationApp({super.key});
+class NavigationPlaygroundApp extends StatelessWidget {
+  const NavigationPlaygroundApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const StackNavigationDemo(),
+      home: NavigationHomeScreen(),
     );
   }
 }
