@@ -102,18 +102,21 @@ class _TabContentState extends State<_TabContent> {
               _expanded = !_expanded;
             });
           },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(widget.icon, size: 32),
-              const SizedBox(height: 8),
-              Text(widget.title, textAlign: TextAlign.center),
-              const SizedBox(height: 8),
-              const Text(
-                'Pulsa para animar tamaño',
-                style: TextStyle(fontSize: 12),
-              ),
-            ],
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(widget.icon, size: 32),
+                const SizedBox(height: 8),
+                Text(widget.title, textAlign: TextAlign.center),
+                const SizedBox(height: 8),
+                const Text(
+                  'Pulsa para animar tamaño',
+                  style: TextStyle(fontSize: 12),
+                ),
+              ],
+            ),
           ),
         ),
       ),
