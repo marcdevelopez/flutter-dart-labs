@@ -8,7 +8,7 @@ class StackNavigationDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // este es el unico Scaffold permitido
+      // Only scaffold allowed in this screen
       appBar: AppBar(title: const Text("Stack Navigation")),
       body: ListView(
         padding: const EdgeInsets.all(8),
@@ -42,21 +42,21 @@ class StackNavigationDemo extends StatelessWidget {
       pageBuilder: (context, animation, secondaryAnimation) =>
           const StackDetailScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        // 1. Definir el Tween del desplazamiento
+        // 1. Define the offset tween
         final offsetTween = Tween<Offset>(
-          begin: const Offset(1.0, 0.0), // desde la derecha
+          begin: const Offset(1.0, 0.0), // from the right
           end: Offset.zero,
         );
 
-        // 2. Aplicar una curva
+        // 2. Apply a curve
         final curvedAnimation = animation.drive(
           CurveTween(curve: Curves.easeInOut),
         );
 
-        // 3. Combinar el Tween + la curva
+        // 3. Combine the tween + curve
         final offsetAnimation = curvedAnimation.drive(offsetTween);
 
-        // 4. Devolver la transición final
+        // 4. Return the final transition
         return SlideTransition(position: offsetAnimation, child: child);
       },
     );

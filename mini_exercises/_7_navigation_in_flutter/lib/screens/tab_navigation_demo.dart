@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/info_card.dart';
 
-/// Demo de Tab Navigation. Usa un DefaultTabController interno
-/// para mostrar cómo funcionan las pestañas.
+/// Tab Navigation demo using an inner DefaultTabController
+/// to show how tabs work.
 class TabNavigationDemo extends StatelessWidget {
   const TabNavigationDemo({super.key});
 
@@ -63,7 +63,7 @@ class TabNavigationDemo extends StatelessWidget {
   }
 }
 
-/// Contenido animado simple para cada tab.
+/// Simple animated content for each tab.
 class _TabContent extends StatefulWidget {
   final String title;
   final IconData icon;

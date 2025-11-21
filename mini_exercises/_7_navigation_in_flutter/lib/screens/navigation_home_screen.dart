@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../widgets/info_card.dart';
 import 'stack_navigation_demo.dart';
-
-// Importamos las pantallas que usamos en el Drawer
+import 'tab_navigation_demo.dart';
+import 'drawer_navigation_demo.dart';
+// Screens used inside the Drawer menu
 import 'favorites_screen.dart';
 import 'settings_screen.dart';
 import 'about_screen.dart';
@@ -9,6 +11,7 @@ import 'about_screen.dart';
 class NavigationHomeScreen extends StatelessWidget {
   final ThemeMode themeMode;
   final VoidCallback onToggleTheme;
+
   const NavigationHomeScreen({
     super.key,
     required this.themeMode,
@@ -49,7 +52,7 @@ class NavigationHomeScreen extends StatelessWidget {
                 leading: const Icon(Icons.favorite),
                 title: const Text('Favoritos'),
                 onTap: () {
-                  Navigator.pop(context); // cierra el drawer primero
+                  Navigator.pop(context); // close drawer first
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => const FavoritesScreen()),
@@ -85,7 +88,7 @@ class NavigationHomeScreen extends StatelessWidget {
         ),
 
         body: const TabBarView(
-          children: [StackNavigationDemo(), Placeholder(), Placeholder()],
+          children: [StackNavigationDemo(), TabNavigationDemo(), DrawerNavigationDemo()],
         ),
       ),
     );

@@ -4,8 +4,8 @@ import 'favorites_screen.dart';
 import 'settings_screen.dart';
 import 'about_screen.dart';
 
-/// Demo que explica Drawer Navigation. El Drawer real está
-/// en NavigationHomeScreen, pero aquí damos más contexto.
+/// Demo explaining Drawer Navigation. The real drawer lives
+/// in NavigationHomeScreen, but here we add more context.
 class DrawerNavigationDemo extends StatelessWidget {
   const DrawerNavigationDemo({super.key});
 

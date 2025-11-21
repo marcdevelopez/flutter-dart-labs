@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Pequeña tarjeta de información reutilizable
+// Small reusable information card
 class InfoCard extends StatelessWidget {
   final String title;
   final String description;
