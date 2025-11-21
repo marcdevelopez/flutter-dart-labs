@@ -14,16 +14,21 @@ class StackDetailScreen extends StatelessWidget {
           const InfoCard(
             title: 'Segunda pantalla',
             description:
-                'Llegaste aquí con Navigator.push(). Usando Navigator.pop() volverás atrás.',
+                'Has navegado aquí usando Navigator.push() con una PageRouteBuilder para añadir una animación de deslizamiento.',
+            child: Text(
+              'Cuando pulses el botón de atrás del AppBar o el botón físico '
+              'del dispositivo, Flutter llamará a Navigator.pop() y esta '
+              'pantalla se eliminará de la pila.',
+            ),
           ),
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text("Volver"),
+              child: const Text("Volver (pop)"),
             ),
-          )
+          ),
         ],
       ),
     );

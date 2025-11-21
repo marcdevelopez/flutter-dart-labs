@@ -13,7 +13,7 @@ class StackNavigationDemo extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [
-          const InfoCard(
+          InfoCard(
             title: 'Stack Navigation',
             description:
                 'Cada vez que navegas con Navigator.push(), una nueva pantalla se apila. '
@@ -23,11 +23,13 @@ class StackNavigationDemo extends StatelessWidget {
             title: 'Demostración',
             description:
                 'Pulsa para ver la segunda pantalla. Luego vuelve con pop().',
+          ),
+          Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(_buildAnimatedRoute());
               },
-              child: const Text('Abrir detalle'),
+              child: const Text('Abrir detalle (push)'),
             ),
           ),
         ],
