@@ -37,61 +37,68 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Introducción a utilidades de Flutter](module1_introduction/notes/5_Introduction-to-Flutter-Utilities.md)
   - [x] [Opiniones de expertos: primeros pasos en Flutter](module1_introduction/notes/6_Expert-Viewpoints-Getting-Started-Flutter.md)
   - [x] [Basicos Dart](module1_introduction/notes/7_Basics-of-Dart.md)
+  - [x] [Mini-Ejercicio: Básicos Dart](mini_exercises/_1_basics_exercise.dart)
   - [x] [Lab: Creando una Aplicación Web Flutter Hello World](module1_introduction/lab_hello_world_web/lib/main.dart)
 
 - [ ] **Módulo 2 – Exploring Dart Language**
 
-  - [x] [Funcionamiento interno de Dart](module2_dart-languaje/notes/1_Internals_of_Dart.md)
-  - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](module2_dart-languaje/notes/2_Expert_Viewpoints_Fundamentals_of_Dart.md)
-  - [x] [Variables y Tipos](module2_dart-languaje/notes/3_Variables_and_types.md)
-  - [x] [Funciones y Métodos en Dart](module2_dart-languaje/notes/4_Functions_methods_in_Dart.md)
-  - [x] [Classes in Dart](module2_dart-languaje/notes/5_Classes_in_Dart.md)
-  - [x] [Lab: Utilize Variables, Functions, and Methods in Dart](module2_dart-languaje/labs_variables_functions_methods_Dart/lib/main.dart)
-  - [x] [Libraries in Dart](module2_dart-languaje/notes/6_Libraries_in_Dart)
-  - [x] [Lab: Libraries in Dart](module2_dart-languaje/lab_libraries_in_dart)
-  - [x] [Command Line and Utilities](module2_dart-languaje/notes/7_Command-Line-and-Utilities.md)
-  - [x] [Editors and debuggers for Dart](module2_dart-languaje/notes/8_Editors-and-debuggers-for-Dart.md)
-  - [x] [Lab: Debugging Dart Applications](Module2_Dart-languaje/lab_debugging_dart_app/dart_debug/lib/complex_debug.dart)
+  - [x] [Funcionamiento interno de Dart](Module2_Dart-languaje/notes/1_Internals-of-Dart.md)
+  - [x] [Mini-Ejercicio: Funcionamiento interno de Dart](mini_exercises/_2_internals_exercise.dart)
+  - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](Module2_Dart-languaje/notes/2_Expert-Viewpoints-Fundamentals-of-Dart.md)
+  - [x] [Variables y Tipos](Module2_Dart-languaje/notes/3-Variables-and-types.md)
+  - [x] [Mini-Ejercicio: Variables y Tipos en Dart](mini_exercises/_3_variables_and_types.dart)
+  - [x] [Funciones y Métodos en Dart](Module2_Dart-languaje/notes/4_Functions-methods-in-Dart.md)
+  - [x] [Mini-Ejercicio: Funciones y métodos en Dart](mini_exercises/_4_Functions-methods-in-Dart.dart)
+  - [x] [Clases en Dart](Module2_Dart-languaje/notes/5_Classes-in-Dart.md)
+  - [x] [Mini-Ejercicio: Clases en Dart](mini_exercises/_5_classes_in_dart.dart)
+  - [x] [Lab: Usar variables, funciones y métodos en Dart](Module2_Dart-languaje/lab_variables_functions_methods_Dart/lib/main.dart)
+  - [x] [Librerías en Dart](Module2_Dart-languaje/notes/6_Libraries-in-Dart.md)
+  - [x] [Lab: Librerías en Dart](module2_dart-languaje/lab_libraries_in_dart)
+  - [x] [Línea de comandos y utilidades](module2_dart-languaje/notes/7_Command-Line-and-Utilities.md)
+  - [x] [Editores y depuradores para Dart](module2_dart-languaje/notes/8_Editors-and-debuggers-for-Dart.md)
+  - [x] [Lab: Depuración de aplicaciones Dart](Module2_Dart-languaje/lab_debugging_dart_app/dart_debug)
 
-- [ ] **Módulo 3 – Working with Flutter**
+- [ ] **Módulo 3 – Trabajo con Flutter**
 
-  - [x] [Development Process of Flutter Apps](Module3_Working-with-Flutter/notes/1_Development-Process-of-Flutter-Apps.md)
-  - [x] [Flutter Widgets](Module3_Working-with-Flutter/notes/2_Flutter-Widgets.md)
-  - [ ] Expert Viewpoints: Flutter Widgets and the Flutter Widget Catalog
-  - [ ] Interaction and Forms in Flutter
-  - [ ] Navigation in Flutter
-  - [ ] Lab: Create a Layout in Flutter with Navigation
-  - [ ] Routing in Flutter
-  - [ ] Implementing Styles in Flutter
-  - [ ] Expert Viewpoints: Key Aspects of Designing User Interfaces with Flutter
-  - [ ] Lab: Create a Basic Flutter App with Navigation
+  - [x] [Proceso de desarrollo de apps Flutter](Module3_Working-with-Flutter/notes/1_Development-Process-of-Flutter-Apps.md)
+  - [x] [Widgets de Flutter](Module3_Working-with-Flutter/notes/2_Flutter-Widgets.md)
+  - [x] [Mini-Ejercicio: Widgets de Flutter](mini_exercises/_6_flutter_widgets_dart)
+  - [x] [Puntos de vista expertos: Widgets de Flutter y catálogo de widgets](Module3_Working-with-Flutter/notes/3_Flutter-Widgets-Catalog.md)
+  - [x] [Interacción y formularios en Flutter](Module3_Working-with-Flutter/notes/4_Interaction-and-Forms-in-Flutter.md)
+  - [x] [Navegación en Flutter](Module3_Working-with-Flutter/notes/5_Navigation-in-Flutter.md)
+  - [x] [Mini-Ejercicio: Navegación en Flutter](mini_exercises/_7_navigation_in_flutter)
+  - [ ] Enrutamiento en Flutter
+  - [ ] Implementar estilos en Flutter
+  - [ ] Puntos de vista expertos: Aspectos clave del diseño de interfaces con Flutter
+  - [ ] Lab: Crear una app Flutter básica con navegación
 
-- [ ] **Módulo 4 – Advanced Flutter**
+- [ ] **Módulo 4 – Flutter avanzado**
 
-  - [ ] Using Plugins in Flutter
-  - [ ] Lab: Calling an API Back-End in Flutter
-  - [ ] Introduction to Native Mobile Features
-  - [ ] Managing State in Flutter
-  - [ ] Expert Viewpoints: Stateless vs Stateful Widgets in Flutter
-  - [ ] Calling APIs with Flutter
-  - [ ] Using Flutter with Firebase
-  - [ ] Lab: Explore Plugins in Flutter
-  - [ ] Persistence with Flutter
-  - [ ] Lab: Exploring Local Storage
-  - [ ] Using Local Storage with Flutter
-  - [ ] Lab: Using Local Storage with Flutter
+  - [ ] Uso de plugins en Flutter
+  - [ ] Lab: Llamar a una API Back-End en Flutter
+  - [ ] Introducción a funcionalidades nativas móviles
+  - [ ] Gestión del estado en Flutter
+  - [ ] Puntos de vista expertos: Widgets Stateless vs Stateful en Flutter
+  - [ ] Llamar APIs con Flutter
+  - [ ] Usar Flutter con Firebase
+  - [ ] Lab: Explorar plugins en Flutter
+  - [ ] Persistencia con Flutter
+  - [ ] Lab: Explorando almacenamiento local
+  - [ ] Usar almacenamiento local con Flutter
+  - [ ] Lab: Usar almacenamiento local con Flutter
 
-- [ ] **Módulo 5 – Final Project**
-  - [ ] Preparing a Flutter App for Publishing
-  - [ ] Lab: Prepare a Flutter App for Publishing
-  - [ ] App Store and Play Store Fundamentals
-  - [ ] Releasing an App on iOS
-  - [ ] Releasing an App on Android
-  - [ ] Lab: Draft App Submission for App Store and Play Store
-  - [ ] Leveraging Google Analytics
-  - [ ] Lab: Using Google Analytics
-  - [ ] Practice Project: Create an Expense Tracking App
-  - [ ] Final Project: Create a Time Tracking App
+- [ ] **Módulo 5 – Proyecto final**
+  - [ ] Preparar una app Flutter para publicación
+  - [ ] Lab: Preparar una app Flutter para publicación
+  - [ ] Fundamentos de App Store y Play Store
+  - [ ] Publicación de una app en iOS
+  - [ ] Publicación de una app en Android
+  - [ ] Lab: Borrador de envío de app para App Store y Play Store
+  - [ ] Aprovechar Google Analytics
+  - [ ] Lab: Usar Google Analytics
+  - [ ] Proyecto práctico: Crear una app de seguimiento de gastos
+  - [ ] Proyecto final: Crear una app de seguimiento de tiempo
+
 
 ---
 
