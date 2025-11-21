@@ -83,6 +83,16 @@ class NavigationHomeScreen extends StatelessWidget {
                   );
                 },
               ),
+          const Divider(),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: InfoCard(
+              title: '¿Qué estoy viendo aquí?',
+              description:
+                  'Este Drawer demuestra cómo navegar a nuevas pantallas '
+                  'desde un menú lateral usando Navigator.push().',
+            ),
+          ),
             ],
           ),
         ),
