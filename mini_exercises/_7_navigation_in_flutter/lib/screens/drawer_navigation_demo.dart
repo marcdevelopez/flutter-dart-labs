@@ -26,44 +26,48 @@ class DrawerNavigationDemo extends StatelessWidget {
           description:
               'Puedes abrir pantallas del Drawer también desde aquí para '
               'probar la navegación sin usar el gesto lateral.',
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 12,
-            children: [
-              OutlinedButton.icon(
-                icon: const Icon(Icons.favorite),
-                label: const Text('Favoritos'),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const FavoritesScreen(),
-                    ),
-                  );
-                },
-              ),
-              OutlinedButton.icon(
-                icon: const Icon(Icons.settings),
-                label: const Text('Ajustes'),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const SettingsScreen(),
-                    ),
-                  );
-                },
-              ),
-              OutlinedButton.icon(
-                icon: const Icon(Icons.info_outline),
-                label: const Text('Sobre la app'),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const AboutScreen(),
-                    ),
-                  );
-                },
-              ),
-            ],
+          child: SizedBox(
+            width: double.infinity,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 12,
+              runSpacing: 8,
+              children: [
+                OutlinedButton.icon(
+                  icon: const Icon(Icons.favorite),
+                  label: const Text('Favoritos'),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const FavoritesScreen(),
+                      ),
+                    );
+                  },
+                ),
+                OutlinedButton.icon(
+                  icon: const Icon(Icons.settings),
+                  label: const Text('Ajustes'),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const SettingsScreen(),
+                      ),
+                    );
+                  },
+                ),
+                OutlinedButton.icon(
+                  icon: const Icon(Icons.info_outline),
+                  label: const Text('Sobre la app'),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const AboutScreen(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ],
