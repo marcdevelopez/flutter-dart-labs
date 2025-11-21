@@ -14,7 +14,7 @@ class NavigationPlaygroundApp extends StatefulWidget {
 }
 
 class _NavigationPlaygroundAppState extends State<NavigationPlaygroundApp> {
-  // ESTADO DEL TEMA
+  // THEME STATE
   ThemeMode _themeMode = ThemeMode.system;
 
   void _toggleTheme() {
@@ -28,12 +28,12 @@ class _NavigationPlaygroundAppState extends State<NavigationPlaygroundApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      // TEMAS
+      // THEMES
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: _themeMode,
 
-      // PANTALLA PRINCIPAL
+      // HOME SCREEN
       home: NavigationHomeScreen(
         themeMode: _themeMode,
         onToggleTheme: _toggleTheme,
