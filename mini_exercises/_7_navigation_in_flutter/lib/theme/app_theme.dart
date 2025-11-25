@@ -15,7 +15,7 @@ class AppTheme {
   static CardThemeData _cardTheme() {
     return const CardThemeData(
       elevation: 2,
-      margin: const EdgeInsets.all(12),
+      margin: EdgeInsets.all(12),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
