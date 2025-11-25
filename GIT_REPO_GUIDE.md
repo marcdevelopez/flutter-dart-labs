@@ -13,8 +13,16 @@ flutter-dart-labs/
 ├─ GIT_REPO_GUIDE.md
 ├─ README.md
 ├─ mini_exercises/
-│  ├─ basics_exercise.dart
-│  └─ ...
+│  ├─ module1_introduction/
+│  │  └─ basics_exercise.dart
+│  ├─ module2_dart-languaje/
+│  │  ├─ internals_exercise.dart
+│  │  ├─ variables_and_types.dart
+│  │  ├─ functions_methods_in_dart.dart
+│  │  └─ classes_in_dart.dart
+│  └─ module3_working-with-flutter/
+│     ├─ flutter_widgets_dart/
+│     └─ navigation_in_flutter/
 ├─ labs/
 │  ├─ module1_introduction/
 │  │  └─ lab_hello_world_web/
