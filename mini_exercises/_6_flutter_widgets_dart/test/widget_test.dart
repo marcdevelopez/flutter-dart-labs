@@ -8,23 +8,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:_6_flutter_widgets_dart/main.dart';
+import 'package:flutter_widgets_dart/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Renders widget gallery sections', (WidgetTester tester) async {
     await tester.pumpWidget(const WidgetGalleryApp());
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // App bar title should be visible.
+    expect(find.text('Widget Gallery'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    final scrollable = find.byType(Scrollable).first;
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Basic Widgets'),
+      200,
+      scrollable: scrollable,
+    );
+    expect(find.text('Basic Widgets'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.text('Layout Widgets'),
+      200,
+      scrollable: scrollable,
+    );
+    expect(find.text('Layout Widgets'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.text('Input Widgets'),
+      200,
+      scrollable: scrollable,
+    );
+    expect(find.text('Input Widgets'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.text('Button Widgets'),
+      200,
+      scrollable: scrollable,
+    );
+    expect(find.text('Button Widgets'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.text('Interactive Example'),
+      200,
+      scrollable: scrollable,
+    );
+    expect(find.text('Interactive Example'), findsOneWidget);
   });
 }
