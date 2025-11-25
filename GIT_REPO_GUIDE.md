@@ -9,23 +9,26 @@ Sigue los estándares **Conventional Commits** y **Conventional Branches** usado
 
 ```
 flutter-dart-labs/
-├─ COMMITS_GUIDE.md
-├─ GLOSSARY.md
+├─ AGENTS.md
+├─ GIT_REPO_GUIDE.md
 ├─ README.md
 ├─ mini_exercises/
-│  ├─ exercise_1/
-│  ├─ exercise_2/
+│  ├─ _1_basics_exercise.dart
 │  └─ ...
-├─ module1_introduction/
-│  ├─ notes/
-│  └─ lab_hello_world_web/
-├─ module2_dart-language/
-│  ├─ notes/
-│  └─ labs_variables_functions_methods_Dart/
-│  └─ ...
-├─ module...
-│  ├─ notes/
-│  └─ labs/
+├─ labs/
+│  ├─ module1_introduction/
+│  │  └─ lab_hello_world_web/
+│  └─ module2_dart-languaje/
+│     ├─ lab_variables_functions_methods_Dart/
+│     ├─ lab_libraries_in_dart/
+│     └─ lab_debugging_dart_app/
+├─ Module1_Introduction/
+│  └─ notes/
+├─ Module2_Dart-languaje/
+│  └─ notes/
+├─ Module3_Working-with-Flutter/
+│  └─ notes/
+└─ assets/
 ```
 
 ---

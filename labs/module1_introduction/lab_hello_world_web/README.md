@@ -79,7 +79,7 @@ debes abrir esta carpeta como **proyecto raíz** en VS Code, ya que este lab con
 Ejemplo:
 
 ```bash
-cd module1_introduction/lab_hello_world_web
+cd labs/module1_introduction/lab_hello_world_web
 code .
 ```
 
