@@ -37,20 +37,20 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Introducción a utilidades de Flutter](module1_introduction/notes/5_Introduction-to-Flutter-Utilities.md)
   - [x] [Opiniones de expertos: primeros pasos en Flutter](module1_introduction/notes/6_Expert-Viewpoints-Getting-Started-Flutter.md)
   - [x] [Basicos Dart](module1_introduction/notes/7_Basics-of-Dart.md)
-  - [x] [Mini-Ejercicio: Básicos Dart](mini_exercises/_1_basics_exercise.dart)
+  - [x] [Mini-Ejercicio: Básicos Dart](mini_exercises/basics_exercise.dart)
   - [x] [Lab: Creando una Aplicación Web Flutter Hello World](module1_introduction/lab_hello_world_web/lib/main.dart)
 
 - [ ] **Módulo 2 – Exploring Dart Language**
 
   - [x] [Funcionamiento interno de Dart](Module2_Dart-languaje/notes/1_Internals-of-Dart.md)
-  - [x] [Mini-Ejercicio: Funcionamiento interno de Dart](mini_exercises/_2_internals_exercise.dart)
+  - [x] [Mini-Ejercicio: Funcionamiento interno de Dart](mini_exercises/internals_exercise.dart)
   - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](Module2_Dart-languaje/notes/2_Expert-Viewpoints-Fundamentals-of-Dart.md)
   - [x] [Variables y Tipos](Module2_Dart-languaje/notes/3-Variables-and-types.md)
-  - [x] [Mini-Ejercicio: Variables y Tipos en Dart](mini_exercises/_3_variables_and_types.dart)
+  - [x] [Mini-Ejercicio: Variables y Tipos en Dart](mini_exercises/variables_and_types.dart)
   - [x] [Funciones y Métodos en Dart](Module2_Dart-languaje/notes/4_Functions-methods-in-Dart.md)
-  - [x] [Mini-Ejercicio: Funciones y métodos en Dart](mini_exercises/_4_Functions-methods-in-Dart.dart)
+  - [x] [Mini-Ejercicio: Funciones y métodos en Dart](mini_exercises/functions_methods_in_dart.dart)
   - [x] [Clases en Dart](Module2_Dart-languaje/notes/5_Classes-in-Dart.md)
-  - [x] [Mini-Ejercicio: Clases en Dart](mini_exercises/_5_classes_in_dart.dart)
+  - [x] [Mini-Ejercicio: Clases en Dart](mini_exercises/classes_in_dart.dart)
   - [x] [Lab: Usar variables, funciones y métodos en Dart](Module2_Dart-languaje/lab_variables_functions_methods_Dart/lib/main.dart)
   - [x] [Librerías en Dart](Module2_Dart-languaje/notes/6_Libraries-in-Dart.md)
   - [x] [Lab: Librerías en Dart](module2_dart-languaje/lab_libraries_in_dart)
@@ -62,11 +62,11 @@ modulo5_final_project/     → Proyecto final de publicación
 
   - [x] [Proceso de desarrollo de apps Flutter](Module3_Working-with-Flutter/notes/1_Development-Process-of-Flutter-Apps.md)
   - [x] [Widgets de Flutter](Module3_Working-with-Flutter/notes/2_Flutter-Widgets.md)
-  - [x] [Mini-Ejercicio: Widgets de Flutter](mini_exercises/_6_flutter_widgets_dart)
+  - [x] [Mini-Ejercicio: Widgets de Flutter](mini_exercises/flutter_widgets_dart)
   - [x] [Puntos de vista expertos: Widgets de Flutter y catálogo de widgets](Module3_Working-with-Flutter/notes/3_Flutter-Widgets-Catalog.md)
   - [x] [Interacción y formularios en Flutter](Module3_Working-with-Flutter/notes/4_Interaction-and-Forms-in-Flutter.md)
   - [x] [Navegación en Flutter](Module3_Working-with-Flutter/notes/5_Navigation-in-Flutter.md)
-  - [x] [Mini-Ejercicio: Navegación en Flutter](mini_exercises/_7_navigation_in_flutter)
+  - [x] [Mini-Ejercicio: Navegación en Flutter](mini_exercises/navigation_in_flutter)
   - [ ] Enrutamiento en Flutter
   - [ ] Implementar estilos en Flutter
   - [ ] Puntos de vista expertos: Aspectos clave del diseño de interfaces con Flutter
