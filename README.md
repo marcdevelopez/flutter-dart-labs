@@ -42,21 +42,21 @@ modulo5_final_project/     → Proyecto final de publicación
 
 - [ ] **Módulo 2 – Exploring Dart Language**
 
-  - [x] [Funcionamiento interno de Dart](Module2_Dart-languaje/notes/1_Internals-of-Dart.md)
-  - [x] [Mini-Ejercicio: Funcionamiento interno de Dart](mini_exercises/module2_dart-languaje/internals_exercise.dart)
-  - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](Module2_Dart-languaje/notes/2_Expert-Viewpoints-Fundamentals-of-Dart.md)
-  - [x] [Variables y Tipos](Module2_Dart-languaje/notes/3-Variables-and-types.md)
-  - [x] [Mini-Ejercicio: Variables y Tipos en Dart](mini_exercises/module2_dart-languaje/variables_and_types.dart)
-  - [x] [Funciones y Métodos en Dart](Module2_Dart-languaje/notes/4_Functions-methods-in-Dart.md)
-  - [x] [Mini-Ejercicio: Funciones y métodos en Dart](mini_exercises/module2_dart-languaje/functions_methods_in_dart.dart)
-  - [x] [Clases en Dart](Module2_Dart-languaje/notes/5_Classes-in-Dart.md)
-  - [x] [Mini-Ejercicio: Clases en Dart](mini_exercises/module2_dart-languaje/classes_in_dart.dart)
-  - [x] [Lab: Usar variables, funciones y métodos en Dart](labs/module2_dart-languaje/lab_variables_functions_methods_Dart/lib/main.dart)
-  - [x] [Librerías en Dart](Module2_Dart-languaje/notes/6_Libraries-in-Dart.md)
-  - [x] [Lab: Librerías en Dart](labs/module2_dart-languaje/lab_libraries_in_dart)
-  - [x] [Línea de comandos y utilidades](module2_dart-languaje/notes/7_Command-Line-and-Utilities.md)
-  - [x] [Editores y depuradores para Dart](module2_dart-languaje/notes/8_Editors-and-debuggers-for-Dart.md)
-  - [x] [Lab: Depuración de aplicaciones Dart](labs/module2_dart-languaje/lab_debugging_dart_app/dart_debug)
+  - [x] [Funcionamiento interno de Dart](Module2_Dart-language/notes/1_Internals-of-Dart.md)
+  - [x] [Mini-Ejercicio: Funcionamiento interno de Dart](mini_exercises/module2_dart-language/internals_exercise.dart)
+  - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](Module2_Dart-language/notes/2_Expert-Viewpoints-Fundamentals-of-Dart.md)
+  - [x] [Variables y Tipos](Module2_Dart-language/notes/3-Variables-and-types.md)
+  - [x] [Mini-Ejercicio: Variables y Tipos en Dart](mini_exercises/module2_dart-language/variables_and_types.dart)
+  - [x] [Funciones y Métodos en Dart](Module2_Dart-language/notes/4_Functions-methods-in-Dart.md)
+  - [x] [Mini-Ejercicio: Funciones y métodos en Dart](mini_exercises/module2_dart-language/functions_methods_in_dart.dart)
+  - [x] [Clases en Dart](Module2_Dart-language/notes/5_Classes-in-Dart.md)
+  - [x] [Mini-Ejercicio: Clases en Dart](mini_exercises/module2_dart-language/classes_in_dart.dart)
+  - [x] [Lab: Usar variables, funciones y métodos en Dart](labs/module2_dart-language/lab_variables_functions_methods_Dart/lib/main.dart)
+  - [x] [Librerías en Dart](Module2_Dart-language/notes/6_Libraries-in-Dart.md)
+  - [x] [Lab: Librerías en Dart](labs/module2_dart-language/lab_libraries_in_dart)
+  - [x] [Línea de comandos y utilidades](Module2_Dart-language/notes/7_Command-Line-and-Utilities.md)
+  - [x] [Editores y depuradores para Dart](Module2_Dart-language/notes/8_Editors-and-debuggers-for-Dart.md)
+  - [x] [Lab: Depuración de aplicaciones Dart](labs/module2_dart-language/lab_debugging_dart_app/dart_debug)
 
 - [ ] **Módulo 3 – Trabajo con Flutter**
 
