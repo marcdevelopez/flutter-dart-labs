@@ -15,7 +15,7 @@ flutter-dart-labs/
 ├─ mini_exercises/
 │  ├─ module1_introduction/
 │  │  └─ basics_exercise.dart
-│  ├─ module2_dart-languaje/
+│  ├─ module2_dart-language/
 │  │  ├─ internals_exercise.dart
 │  │  ├─ variables_and_types.dart
 │  │  ├─ functions_methods_in_dart.dart
@@ -26,13 +26,13 @@ flutter-dart-labs/
 ├─ labs/
 │  ├─ module1_introduction/
 │  │  └─ lab_hello_world_web/
-│  └─ module2_dart-languaje/
+│  └─ module2_dart-language/
 │     ├─ lab_variables_functions_methods_Dart/
 │     ├─ lab_libraries_in_dart/
 │     └─ lab_debugging_dart_app/
 ├─ Module1_Introduction/
 │  └─ notes/
-├─ Module2_Dart-languaje/
+├─ Module2_Dart-language/
 │  └─ notes/
 ├─ Module3_Working-with-Flutter/
 │  └─ notes/
