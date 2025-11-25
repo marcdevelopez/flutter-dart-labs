@@ -38,7 +38,7 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Opiniones de expertos: primeros pasos en Flutter](module1_introduction/notes/6_Expert-Viewpoints-Getting-Started-Flutter.md)
   - [x] [Basicos Dart](module1_introduction/notes/7_Basics-of-Dart.md)
   - [x] [Mini-Ejercicio: Básicos Dart](mini_exercises/_1_basics_exercise.dart)
-  - [x] [Lab: Creando una Aplicación Web Flutter Hello World](module1_introduction/lab_hello_world_web/lib/main.dart)
+  - [x] [Lab: Creando una Aplicación Web Flutter Hello World](labs/module1_introduction/lab_hello_world_web/lib/main.dart)
 
 - [ ] **Módulo 2 – Exploring Dart Language**
 
@@ -51,12 +51,12 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Mini-Ejercicio: Funciones y métodos en Dart](mini_exercises/_4_Functions-methods-in-Dart.dart)
   - [x] [Clases en Dart](Module2_Dart-languaje/notes/5_Classes-in-Dart.md)
   - [x] [Mini-Ejercicio: Clases en Dart](mini_exercises/_5_classes_in_dart.dart)
-  - [x] [Lab: Usar variables, funciones y métodos en Dart](Module2_Dart-languaje/lab_variables_functions_methods_Dart/lib/main.dart)
+  - [x] [Lab: Usar variables, funciones y métodos en Dart](labs/module2_dart-languaje/lab_variables_functions_methods_Dart/lib/main.dart)
   - [x] [Librerías en Dart](Module2_Dart-languaje/notes/6_Libraries-in-Dart.md)
-  - [x] [Lab: Librerías en Dart](module2_dart-languaje/lab_libraries_in_dart)
+  - [x] [Lab: Librerías en Dart](labs/module2_dart-languaje/lab_libraries_in_dart)
   - [x] [Línea de comandos y utilidades](module2_dart-languaje/notes/7_Command-Line-and-Utilities.md)
   - [x] [Editores y depuradores para Dart](module2_dart-languaje/notes/8_Editors-and-debuggers-for-Dart.md)
-  - [x] [Lab: Depuración de aplicaciones Dart](Module2_Dart-languaje/lab_debugging_dart_app/dart_debug)
+  - [x] [Lab: Depuración de aplicaciones Dart](labs/module2_dart-languaje/lab_debugging_dart_app/dart_debug)
 
 - [ ] **Módulo 3 – Trabajo con Flutter**
 
@@ -131,7 +131,7 @@ es necesario abrir **cada proyecto Flutter como raíz del workspace** en VS Code
 Esto significa que NO debes abrir la carpeta completa del repositorio `flutter-dart-labs/`, sino entrar al lab correspondiente, por ejemplo:
 
 ```bash
-cd module1_introduction/lab_hello_world_web
+cd labs/module1_introduction/lab_hello_world_web
 code .
 ````
 
