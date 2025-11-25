@@ -21,7 +21,7 @@ Está pensada para aprender y mostrar conceptos esenciales como:
 Este módulo se encuentra dentro de la ruta:
 
 ```
-FLUTTER-DART-LABS/mini_exercises/flutter_widgets_dart
+FLUTTER-DART-LABS/mini_exercises/module3_working-with-flutter/flutter_widgets_dart
 ```
 
 Si abres **todo el repositorio principal (`FLUTTER-DART-LABS`)** desde VS Code, el analizador de Dart puede mostrar errores falsos como:
@@ -39,7 +39,7 @@ Para evitar estos errores, **abre únicamente la carpeta del módulo**:
 1. En Visual Studio Code, selecciona
    **Archivo → Abrir carpeta...**
 2. Navega hasta
-   `mini_exercises/flutter_widgets_dart`
+   `mini_exercises/module3_working-with-flutter/flutter_widgets_dart`
 3. Espera a que se cargue el entorno de Flutter.
    Verás que los errores desaparecen y los imports se reconocen correctamente.
 
@@ -50,7 +50,7 @@ Para evitar estos errores, **abre únicamente la carpeta del módulo**:
 1. Abre una terminal en la raíz del módulo:
 
    ```bash
-   cd mini_exercises/flutter_widgets_dart
+   cd mini_exercises/module3_working-with-flutter/flutter_widgets_dart
    ```
 2. Instala las dependencias:
 

@@ -10,7 +10,7 @@
  *   - Isolates (parallel computation)
  *
  * How to run:
- *   dart run mini_exercises/internals_exercise.dart
+ *   dart run mini_exercises/module2_dart-languaje/internals_exercise.dart
  *
  * Note: This file is educational; each demo is independent and can serve
  * as a template for future practice.

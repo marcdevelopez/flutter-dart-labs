@@ -9,12 +9,16 @@ Los archivos aquí incluidos son pequeños programas `.dart` creados para:
 - Explorar ejemplos alternativos y experimentales.
 
 ## Organización
+- Los ejercicios están agrupados por módulo dentro de subcarpetas:  
+  `mini_exercises/module1_introduction/`, `mini_exercises/module2_dart-languaje/`, etc.
 - Cada archivo `.dart` corresponde a un **tema concreto** del curso.  
-- Los nombres de archivo reflejan el tema al que pertenecen.  
-  Ejemplo: `variables_and_types_exercise.dart`, `functions_methods_exercise.dart`.
+  Ejemplo: `mini_exercises/module2_dart-languaje/variables_and_types.dart`.
 
 ## Cómo ejecutar un ejercicio
 Desde la raíz del repositorio, puedes ejecutar cualquier archivo con:
 
 ```bash
-dart run mini_exercises/nombre_del_archivo.dart
+dart run mini_exercises/<modulo>/<archivo>.dart
+
+# Ejemplo
+dart run mini_exercises/module2_dart-languaje/variables_and_types.dart
