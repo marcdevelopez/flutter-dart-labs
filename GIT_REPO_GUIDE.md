@@ -13,7 +13,7 @@ flutter-dart-labs/
 ├─ GIT_REPO_GUIDE.md
 ├─ README.md
 ├─ mini_exercises/
-│  ├─ _1_basics_exercise.dart
+│  ├─ basics_exercise.dart
 │  └─ ...
 ├─ labs/
 │  ├─ module1_introduction/
