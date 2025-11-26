@@ -1,0 +1,61 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code (mantén settings si quieres compartirlos)
+.vscode/*
+!.vscode/settings.json
+
+# Flutter / Dart / Pub
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+**/build/
+
+# iOS/macOS (Pods/DerivedData)
+ios/Pods/
+macos/Pods/
+ios/DerivedData/
+macos/DerivedData/
+
+# Android Studio build outputs
+android/app/debug
+android/app/profile
+android/app/release
+
+# Simbolicación / Ofuscación
+app.*.symbols
+app.*.map.json
+
+# Salida web/desktop
+web/.dart_tool/
+linux/flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# Archivos de usuario
+*.tmp
+
+# Notas internas (quita si quieres versionarlas)
+notas_codigo/
