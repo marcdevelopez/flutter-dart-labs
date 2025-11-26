@@ -67,7 +67,7 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Interacción y formularios en Flutter](Module3_Working-with-Flutter/notes/4_Interaction-and-Forms-in-Flutter.md)
   - [x] [Navegación en Flutter](Module3_Working-with-Flutter/notes/5_Navigation-in-Flutter.md)
   - [x] [Mini-Ejercicio: Navegación en Flutter](mini_exercises/module3_working-with-flutter/navigation_in_flutter)
-  - [ ] Enrutamiento en Flutter
+  - [x] [Enrutamiento en Flutter](Module3_Working-with-Flutter/notes/6_Routing-in-Flutter.md)
   - [ ] Implementar estilos en Flutter
   - [ ] Puntos de vista expertos: Aspectos clave del diseño de interfaces con Flutter
   - [ ] Lab: Crear una app Flutter básica con navegación
