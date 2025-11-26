@@ -99,7 +99,6 @@ modulo5_final_project/     → Proyecto final de publicación
   - [ ] Proyecto práctico: Crear una app de seguimiento de gastos
   - [ ] Proyecto final: Crear una app de seguimiento de tiempo
 
-
 ---
 
 ## 🚀 Cómo ejecutar los labs
@@ -125,7 +124,7 @@ Para evitar el error común:
 
 Target of URI doesn't exist: 'package:flutter/material.dart'
 
-````
+```
 
 es necesario abrir **cada proyecto Flutter como raíz del workspace** en VS Code.  
 Esto significa que NO debes abrir la carpeta completa del repositorio `flutter-dart-labs/`, sino entrar al lab correspondiente, por ejemplo:
@@ -133,7 +132,7 @@ Esto significa que NO debes abrir la carpeta completa del repositorio `flutter-d
 ```bash
 cd labs/module1_introduction/lab_hello_world_web
 code .
-````
+```
 
 Cada lab contiene su propio `pubspec.yaml`, por lo que Flutter solo funcionará correctamente si ese archivo está en la raíz del proyecto abierto.
 
@@ -151,5 +150,19 @@ flutter run -d chrome
 
 Este README irá evolucionando a medida que avance en el curso y en mis proyectos.  
 La idea es que al final se convierta en una **guía completa y ordenada** que muestre tanto mi progreso como un camino útil para otros desarrolladores.
+
+---
+
+# DISCLAIMER
+
+This repository contains educational material developed as part of my learning journey with the **IBM Flutter & Dart Course on Coursera**.
+
+**Copyright Notice**: The original course content, structure, and some code examples belong to IBM and Coursera. This repository is my personal study notes and practice implementations.
+
+**Usage**: This material is for educational purposes only and should not be used commercially or redistributed.
+
+If you're looking for the official course, please visit: [Coursera - IBM Flutter Course](link-al-curso)
+
+<br>
 
 ---
