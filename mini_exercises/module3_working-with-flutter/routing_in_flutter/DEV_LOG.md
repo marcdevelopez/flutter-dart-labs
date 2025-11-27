@@ -7,11 +7,16 @@
 **Estado**: 🟡 En Progreso  
 **Desarrollador**: Marcos García
 
+_Última Actualización: 2025-11-26_
+_Estado del Proyecto: 🟡 En Progreso_
+
 #### Tareas Completadas
 
 - ✅ Creada estructura del proyecto Flutter
 - ✅ Configurados archivos de documentación (ROADMAP, SPECS, DEV_LOG)
 - ✅ Configurado .gitignore
+- ✅ Configurar dependencias en pubspec.yaml
+- ✅ Se creó la estructura inicial y las rutas base
 
 #### Desafíos
 
@@ -19,9 +24,11 @@
 
 #### Próximos Pasos
 
-- Configurar dependencias en pubspec.yaml
-- Crear estructura inicial de MaterialApp
-- Configurar tabla de rutas nombradas
+- Completar UI inicial de cada demo (Named, Direct, Data, Advanced)
+- Implementar navegación nombrada y directa según el mapa de rutas
+- Añadir formulario y retorno de datos en DataPassingDemo
+- Implementar pushReplacement y navegación condicional en AdvancedDemo
+- Agregar pruebas básicas de navegación y flujos clave
 
 ---
 
@@ -159,11 +166,6 @@
 - [ ] **Hito 4**: Paso de datos implementado
 - [ ] **Hito 5**: Funcionalidades avanzadas completas
 - [ ] **Hito 6**: Proyecto listo para revisión
-
----
-
-_Última Actualización: 2025-11-26_
-_Estado del Proyecto: 🟡 En Progreso_
 
 <br>
 

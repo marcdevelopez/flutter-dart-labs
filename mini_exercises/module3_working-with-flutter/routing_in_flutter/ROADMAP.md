@@ -20,8 +20,8 @@ Basado en las notas del Módulo 3 [Enrutamiento en Flutter](../../../Module3_Wor
 
 - [x] Crear estructura del proyecto Flutter
 - [x] Configurar archivos de documentación (ROADMAP.md, SPECS.md, DEV_LOG.md)
-- [ ] Configurar dependencias del proyecto
-- [ ] Configurar estructura inicial de MaterialApp
+- [x] Configurar dependencias del proyecto
+- [x] Configurar estructura inicial de MaterialApp
 
 ### Fase 2: Implementación de Navegación Core
 
