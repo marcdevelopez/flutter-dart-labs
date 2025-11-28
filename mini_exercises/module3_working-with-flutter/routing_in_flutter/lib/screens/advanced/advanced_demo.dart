@@ -51,6 +51,19 @@ class AdvancedDemo extends StatelessWidget {
               ),
               child: const Text('Conditional Navigation'),
             ),
+            // Simulación de deep link: un botón que “abre” directamente una 
+            // pantalla anidada (por ejemplo, “Settings → Details”) sin pasar 
+            // por el flujo normal
+            ElevatedButton(
+              // simula abrir una pantalla interna directamente
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const _DeepLinkSimulatedScreen(),
+                ),
+              ),
+              child: const Text('Simulated Deep Link'),
+            ),
           ],
         ),
       ),
@@ -143,6 +156,39 @@ class _ProtectedScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () => Navigator.pop(context),
           child: const Text('Back'),
+        ),
+      ),
+    );
+  }
+}
+
+class _DeepLinkSimulatedScreen extends StatelessWidget {
+  const _DeepLinkSimulatedScreen();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Deep Link: Settings > Details')),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Simulated deep link',
+              // se crea un TextStyle directo, no usando el tema
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Opened directly as if from a deep link to settings/details.',
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Back'),
+            ),
+          ],
         ),
       ),
     );
