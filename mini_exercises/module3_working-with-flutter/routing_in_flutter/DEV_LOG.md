@@ -2,11 +2,11 @@
 
 ## 📅 Cronología del Desarrollo
 
-### 2025-11-27 - Navegación core y flujos listos
+### 2025-11-28 - Deep link simulado y demos completas
 
 **Estado**: 🟡 En Progreso  
 
-_Última Actualización: 2025-11-27_
+_Última Actualización: 2025-11-28_
 _Estado del Proyecto: 🟡 En Progreso_
 
 #### Tareas Completadas
@@ -17,6 +17,7 @@ _Estado del Proyecto: 🟡 En Progreso_
 - ✅ Paso de datos con formulario y retorno (SnackBar)
 - ✅ pushReplacement (Login → Home simulado)
 - ✅ Navegación condicional con estado local
+- ✅ Simulación de deep link hacia pantalla específica en Advanced
 
 #### Desafíos
 
@@ -24,7 +25,6 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 #### Próximos Pasos
 
-- Simular deep link hacia pantalla específica en Advanced
 - Crear ResultScreen dedicada para mostrar datos (además del SnackBar)
 - Agregar pruebas básicas de navegación y flujos clave
 - Documentar cambios finales en README/DEV_LOG
@@ -77,7 +77,7 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 - [x] Implementar ejemplo de pushReplacement (Login → Home)
 - [x] Crear demo de navegación condicional (estado booleano local)
-- [ ] Añadir simulación de deep linking (mediante estructura de rutas)
+- [x] Añadir simulación de deep linking (mediante estructura de rutas)
 - [ ] Probar todos los escenarios avanzados
 
 #### Notas
