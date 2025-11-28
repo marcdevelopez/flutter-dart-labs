@@ -2,21 +2,21 @@
 
 ## 📅 Cronología del Desarrollo
 
-### 2025-11-26 - Inicialización del Proyecto
+### 2025-11-27 - Navegación core y flujos listos
 
 **Estado**: 🟡 En Progreso  
-**Desarrollador**: Marcos García
 
-_Última Actualización: 2025-11-26_
+_Última Actualización: 2025-11-27_
 _Estado del Proyecto: 🟡 En Progreso_
 
 #### Tareas Completadas
 
-- ✅ Creada estructura del proyecto Flutter
-- ✅ Configurados archivos de documentación (ROADMAP, SPECS, DEV_LOG)
-- ✅ Configurado .gitignore
-- ✅ Configurar dependencias en pubspec.yaml
-- ✅ Se creó la estructura inicial y las rutas base
+- ✅ HomeScreen con menú para Named, Direct, Data y Advanced
+- ✅ Rutas nombradas: flujo completo con First y Second
+- ✅ Rutas directas con MaterialPageRoute (Profile/Settings)
+- ✅ Paso de datos con formulario y retorno (SnackBar)
+- ✅ pushReplacement (Login → Home simulado)
+- ✅ Navegación condicional con estado local
 
 #### Desafíos
 
@@ -24,24 +24,23 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 #### Próximos Pasos
 
-- Completar UI inicial de cada demo (Named, Direct, Data, Advanced)
-- Implementar navegación nombrada y directa según el mapa de rutas
-- Añadir formulario y retorno de datos en DataPassingDemo
-- Implementar pushReplacement y navegación condicional en AdvancedDemo
+- Simular deep link hacia pantalla específica en Advanced
+- Crear ResultScreen dedicada para mostrar datos (además del SnackBar)
 - Agregar pruebas básicas de navegación y flujos clave
+- Documentar cambios finales en README/DEV_LOG
 
 ---
 
-### [PENDIENTE] - Configuración de Navegación Core
+### [COMPLETADO] - Configuración de Navegación Core
 
-**Estado**: ⚪ No Iniciado
+**Estado**: ✅ Completado
 
 #### Tareas Planificadas
 
-- [ ] Crear HomeScreen con cards de navegación
-- [ ] Implementar rutas nombradas en MaterialApp
-- [ ] Crear sección NamedRoutesDemo
-- [ ] Crear sección DirectRoutesDemo
+- [x] Crear HomeScreen con cards de navegación
+- [x] Implementar rutas nombradas en MaterialApp
+- [x] Crear sección NamedRoutesDemo
+- [x] Crear sección DirectRoutesDemo
 
 #### Notas
 
@@ -51,16 +50,16 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 ---
 
-### [PENDIENTE] - Implementación de Paso de Datos
+### [EN PROGRESO] - Implementación de Paso de Datos
 
-**Estado**: ⚪ No Iniciado
+**Estado**: 🟡 En Progreso
 
 #### Tareas Planificadas
 
-- [ ] Crear FormScreen con TextFields
-- [ ] Implementar paso de datos con Navigator.push
+- [x] Crear FormScreen con TextFields
+- [x] Implementar paso de datos con Navigator.push
 - [ ] Crear ResultScreen para mostrar datos
-- [ ] Probar flujo de datos entre pantallas (ida y vuelta)
+- [x] Probar flujo de datos entre pantallas (ida y vuelta)
 
 #### Decisiones Técnicas
 
@@ -70,14 +69,14 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 ---
 
-### [PENDIENTE] - Funcionalidades Avanzadas
+### [EN PROGRESO] - Funcionalidades Avanzadas
 
-**Estado**: ⚪ No Iniciado
+**Estado**: 🟡 En Progreso
 
 #### Tareas Planificadas
 
-- [ ] Implementar ejemplo de pushReplacement (Login → Home)
-- [ ] Crear demo de navegación condicional (estado booleano local)
+- [x] Implementar ejemplo de pushReplacement (Login → Home)
+- [x] Crear demo de navegación condicional (estado booleano local)
 - [ ] Añadir simulación de deep linking (mediante estructura de rutas)
 - [ ] Probar todos los escenarios avanzados
 
@@ -160,10 +159,10 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 ## 🎯 Hitos del Proyecto
 
-- [ ] **Hito 1**: Estructura básica del proyecto completa
-- [ ] **Hito 2**: Rutas nombradas funcionando
-- [ ] **Hito 3**: Rutas directas funcionando
-- [ ] **Hito 4**: Paso de datos implementado
+- [x] **Hito 1**: Estructura básica del proyecto completa
+- [x] **Hito 2**: Rutas nombradas funcionando
+- [x] **Hito 3**: Rutas directas funcionando
+- [x] **Hito 4**: Paso de datos implementado
 - [ ] **Hito 5**: Funcionalidades avanzadas completas
 - [ ] **Hito 6**: Proyecto listo para revisión
 
