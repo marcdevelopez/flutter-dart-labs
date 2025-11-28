@@ -25,14 +25,14 @@ class DataPassingDemo extends StatelessWidget {
       appBar: AppBar(title: const Text('Data Passing Demo')),
       body: Center(
         child: ElevatedButton(
-          // Se marca como async porque dentro vas a usar await 
+          // Se marca como async porque dentro vas a usar await
           // (navegación que devuelve resultado)
           onPressed: () async {
-            // Llamas a Navigator.push y esperas (await) a que la pantalla que 
+            // Llamas a Navigator.push y esperas (await) a que la pantalla que
             // abras se cierre.
-            // Lo que esa pantalla devuelva al hacer Navigator.pop(context, algo) 
+            // Lo que esa pantalla devuelva al hacer Navigator.pop(context, algo)
             // se guarda en result.
-            // result será el valor que venga de _FormScreen (o null si no 
+            // result será el valor que venga de _FormScreen (o null si no
             // devuelve nada).
             final result = await Navigator.push(
               context,
@@ -41,12 +41,20 @@ class DataPassingDemo extends StatelessWidget {
             );
             if (!context.mounted) return;
             // Después de que _FormScreen se cierra (await), este código se ejecuta
-            // ScaffoldMessenger.of(context) obtiene el ScaffoldMessenger asociado 
+            // ScaffoldMessenger.of(context) obtiene el ScaffoldMessenger asociado
             //al Scaffold actual.
             ScaffoldMessenger.of(context).showSnackBar(
               // Si result es null, muestra 'none'.
               SnackBar(content: Text('Result: ${result ?? 'none'}')),
             );
+            if (result is String && result.trim().isNotEmpty) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => _ResultScreen(message: result.trim()),
+                ),
+              );
+            }
           },
           child: const Text('Open Form'),
         ),
@@ -54,12 +62,14 @@ class DataPassingDemo extends StatelessWidget {
     );
   }
 }
+
 class _FormScreen extends StatefulWidget {
   // Constructor const sin parámetros.
   const _FormScreen();
   @override
   State<_FormScreen> createState() => _FormScreenState();
 }
+
 // Defines la clase de estado _FormScreenState
 class _FormScreenState extends State<_FormScreen> {
   // _controller permitirá leer y modificar el texto que el usuario escribe
@@ -71,6 +81,7 @@ class _FormScreenState extends State<_FormScreen> {
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,11 +99,45 @@ class _FormScreenState extends State<_FormScreen> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              // Devuelve el valor _controller.text como resultado a quien hizo 
+              // Devuelve el valor _controller.text como resultado a quien hizo
               // el Navigator.push(...).
               // Ese valor lo recogerá result en DataPassingDemo.
               onPressed: () => Navigator.pop(context, _controller.text),
               child: const Text('Submit'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ResultScreen extends StatelessWidget {
+  // Recibe el mensaje a mostrar
+  const _ResultScreen({required this.message});
+  final String message;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Result Screen')),
+      body: Center(
+        child: Column(
+          // La columna ocupa solo el espacio necesario
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Received message:'),
+            const SizedBox(height: 8),
+            // Muestra el mensaje con estilo de título
+            Text(
+              message,
+              style: Theme.of(context).textTheme.titleMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            // Botón “Back”: hace Navigator.pop para regresar
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Back'),
             ),
           ],
         ),
