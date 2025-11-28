@@ -23,45 +23,49 @@ class DataPassingDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Data Passing Demo')),
-      body: Center(
-        child: ElevatedButton(
-          // Se marca como async porque dentro vas a usar await
-          // (navegación que devuelve resultado)
-          onPressed: () async {
-            // Llamas a Navigator.push y esperas (await) a que la pantalla que
-            // abras se cierre.
-            // Lo que esa pantalla devuelva al hacer Navigator.pop(context, algo)
-            // se guarda en result.
-            // result será el valor que venga de _FormScreen (o null si no
-            // devuelve nada).
-            final result = await Navigator.push(
-              context,
-              // El _ es un BuildContext que no usas, por eso lo nombras así
-              MaterialPageRoute(builder: (_) => const _FormScreen()),
-            );
-            // Si el widget ya no está montado, sal para evitar usar un context inválido
-            if (!context.mounted) return;
-            final displayResult = (result is String && result.trim().isNotEmpty)
-                ? result.trim()
-                : 'none';
-            // Después de que _FormScreen se cierra (await), este código se ejecuta
-            // ScaffoldMessenger.of(context) obtiene el ScaffoldMessenger asociado
-            //al Scaffold actual.
-            ScaffoldMessenger.of(context).showSnackBar(
-              // Si result es null, muestra 'none'.
-              SnackBar(content: Text('Result: $displayResult')),
-            );
-            // Solo abre ResultScreen si hay texto real
-            if (displayResult != 'none') {
-              Navigator.push(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Center(
+          child: ElevatedButton(
+            // Se marca como async porque dentro vas a usar await
+            // (navegación que devuelve resultado)
+            onPressed: () async {
+              // Llamas a Navigator.push y esperas (await) a que la pantalla que
+              // abras se cierre.
+              // Lo que esa pantalla devuelva al hacer Navigator.pop(context, algo)
+              // se guarda en result.
+              // result será el valor que venga de _FormScreen (o null si no
+              // devuelve nada).
+              final result = await Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (_) => _ResultScreen(message: displayResult),
-                ),
+                // El _ es un BuildContext que no usas, por eso lo nombras así
+                MaterialPageRoute(builder: (_) => const _FormScreen()),
               );
-            }
-          },
-          child: const Text('Open Form'),
+              // Si el widget ya no está montado, sal para evitar usar un context inválido
+              if (!context.mounted) return;
+              final displayResult =
+                  (result is String && result.trim().isNotEmpty)
+                  ? result.trim()
+                  : 'none';
+              // Después de que _FormScreen se cierra (await), este código se ejecuta
+              // ScaffoldMessenger.of(context) obtiene el ScaffoldMessenger asociado
+              //al Scaffold actual.
+              ScaffoldMessenger.of(context).showSnackBar(
+                // Si result es null, muestra 'none'.
+                SnackBar(content: Text('Result: $displayResult')),
+              );
+              // Solo abre ResultScreen si hay texto real
+              if (displayResult != 'none') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => _ResultScreen(message: displayResult),
+                  ),
+                );
+              }
+            },
+            child: const Text('Open Form'),
+          ),
         ),
       ),
     );

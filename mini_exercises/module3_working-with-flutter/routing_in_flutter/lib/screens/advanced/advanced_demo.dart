@@ -27,44 +27,47 @@ class AdvancedDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Advanced Routing Demo')),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // ElevatedButton con una acción “especial”:
-            ElevatedButton(
-              // Empuja una nueva ruta y reemplaza la actual.
-              // Es decir, no puedes volver atrás a la pantalla anterior con “Back”.
-              onPressed: () => Navigator.pushReplacement(
-                context,
-                // Crea una ruta directa a la pantalla de inicio tras login
-                // _ es el contexto que no usas.
-                MaterialPageRoute(builder: (_) => const _HomeAfterLogin()),
-              ),
-              child: const Text('Simulate Login → Home (pushReplacement)'),
-            ),
-            ElevatedButton(
-              // Usa Navigator.push normal (no reemplaza la ruta anterior).
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const _ConditionalScreen()),
-              ),
-              child: const Text('Conditional Navigation'),
-            ),
-            // Simulación de deep link: un botón que “abre” directamente una 
-            // pantalla anidada (por ejemplo, “Settings → Details”) sin pasar 
-            // por el flujo normal
-            ElevatedButton(
-              // simula abrir una pantalla interna directamente
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const _DeepLinkSimulatedScreen(),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // ElevatedButton con una acción “especial”:
+              ElevatedButton(
+                // Empuja una nueva ruta y reemplaza la actual.
+                // Es decir, no puedes volver atrás a la pantalla anterior con “Back”.
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  // Crea una ruta directa a la pantalla de inicio tras login
+                  // _ es el contexto que no usas.
+                  MaterialPageRoute(builder: (_) => const _HomeAfterLogin()),
                 ),
+                child: const Text('Simulate Login → Home (pushReplacement)'),
               ),
-              child: const Text('Simulated Deep Link'),
-            ),
-          ],
+              ElevatedButton(
+                // Usa Navigator.push normal (no reemplaza la ruta anterior).
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const _ConditionalScreen()),
+                ),
+                child: const Text('Conditional Navigation'),
+              ),
+              // Simulación de deep link: un botón que “abre” directamente una
+              // pantalla anidada (por ejemplo, “Settings → Details”) sin pasar
+              // por el flujo normal
+              ElevatedButton(
+                // simula abrir una pantalla interna directamente
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const _DeepLinkSimulatedScreen(),
+                  ),
+                ),
+                child: const Text('Simulated Deep Link'),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -174,10 +177,10 @@ class _DeepLinkSimulatedScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Simulated deep link',
               // se crea un TextStyle directo, no usando el tema
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 8),
             const Text(
