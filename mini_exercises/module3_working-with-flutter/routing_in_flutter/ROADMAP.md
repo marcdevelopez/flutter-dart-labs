@@ -36,7 +36,7 @@ Basado en las notas del Módulo 3 [Enrutamiento en Flutter](../../../Module3_Wor
 - [x] Crear pantalla de formulario con recuperación de datos
 - [x] Implementar ejemplo de reemplazo de pantalla (pushReplacement)
 - [x] Añadir ejemplo simple de navegación condicional basada en estado local
-- [ ] Simular deep link mediante navegación a pantalla específica (pendiente)
+- [x] Simular deep link mediante navegación a pantalla específica
 
 ### Fase 4: Pulido y Documentación
 
