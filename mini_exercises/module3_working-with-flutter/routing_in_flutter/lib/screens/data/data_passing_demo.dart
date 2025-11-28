@@ -39,19 +39,24 @@ class DataPassingDemo extends StatelessWidget {
               // El _ es un BuildContext que no usas, por eso lo nombras así
               MaterialPageRoute(builder: (_) => const _FormScreen()),
             );
+            // Si el widget ya no está montado, sal para evitar usar un context inválido
             if (!context.mounted) return;
+            final displayResult = (result is String && result.trim().isNotEmpty)
+                ? result.trim()
+                : 'none';
             // Después de que _FormScreen se cierra (await), este código se ejecuta
             // ScaffoldMessenger.of(context) obtiene el ScaffoldMessenger asociado
             //al Scaffold actual.
             ScaffoldMessenger.of(context).showSnackBar(
               // Si result es null, muestra 'none'.
-              SnackBar(content: Text('Result: ${result ?? 'none'}')),
+              SnackBar(content: Text('Result: $displayResult')),
             );
-            if (result is String && result.trim().isNotEmpty) {
+            // Solo abre ResultScreen si hay texto real
+            if (displayResult != 'none') {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => _ResultScreen(message: result.trim()),
+                  builder: (_) => _ResultScreen(message: displayResult),
                 ),
               );
             }
