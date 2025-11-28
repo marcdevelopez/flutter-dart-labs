@@ -24,15 +24,38 @@ class RoutingApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // MaterialApp es la raíz de una app con Material Design
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // Título informativo de la app (Android lo usa en el app switcher)
       title: 'Routing in Flutter',
 
       // Definimos el tema principal de la app
       theme: ThemeData(
-        // Genera la paleta de colores automáticamente a partir del azul
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        // Activa Material Design 3
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          secondary: Colors.amber,
+          surface: Colors.grey.shade100,
+          background: Colors.white,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        cardColor: Colors.grey.shade100,
         useMaterial3: true,
+        textTheme: const TextTheme(
+          headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          bodySmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          ),
+        ),
+        cardTheme: CardThemeData(
+          margin: const EdgeInsets.all(8),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
       ),
 
       // Ruta inicial que se carga al arrancar la aplicación
