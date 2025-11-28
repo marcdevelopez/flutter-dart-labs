@@ -25,17 +25,18 @@ Basado en las notas del Módulo 3 [Enrutamiento en Flutter](../../../Module3_Wor
 
 ### Fase 2: Implementación de Navegación Core
 
-- [ ] Crear pantalla principal con opciones de navegación
-- [ ] Implementar estructura de rutas nombradas
-- [ ] Implementar navegación con rutas directas
-- [ ] Crear transiciones básicas entre pantallas
+- [x] Crear pantalla principal con opciones de navegación
+- [x] Implementar estructura de rutas nombradas
+- [x] Implementar navegación con rutas directas
+- [x] Crear transiciones básicas entre pantallas
 
 ### Fase 3: Funcionalidades Avanzadas
 
-- [ ] Implementar paso de datos entre pantallas
-- [ ] Crear pantalla de formulario con recuperación de datos
-- [ ] Implementar ejemplo de reemplazo de pantalla (pushReplacement)
-- [ ] Añadir ejemplo simple de navegación condicional basada en estado local
+- [x] Implementar paso de datos entre pantallas
+- [x] Crear pantalla de formulario con recuperación de datos
+- [x] Implementar ejemplo de reemplazo de pantalla (pushReplacement)
+- [x] Añadir ejemplo simple de navegación condicional basada en estado local
+- [ ] Simular deep link mediante navegación a pantalla específica (pendiente)
 
 ### Fase 4: Pulido y Documentación
 
