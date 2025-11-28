@@ -15,9 +15,11 @@ _Estado del Proyecto: 🟡 En Progreso_
 - ✅ Rutas nombradas: flujo completo con First y Second
 - ✅ Rutas directas con MaterialPageRoute (Profile/Settings)
 - ✅ Paso de datos con formulario y retorno (SnackBar)
+- ✅ ResultScreen dedicada para visualizar el mensaje devuelto
 - ✅ pushReplacement (Login → Home simulado)
 - ✅ Navegación condicional con estado local
 - ✅ Simulación de deep link hacia pantalla específica en Advanced
+- ✅ Flujos probados manualmente (Data form/result y escenarios avanzados)
 
 #### Desafíos
 
@@ -25,8 +27,7 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 #### Próximos Pasos
 
-- Crear ResultScreen dedicada para mostrar datos (además del SnackBar)
-- Agregar pruebas básicas de navegación y flujos clave
+- Agregar pruebas adicionales si se añaden más escenarios
 - Documentar cambios finales en README/DEV_LOG
 
 ---
@@ -58,7 +59,7 @@ _Estado del Proyecto: 🟡 En Progreso_
 
 - [x] Crear FormScreen con TextFields
 - [x] Implementar paso de datos con Navigator.push
-- [ ] Crear ResultScreen para mostrar datos
+- [x] Crear ResultScreen para mostrar datos
 - [x] Probar flujo de datos entre pantallas (ida y vuelta)
 
 #### Decisiones Técnicas
@@ -78,7 +79,7 @@ _Estado del Proyecto: 🟡 En Progreso_
 - [x] Implementar ejemplo de pushReplacement (Login → Home)
 - [x] Crear demo de navegación condicional (estado booleano local)
 - [x] Añadir simulación de deep linking (mediante estructura de rutas)
-- [ ] Probar todos los escenarios avanzados
+- [x] Probar todos los escenarios avanzados
 
 #### Notas
 

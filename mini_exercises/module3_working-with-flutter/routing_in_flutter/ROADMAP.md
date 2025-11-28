@@ -42,7 +42,7 @@ Basado en las notas del Módulo 3 [Enrutamiento en Flutter](../../../Module3_Wor
 
 - [ ] Añadir comentarios y documentación apropiada
 - [ ] Asegurar cumplimiento con Material Design
-- [ ] Probar todos los flujos de navegación
+- [x] Probar todos los flujos de navegación
 - [ ] Actualizar DEV_LOG con notas finales
 
 ## 🎨 Estructura de la Aplicación
