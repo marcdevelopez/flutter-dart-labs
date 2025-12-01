@@ -1,28 +1,9 @@
 import 'package:flutter/material.dart';
 
-// ------------------------------------------------------------
-// AdvancedDemo – Ejemplos avanzados de navegación en Flutter
-// ------------------------------------------------------------
-// Este módulo demuestra tres patrones importantes de navegación:
-//
-// 1️pushReplacement
-//     - Sustituye la ruta actual por una nueva.
-//     - Caso típico: Login → Home (no se debe volver atrás al login).
-//
-// 2️Navegación directa con MaterialPageRoute
-//     - Se construyen pantallas en tiempo real sin usar rutas nombradas.
-//
-// 3️Navegación condicional + pantallas protegidas
-//     - _ConditionalScreen usa un switch para habilitar o deshabilitar
-//       la navegación.
-//     - _ProtectedScreen solo es accesible si se cumplen las condiciones.
-//
-// Además, incluye clases privadas (_HomeAfterLogin, _ConditionalScreen,
-// _ProtectedScreen) para demostrar encapsulación dentro de un módulo.
-// ------------------------------------------------------------
-
+/// Advanced patterns: pushReplacement (login→home), conditional navigation, and a simulated deep link.
 class AdvancedDemo extends StatelessWidget {
   const AdvancedDemo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,31 +14,39 @@ class AdvancedDemo extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // ElevatedButton con una acción “especial”:
+              // NOTE:
+              // Use pushReplacement instead of push when you want to REMOVE the previous
+              // screen from the navigation stack — for example, after a successful login,
+              // onboarding, splash screen, or any flow where going “back” no longer makes sense.
+              // Use push when the user SHOULD be able to return to the previous screen.
+
+              // ElevatedButton with a “special” action:
               ElevatedButton(
-                // Empuja una nueva ruta y reemplaza la actual.
-                // Es decir, no puedes volver atrás a la pantalla anterior con “Back”.
+                // Pushes a new route and replaces the current one.
+                // Meaning: you can't go back to the previous screen with “Back”.
                 onPressed: () => Navigator.pushReplacement(
                   context,
-                  // Crea una ruta directa a la pantalla de inicio tras login
-                  // _ es el contexto que no usas.
+                  // Creates a direct route to the home screen after login
+                  // _ is the unused BuildContext.
                   MaterialPageRoute(builder: (_) => const _HomeAfterLogin()),
                 ),
                 child: const Text('Simulate Login → Home (pushReplacement)'),
               ),
+
               ElevatedButton(
-                // Usa Navigator.push normal (no reemplaza la ruta anterior).
+                // Uses Navigator.push normally (does NOT replace the previous route).
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) => const _ConditionalScreen()),
                 ),
                 child: const Text('Conditional Navigation'),
               ),
-              // Simulación de deep link: un botón que “abre” directamente una
-              // pantalla anidada (por ejemplo, “Settings → Details”) sin pasar
-              // por el flujo normal
+
+              // Deep-link simulation: a button that “opens” a nested screen
+              // directly (e.g., “Settings → Details”) without going through
+              // the normal flow.
               ElevatedButton(
-                // simula abrir una pantalla interna directamente
+                // Simulates opening an internal screen directly
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -74,7 +63,7 @@ class AdvancedDemo extends StatelessWidget {
   }
 }
 
-// Representa una pantalla de “Home” que simula estar después de un login.
+// Represents a “Home” screen that simulates being after a login flow.
 class _HomeAfterLogin extends StatelessWidget {
   const _HomeAfterLogin();
   @override
@@ -83,9 +72,9 @@ class _HomeAfterLogin extends StatelessWidget {
       appBar: AppBar(title: const Text('Home (post-login)')),
       body: Center(
         child: ElevatedButton(
-          // Cierra esta pantalla y vuelve a la anterior si existe en el stack.
-          // como llegaste aquí con pushReplacement, no volverías a la pantalla
-          // de login, pero en un caso real podrías venir de otra pantalla.
+          // Closes this screen and returns to the previous one if it exists.
+          // Since you arrived here via pushReplacement, you would NOT return
+          // to the login screen — but in a real case you might come from elsewhere.
           onPressed: () => Navigator.pop(context),
           child: const Text('Back'),
         ),
@@ -98,14 +87,15 @@ class _ConditionalScreen extends StatefulWidget {
   const _ConditionalScreen();
 
   @override
-  // createState devuelve la instancia de _ConditionalScreenState, donde vive
-  // el estado (bool _allowed).
+  // createState returns the instance of _ConditionalScreenState,
+  // where the state (bool _allowed) lives.
   State<_ConditionalScreen> createState() => _ConditionalScreenState();
 }
 
 class _ConditionalScreenState extends State<_ConditionalScreen> {
-  // Esta variable controlará si se permite navegar o no a la pantalla protegida
+  // This variable controls whether navigation to the protected screen is allowed.
   bool _allowed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,30 +104,36 @@ class _ConditionalScreenState extends State<_ConditionalScreen> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // combina un Switch + un título en una sola fila
+            // NOTE:
+            // The purpose of this toggle is to mimic “protected navigation”
+            // (e.g., accessing a restricted page only if the user has permission,
+            // is authenticated, or has enabled a required setting).
+            // When _allowed is false, the button is disabled and navigation is blocked.
+
+            // Combines a Switch + a title into a single row.
             SwitchListTile(
               title: const Text('Allow navigation'),
-              // El valor actual del switch depende de la variable _allowed.
+              // The switch value depends on _allowed.
               value: _allowed,
-              // v es el nuevo valor (true o false) cuando tocas el switch.
-              // Actualiza _allowed con el nuevo valor.
-              // Llama a setState para reconstruir la UI y reflejar el cambio
-              // (por ejemplo, habilitar o deshabilitar el botón de abajo).
+              // v is the new value (true or false) when toggling the switch.
+              // Updates _allowed with the new value.
+              // setState rebuilds the UI to reflect the change
+              // (e.g., enabling or disabling the button below).
               onChanged: (v) => setState(() => _allowed = v),
             ),
-            // ElevatedButton que navega a una pantalla protegida
+            // ElevatedButton that navigates to the protected screen
             ElevatedButton(
               onPressed: _allowed
-                  // Si _allowed es true:
-                  // onPressed recibe una función → el botón está habilitado.
+                  // If _allowed is true:
+                  // onPressed receives a function → button is enabled.
                   ? () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (_) => const _ProtectedScreen(),
                       ),
                     )
-                  // Si _allowed es false:
-                  // onPressed es null → botón deshabilitado (estilo gris y no clicable).
+                  // If _allowed is false:
+                  // onPressed is null → button is disabled (grey/baseline style).
                   : null,
               child: const Text('Go to protected screen'),
             ),
@@ -148,7 +144,7 @@ class _ConditionalScreenState extends State<_ConditionalScreen> {
   }
 }
 
-// Representa una pantalla “protegida”, accesible solo si se activa el switch.
+// Represents a “protected” screen, only accessible when the switch is enabled.
 class _ProtectedScreen extends StatelessWidget {
   const _ProtectedScreen();
   @override
@@ -179,7 +175,7 @@ class _DeepLinkSimulatedScreen extends StatelessWidget {
           children: [
             Text(
               'Simulated deep link',
-              // se crea un TextStyle directo, no usando el tema
+              // Creates a direct TextStyle, not using the theme
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 8),

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-// ------------------------------------------------------------
-// NamedRoutesDemo – Demostración de rutas nombradas
-// ------------------------------------------------------------
-// ...
-// ------------------------------------------------------------
-
+/// Demonstrates centralized navigation using the named routes registered in MaterialApp.
 class NamedRoutesDemo extends StatelessWidget {
   const NamedRoutesDemo({super.key});
   @override
@@ -14,15 +9,15 @@ class NamedRoutesDemo extends StatelessWidget {
       appBar: AppBar(title: const Text('Named Routes Demo')),
       body: Center(
         child: Column(
-          // Controla el tamaño de la columna en el eje principal (vertical).
-          // MainAxisSize.min hace que la columna ocupe el mínimo espacio
-          // vertical necesario, en lugar de expandirse a toda la altura.
-          // Esto hace que los botones queden centrados sin estirarse.
+          // Controls the column's size along the main axis (vertical).
+          // MainAxisSize.min makes the column take only the minimum
+          // vertical space needed instead of expanding to the full height.
+          // This keeps the buttons centered without stretching.
           mainAxisSize: MainAxisSize.min,
           children: [
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/named/first'),
-              // child es el contenido del botón.
+              // child is the button's displayed content.
               child: const Text('Go to First'),
             ),
             ElevatedButton(

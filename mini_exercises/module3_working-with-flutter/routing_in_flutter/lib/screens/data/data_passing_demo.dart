@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 
-// ------------------------------------------------------------
-// DataPassingDemo – Demostración de paso de datos (ida y vuelta)
-// ------------------------------------------------------------
-// Este archivo muestra cómo enviar y recibir datos entre pantallas.
-//
-// ✔ DataPassingDemo abre una pantalla (_FormScreen) usando
-//   Navigator.push y espera un valor devuelto mediante 'await'.
-//
-// ✔ _FormScreen es un StatefulWidget que contiene un TextField.
-//   Al pulsar "Submit", cierra la pantalla con Navigator.pop,
-//   devolviendo el texto escrito como resultado.
-//
-// ✔ Al volver a DataPassingDemo, el valor recibido se muestra
-//   en un SnackBar, demostrando el flujo completo:
-//   Parent → Child → Parent (push → pop with result).
-// ------------------------------------------------------------
-
+/// End-to-end data roundtrip: push a form, pop with a result, show it, then open a result screen.
 class DataPassingDemo extends StatelessWidget {
   const DataPassingDemo({super.key});
   @override
@@ -27,34 +11,41 @@ class DataPassingDemo extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Center(
           child: ElevatedButton(
-            // Se marca como async porque dentro vas a usar await
-            // (navegación que devuelve resultado)
+            // Marked as async because you'll use await inside
+            // (navigation that returns a result)
             onPressed: () async {
-              // Llamas a Navigator.push y esperas (await) a que la pantalla que
-              // abras se cierre.
-              // Lo que esa pantalla devuelva al hacer Navigator.pop(context, algo)
-              // se guarda en result.
-              // result será el valor que venga de _FormScreen (o null si no
-              // devuelve nada).
+              // Push the form screen and wait for its return value.
+              // Whatever _FormScreen passes to Navigator.pop(context, value)
+              // becomes the 'result' here.
               final result = await Navigator.push(
                 context,
-                // El _ es un BuildContext que no usas, por eso lo nombras así
+                // _ is a BuildContext you don't use, so it's named that way.
                 MaterialPageRoute(builder: (_) => const _FormScreen()),
               );
-              // Si el widget ya no está montado, sal para evitar usar un context inválido
+
+              // SAFETY CHECK:
+              // If this widget was removed from the tree while awaiting (user navigated away),
+              // using 'context' would cause an error.
+              // This guard prevents executing further UI code in that case.
               if (!context.mounted) return;
+
+              // Normalize result:
+              // - If it is a non-empty String → clean it with trim()
+              // - If it's null or empty → use the fallback 'none'
               final displayResult =
                   (result is String && result.trim().isNotEmpty)
                   ? result.trim()
                   : 'none';
-              // Después de que _FormScreen se cierra (await), este código se ejecuta
-              // ScaffoldMessenger.of(context) obtiene el ScaffoldMessenger asociado
-              //al Scaffold actual.
+
+              // After _FormScreen closes (await), this code runs.
+              // ScaffoldMessenger.of(context) fetches the ScaffoldMessenger
+              // associated with the current Scaffold.
               ScaffoldMessenger.of(context).showSnackBar(
-                // Si result es null, muestra 'none'.
+                // Shows the normalized displayResult value
                 SnackBar(content: Text('Result: $displayResult')),
               );
-              // Solo abre ResultScreen si hay texto real
+
+              // Only open ResultScreen if there is actual submitted text
               if (displayResult != 'none') {
                 Navigator.push(
                   context,
@@ -73,20 +64,20 @@ class DataPassingDemo extends StatelessWidget {
 }
 
 class _FormScreen extends StatefulWidget {
-  // Constructor const sin parámetros.
+  // const constructor with no parameters.
   const _FormScreen();
   @override
   State<_FormScreen> createState() => _FormScreenState();
 }
 
-// Defines la clase de estado _FormScreenState
+// Defines the state class _FormScreenState
 class _FormScreenState extends State<_FormScreen> {
-  // _controller permitirá leer y modificar el texto que el usuario escribe
+  // _controller allows reading and modifying the text the user types
   final _controller = TextEditingController();
   @override
-  // Se llama cuando esta pantalla se elimina del árbol de widgets.
+  // Called when this screen is removed from the widget tree.
   void dispose() {
-    // libera los recursos usados por el TextEditingController (buena práctica).
+    // Frees the resources used by the TextEditingController (good practice).
     _controller.dispose();
     super.dispose();
   }
@@ -95,22 +86,22 @@ class _FormScreenState extends State<_FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Form Screen')),
-      // body es un Padding que envuelve el contenido
+      // body is a Padding widget wrapping the content
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             TextField(
-              // El texto escrito se guarda en _controller.text.
+              // The text typed is stored in _controller.text.
               controller: _controller,
-              // Añade un label dentro del campo
+              // Adds a label inside the field
               decoration: const InputDecoration(labelText: 'Enter message'),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              // Devuelve el valor _controller.text como resultado a quien hizo
-              // el Navigator.push(...).
-              // Ese valor lo recogerá result en DataPassingDemo.
+              // Returns _controller.text as the result to whoever called
+              // Navigator.push(...).
+              // That value will be received by result in DataPassingDemo.
               onPressed: () => Navigator.pop(context, _controller.text),
               child: const Text('Submit'),
             ),
@@ -122,7 +113,7 @@ class _FormScreenState extends State<_FormScreen> {
 }
 
 class _ResultScreen extends StatelessWidget {
-  // Recibe el mensaje a mostrar
+  // Receives the message to display
   const _ResultScreen({required this.message});
   final String message;
   @override
@@ -131,19 +122,19 @@ class _ResultScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Result Screen')),
       body: Center(
         child: Column(
-          // La columna ocupa solo el espacio necesario
+          // Column occupies only the necessary space
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text('Received message:'),
             const SizedBox(height: 8),
-            // Muestra el mensaje con estilo de título
+            // Displays the message with a title style
             Text(
               message,
               style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            // Botón “Back”: hace Navigator.pop para regresar
+            // “Back” button: performs Navigator.pop to return
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
               child: const Text('Back'),

@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 
-// ------------------------------------------------------------
-// NamedSecondScreen – Segunda pantalla de la demo de rutas nombradas
-// ------------------------------------------------------------
-// Esta pantalla forma parte del flujo de "Named Routes".
-// Muestra un botón que permite regresar a la pantalla anterior
-// utilizando Navigator.pop(context), demostrando la navegación
-// básica de retorno dentro del sistema de rutas nombradas.
-// ------------------------------------------------------------
-
+/// Second screen in the Named Routes demo.
+/// Shows a simple button that navigates back using `Navigator.pop`,
+/// illustrating basic backward navigation in a named-route flow.
 class NamedSecondScreen extends StatelessWidget {
   const NamedSecondScreen({super.key});
   @override
