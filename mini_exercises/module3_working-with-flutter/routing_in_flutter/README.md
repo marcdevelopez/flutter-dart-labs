@@ -10,15 +10,15 @@ Este mini-ejercicio muestra la implementación profesional de navegación en Flu
 ## Características
 
 ### Navegación Core
-- ✅ **Rutas Nombradas**: Gestión centralizada de rutas con identificadores de cadena
-- ✅ **Rutas Directas**: Creación dinámica de rutas usando MaterialPageRoute
-- ✅ **Clase Navigator**: Operaciones push y pop para transiciones de pantalla
+- **Rutas Nombradas**: Gestión centralizada de rutas con identificadores de cadena
+- **Rutas Directas**: Creación dinámica de rutas usando MaterialPageRoute
+- **Clase Navigator**: Operaciones push y pop para transiciones de pantalla
 
 ### Patrones Avanzados
-- ✅ **Paso de Datos**: Transferir datos entre pantallas (ida y vuelta)
-- ✅ **Reemplazo de Pantalla**: Reemplazar pantalla actual sin navegación hacia atrás
-- ✅ **Navegación Condicional**: Enrutamiento basado en estado de la aplicación
-- ✅ **Simulación de Deep Linking**: Navegación directa a pantallas anidadas (simulado mediante estructura de rutas)
+- **Paso de Datos**: Transferir datos entre pantallas (ida y vuelta)
+- **Reemplazo de Pantalla**: Reemplazar pantalla actual sin navegación hacia atrás
+- **Navegación Condicional**: Enrutamiento basado en estado de la aplicación
+- **Simulación de Deep Linking**: Navegación directa a pantallas anidadas (simulado mediante estructura de rutas)
 
 ## 🎯 Objetivos de Aprendizaje
 
@@ -28,6 +28,15 @@ Después de explorar este proyecto, comprenderás:
 - Cómo pasar y recuperar datos entre pantallas
 - Mejores prácticas para gestión de la pila de navegación
 - Patrones profesionales de enrutamiento usados en aplicaciones de producción
+
+## Qué Demuestra Este Proyecto
+
+- [x] Rutas nombradas con un mapa centralizado (`MaterialApp.routes`)
+- [x] Rutas directas con `MaterialPageRoute` para pantallas que reciben datos
+- [x] Paso de datos ida y vuelta (`Navigator.push` + `Navigator.pop` con resultado)
+- [x] Reemplazo de pantalla con `Navigator.pushReplacement`
+- [x] Navegación condicional basada en estado local
+- [x] Simulación de deep link navegando a una pantalla anidada
 
 ## Primeros Pasos
 
@@ -92,6 +101,14 @@ Pantalla Principal
 - **Diseño**: Material Design 3
 - **Arquitectura**: Arquitectura basada en componentes de Widgets
 
+## 🎨 Tema Material 3
+
+- `useMaterial3: true` con paleta basada en `ColorScheme.fromSeed`
+- `seedColor`: `Colors.blue`, `secondary`: `Colors.amber`
+- Superficie y fondo: `surface` gris claro (`grey.shade100`), `background` blanco
+- Cards: `cardColor` gris claro, `margin` `EdgeInsets.all(8)`, borde redondeado de 12 px
+- Botones elevados: `padding` horizontal 12 px, vertical 8 px (estilo consistente en todos los flujos)
+
 ## 📚 Documentación
 
 - [ROADMAP.md](ROADMAP.md) - Hoja de ruta del desarrollo del proyecto
@@ -100,7 +117,27 @@ Pantalla Principal
 
 ## 🎨 Capturas de Pantalla
 
-[Añadir capturas después del desarrollo]
+Cada una de las capturas ilustra el flujo principal del módulo correspondiente:
+
+| Flujo | Captura |
+| --- | --- |
+| Home | ![Home](assets/screenshots/home.png) |
+| Named flow | ![Named flow](assets/screenshots/named-flow.png) |
+| Direct routes | ![Direct routes](assets/screenshots/direct-flow.png) |
+| Data passing | ![Data passing](assets/screenshots/data-flow.png) |
+| Advanced patterns | ![Advanced patterns](assets/screenshots/advanced-flow.png) |
+
+## 🧭 Cómo Probar los Flujos
+
+- Home → Named: desde el menú principal entra a “Named Routes” y navega First ↔ Second con el back stack.
+- Home → Direct: abre “Direct Routes” y navega a Profile y Settings usando `MaterialPageRoute`, vuelve con back.
+- Home → Data: entra a “Data Passing”, escribe un mensaje, envía, verifica el SnackBar y la Result Screen.
+- Home → Advanced:
+  - Login/Home: pulsa “Simulate Login → Home (pushReplacement)” y comprueba que no regresas al login con back.
+  - Conditional: activa el switch y abre la pantalla protegida; con el switch off, el botón queda deshabilitado.
+  - Deep Link: abre “Simulated Deep Link” para saltar directo a la pantalla anidada.
+
+---
 
 ## 📝 Ejemplos de Código
 

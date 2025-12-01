@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 
-// ------------------------------------------------------------
-// NamedFirstScreen – Primera pantalla de la demo de rutas nombradas
-// ------------------------------------------------------------
-// Esta pantalla forma parte del flujo de "Named Routes".
-// Muestra un botón simple que permite volver atrás utilizando
-// Navigator.pop(context), demostrando el comportamiento básico
-// de la navegación mediante rutas nombradas.
-// ------------------------------------------------------------
-
+/// First screen in the Named Routes demo.
+/// Displays a simple button that navigates back using `Navigator.pop`,
+/// demonstrating basic backward navigation in a named-route flow.
 class NamedFirstScreen extends StatelessWidget {
-  // Al ser const permite optimizaciones.
+  // Being const allows optimizations.
   const NamedFirstScreen({super.key});
   @override
   Widget build(BuildContext context) {

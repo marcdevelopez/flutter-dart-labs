@@ -1,7 +1,7 @@
-// Importa el paquete principal de Flutter con todos los widgets de Material Design
+// Flutter Material widgets and theming.
 import 'package:flutter/material.dart';
 
-// Importamos cada pantalla para poder usarlas en el mapa de rutas
+// Screens registered in the route map.
 import 'screens/home_screen.dart';
 import 'screens/named/named_routes_demo.dart';
 import 'screens/named/named_first_screen.dart';
@@ -11,30 +11,28 @@ import 'screens/data/data_passing_demo.dart';
 import 'screens/advanced/advanced_demo.dart';
 
 void main() {
-  // runApp() arranca la aplicación y coloca RoutingApp como widget raíz
+  // runApp boots the app and mounts RoutingApp as the root widget.
   runApp(const RoutingApp());
 }
 
-// Widget principal de la aplicación. No tiene estado, por eso es StatelessWidget.
+/// Root widget that wires the route table and global Material 3 theme for all demos.
 class RoutingApp extends StatelessWidget {
-  // Constructor constante: permite crear instancias const de este widget
   const RoutingApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // MaterialApp es la raíz de una app con Material Design
+    // MaterialApp is the root configured with theme and route table.
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // Título informativo de la app (Android lo usa en el app switcher)
+      // Informational app title (used by Android task switcher)
       title: 'Routing in Flutter',
 
-      // Definimos el tema principal de la app
+      // Global theme for the demos (Material 3 seed palette, rounded 12px cards, roomy text).
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
           secondary: Colors.amber,
-          surface: Colors.grey.shade100,
-          background: Colors.white,
+          surface: Colors.white,
         ),
         scaffoldBackgroundColor: Colors.white,
         cardColor: Colors.grey.shade100,
@@ -58,28 +56,28 @@ class RoutingApp extends StatelessWidget {
         ),
       ),
 
-      // Ruta inicial que se carga al arrancar la aplicación
+      // Initial route when the app launches.
       initialRoute: '/',
 
-      // Mapa de rutas nombradas → cada clave es una ruta, cada valor una pantalla
+      // Named route map → each key is a route name and each value a screen.
       routes: {
-        // Pantalla principal (Home Screen)
+        // Home screen (menu hub)
         '/': (context) => const HomeScreen(),
 
-        // Demostración de navegación con rutas nombradas
+        // Named routes demo
         '/named-demo': (context) => const NamedRoutesDemo(),
-        // Primera pantalla de la demo de rutas nombradas
+        // First screen inside the named routes flow
         '/named/first': (context) => const NamedFirstScreen(),
-        // Segunda pantalla de la demo de rutas nombradas
+        // Second screen inside the named routes flow
         '/named/second': (context) => const NamedSecondScreen(),
 
-        // Demo de navegación directa usando MaterialPageRoute
+        // Direct navigation using MaterialPageRoute
         '/direct-demo': (context) => const DirectRoutesDemo(),
 
-        // Demo de paso de datos entre pantallas
+        // Data passing flow between screens
         '/data-demo': (context) => const DataPassingDemo(),
 
-        // Demo avanzada con ejemplos más complejos de navegación
+        // Advanced navigation patterns
         '/advanced': (context) => const AdvancedDemo(),
       },
     );

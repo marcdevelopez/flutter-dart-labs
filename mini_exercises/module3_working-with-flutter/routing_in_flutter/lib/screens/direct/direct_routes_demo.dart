@@ -1,46 +1,36 @@
 import 'package:flutter/material.dart';
 
-// ------------------------------------------------------------
-// DirectRoutesDemo – Demostración de navegación directa
-// ------------------------------------------------------------
-// Esta pantalla muestra cómo navegar a otras pantallas creando
-// rutas de forma directa usando MaterialPageRoute, en lugar de
-// utilizar rutas nombradas.
-//
-// Incluye además una pantalla privada (_DirectScreen) que recibe
-// datos mediante su constructor, demostrando cómo pasar
-// información al navegar sin usar el sistema de rutas nombradas.
-// ------------------------------------------------------------
-
+/// Shows direct navigation with MaterialPageRoute when you need inline flexibility or data passing.
 class DirectRoutesDemo extends StatelessWidget {
   const DirectRoutesDemo({super.key});
-  // Metodo privado para evitar repetir el código de navegación en cada botón
+  // Private method to avoid repeating navigation code on each button
   void _goTo(BuildContext context, String title) {
-    // Ruta directa usando MaterialPageRoute:
-    // Útiles cuando:
-    // la pantalla necesita datos complejos,
-    // la ruta no es global,
-    // estás prototipando,
-    // o quieres más flexibilidad.
-    // Súper flexible, ideal para pantallas que necesitan datos
+    // Direct route using MaterialPageRoute:
+    // Useful when:
+    // the screen needs complex data,
+    // the route is not global,
+    // you're prototyping,
+    // or you want extra flexibility.
+    // Super flexible, ideal for screens that need data.
     Navigator.push(
-      // El Navigator usa esto para saber desde qué “árbol” de widgets debe navegar.
+      // Navigator uses this to know from which widget “tree” it should navigate.
       context,
-      // MaterialPageRoute crea una transición estándar de Material Design 
-      // entre pantallas.
-      // builder es una función que recibe un BuildContext 
-      // (lo marcamos como _ porque no lo usamos).
+      // MaterialPageRoute creates a standard Material Design transition
+      // between screens.
+      // builder is a function that receives a BuildContext
+      // (marked as _ because it's unused).
       MaterialPageRoute(builder: (_) => _DirectScreen(title: title)),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Direct Routes Demo')),
       body: Center(
         child: Column(
-          // La columna solo ocupa el mínimo espacio necesario en el eje vertical, 
-          // en lugar de expandirse a toda la pantalla.
+          // The column only occupies the minimum vertical space needed,
+          // instead of expanding to the entire height.
           mainAxisSize: MainAxisSize.min,
           children: [
             ElevatedButton(
@@ -57,12 +47,13 @@ class DirectRoutesDemo extends StatelessWidget {
     );
   }
 }
+
 class _DirectScreen extends StatelessWidget {
-  // Usa un parámetro con nombre title marcado como required, es decir, obligatorio.
+  // Uses a named parameter 'title' marked as required, meaning it's mandatory.
   const _DirectScreen({required this.title});
   final String title;
   @override
-  // Definir la UI de _DirectScreen
+  // Defines the UI of _DirectScreen
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
