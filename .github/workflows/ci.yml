@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: lab_hello_world_web
+            path: labs/module1_introduction/lab_hello_world_web
+            type: flutter
+          - name: lab_variables_functions_methods_Dart
+            path: labs/module2_dart-language/lab_variables_functions_methods_Dart
+            type: dart
+          - name: lab_libraries_in_dart
+            path: labs/module2_dart-language/lab_libraries_in_dart
+            type: dart
+          - name: flutter_widgets_dart
+            path: mini_exercises/module3_working-with-flutter/flutter_widgets_dart
+            type: flutter
+          - name: navigation_in_flutter
+            path: mini_exercises/module3_working-with-flutter/navigation_in_flutter
+            type: flutter
+          - name: routing_in_flutter
+            path: mini_exercises/module3_working-with-flutter/routing_in_flutter
+            type: flutter
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.4'
+          channel: 'stable'
+
+      - name: Flutter version
+        run: flutter --version
+
+      - name: Install dependencies
+        run: |
+          cd "${{ matrix.path }}"
+          if [ "${{ matrix.type }}" = "flutter" ]; then
+            flutter pub get
+          else
+            dart pub get
+          fi
+
+      - name: Analyze
+        run: |
+          cd "${{ matrix.path }}"
+          if [ "${{ matrix.type }}" = "flutter" ]; then
+            flutter analyze
+          else
+            dart analyze
+          fi
+
+      - name: Test
+        run: |
+          cd "${{ matrix.path }}"
+          if [ "${{ matrix.type }}" = "flutter" ]; then
+            flutter test
+          else
+            dart test
+          fi
