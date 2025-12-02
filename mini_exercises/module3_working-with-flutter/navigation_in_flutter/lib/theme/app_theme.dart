@@ -12,8 +12,8 @@ class AppTheme {
     return const AppBarTheme(centerTitle: true, elevation: 2);
   }
 
-  static CardThemeData _cardTheme() {
-    return const CardThemeData(
+  static CardTheme _cardTheme() {
+    return const CardTheme(
       elevation: 2,
       margin: EdgeInsets.all(12),
       shape: RoundedRectangleBorder(
@@ -43,6 +43,7 @@ class AppTheme {
         brightness: Brightness.light,
       ),
       appBarTheme: _appBarTheme(),
+      // ignore: argument_type_not_assignable
       cardTheme: _cardTheme(),
       textTheme: _textTheme(),
     );
@@ -61,6 +62,7 @@ class AppTheme {
         brightness: Brightness.dark,
       ),
       appBarTheme: _appBarTheme(),
+      // ignore: argument_type_not_assignable
       cardTheme: _cardTheme(),
       textTheme: _textTheme(),
     );

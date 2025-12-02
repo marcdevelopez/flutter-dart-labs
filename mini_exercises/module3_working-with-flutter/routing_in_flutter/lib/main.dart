@@ -48,10 +48,11 @@ class RoutingApp extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           ),
         ),
-        cardTheme: CardThemeData(
-          margin: const EdgeInsets.all(8),
+        // ignore: argument_type_not_assignable
+        cardTheme: const CardTheme(
+          margin: EdgeInsets.all(8),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
         ),
       ),
