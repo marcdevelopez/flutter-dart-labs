@@ -2,7 +2,7 @@ name: lab_methods_in_dart
 description: Utilize Variables, Functions, and Methods in Dart
 version: 1.0.0
 environment:
-  sdk: '^3.8.0'
+  sdk: '^3.5.0'
 
 dev_dependencies:
   test: ^1.25.0
