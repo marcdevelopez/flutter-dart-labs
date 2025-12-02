@@ -1,4 +1,5 @@
 # Flutter & Dart Labs 🚀
+[![CI](https://github.com/marcdevelopez/flutter-dart-labs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/marcdevelopez/flutter-dart-labs/actions/workflows/ci.yml)  
 
 Este repositorio es mi espacio personal de aprendizaje en **Dart y Flutter**.  
 La intención es ir subiendo, poco a poco, **todo lo que voy practicando y aprendiendo** para mi propio seguimiento y también como recurso abierto para otros que quieran consultarlo o acompañar el progreso.
