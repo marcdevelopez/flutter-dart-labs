@@ -92,7 +92,7 @@ class _TabContentState extends State<_TabContent> {
         width: _expanded ? 220 : 160,
         height: _expanded ? 160 : 120,
         decoration: BoxDecoration(
-          color: widget.color.withValues(alpha: 0.2),
+          color: widget.color.withAlpha(51), // ~20% opacity
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: widget.color, width: 2),
         ),
