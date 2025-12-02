@@ -38,6 +38,8 @@ void printItem(item) => print(item);
 
 **bin/**: Este directorio contiene archivos ejecutables de Dart. Estos archivos son puntos de entrada para aplicaciones de línea de comandos o de servidor, a diferencia de lib/, que está destinado al código de biblioteca.
 
+**BoxDecoration**: Clase que define la decoración visual de un contenedor, incluyendo color de fondo, bordes, esquinas redondeadas y sombras.
+
 **Breakpoint**: Un punto en el programa donde la ejecución se detendrá, permitiéndote inspeccionar el estado de la aplicación. Los breakpoints son esenciales para investigar el comportamiento del código en etapas específicas o bajo ciertas condiciones.
 
 ---
@@ -49,6 +51,7 @@ void printItem(item) => print(item);
 **Center (widget)**: Aligns its child widget to the center of the screen.
 
 **CHANGELOG.md**: Archivo Markdown que registra todos los cambios realizados en el proyecto a lo largo del tiempo. Suele incluir actualizaciones, correcciones y otras notas importantes para que los usuarios sepan qué ha cambiado entre versiones.
+**Checkbox**: Control de selección binaria (activo/inactivo) que muestra una casilla marcada o desmarcada.
 
 **Class (Dart)**: Define una clase simple con propiedades. Plano que define propiedades y métodos comunes para crear objetos.
 
@@ -76,6 +79,8 @@ numbers.forEach((number) => print(number * 2));
 
 **Collections**: Estructuras que agrupan elementos, como listas (`List`), mapas (`Map`) o conjuntos (`Set`).
 
+**Column**: Widget de diseño que organiza sus hijos en una columna vertical.
+
 **Conditional breakpoint**: Un breakpoint que se activa solo cuando se cumple una condición específica. Esto permite a los desarrolladores centrarse en escenarios concretos y puede acelerar significativamente el proceso de depuración.
 
 **Const (Dart)**: Constante en tiempo de compilación
@@ -84,7 +89,11 @@ numbers.forEach((number) => print(number * 2));
 const PI = 3.14;
 ```
 
+**Container**: Widget versátil que puede envolver otros widgets y aplicar padding, margen, color o decoraciones.
+
 **Cupertino**: Estándares de diseño de Apple para iOS que los widgets de Flutter también pueden seguir, permitiendo interfaces personalizadas.
+
+**CupertinoPageRoute**: Ruta que aplica transiciones y estilo de iOS al navegar entre pantallas.
 
 **Customization Options**: Posibilidades que ofrece Flutter para personalizar completamente la interfaz de usuario mediante sus widgets y estilos propios.
 
@@ -134,6 +143,10 @@ String describe(String name, {int age = 30, String city = 'Unknown'})
 Performance profiling, memory analysis, and widget inspection
 ```
 
+**Dismissible**: Widget que permite deslizar un elemento para descartarlo o ejecutar una acción (por ejemplo, eliminar un item de una lista).
+
+**Drawer**: Menú lateral deslizante usado para navegar entre secciones de la app sin ocupar espacio permanente en pantalla.
+
 **Dynamic (Dart)**: El tipo de variable puede cambiar dinámicamente
 
 ```dart
@@ -143,6 +156,12 @@ dynamic x = 42;
 ---
 
 ## E
+
+**EdgeInsets**: Clase que define márgenes o padding con valores uniformes o simétricos alrededor de un widget.
+
+**ElevatedButton**: Botón con elevación y estilo Material usado para acciones primarias.
+
+**ElevatedButton.styleFrom**: Constructor auxiliar para personalizar colores, padding y tipografía de un ElevatedButton.
 
 **Emulador**: Simula un dispositivo real en la computadora para probar apps en diferentes resoluciones y sistemas.
 
@@ -154,7 +173,6 @@ class Person {
   int _age;    // Propiedad privada, prefijo guion bajo en Dart
 }
 ```
-
 
 **Exception**: Un error que ocurre durante la ejecución de un programa, interrumpiendo el flujo normal de instrucciones. Las exceptions pueden capturarse y manejarse para evitar que provoquen que el programa termine inesperadamente.
 
@@ -194,6 +212,8 @@ final cityName = 'New York';
 
 **Form (Formulario)**: Un grupo de campos de entrada con lógica de validación.
 
+**Form (widget)**: Contenedor que agrupa campos de entrada y valida su estado de forma unificada dentro de una pantalla.
+
 **Function (función)**: Bloque de código reutilizable que puede recibir parámetros y devolver valores.
 
 **Función anónima (Anonymous Function)**: Función sin nombre, utilizada para operaciones simples o como argumentos.
@@ -207,6 +227,8 @@ final cityName = 'New York';
 **Garbage Collection**: Mecanismo automático de gestión de memoria que elimina objetos no utilizados.
 
 **Generational Garbage Collection (GC)**: Técnica de recolección de basura que separa los objetos por antigüedad.
+
+**GestureDetector**: Widget que detecta gestos (tap, doble tap, long press, swipe) y ejecuta callbacks asociados.
 
 **Getter**: Función que se usa para obtener el valor de una propiedad, a menudo realizando algún cálculo.
 
@@ -223,6 +245,8 @@ class Person {
 }
 ```
 
+**GlobalKey<FormState>**: Clave que permite acceder y controlar el estado de un widget Form para validar o guardar campos.
+
 ---
 
 ## H
@@ -235,7 +259,6 @@ class Employee extends Person {
 }
 ```
 
-
 **Hot reload**: A feature that enables instant viewing of code changes without restarting the app, preserving its current state.
 
 **Hot restart**: Reinicia completamente una aplicación Flutter desde cero, perdiendo su estado actual.
@@ -244,7 +267,13 @@ class Employee extends Person {
 
 ## I
 
+**Icon (widget)**: Muestra un ícono desde el conjunto de Material u otras fuentes de íconos.
+
+**IconButton**: Botón que muestra un ícono y ejecuta una acción al ser pulsado.
+
 **IDE (Integrated Development Environment)**: Tools like Visual Studio Code, Android Studio, and IntelliJ IDEA.
+
+**Image (widget)**: Renderiza imágenes desde activos locales, red o memoria.
 
 **Import (Dart)**: Permite acceder a las librerías integradas de Dart
 
@@ -255,6 +284,10 @@ import 'dart:math';
 **Incremental compilation**: Técnica que recompila solo el código que ha cambiado desde la última ejecución.
 
 **Interpolación de cadenas (String interpolation)**: Técnica para insertar valores de variables dentro de un string utilizando `$variable` o `${expresión}`.
+
+**InkWell**: Widget que detecta gestos y muestra un efecto de onda (ripple) siguiendo Material Design.
+
+**InputDecoration**: Clase que define estilos y adornos (label, hint, iconos, bordes) para campos de texto.
 
 **Isolates**: Entidades independientes que permiten concurrencia sin compartir memoria.
 
@@ -295,6 +328,7 @@ final linkedList = LinkedList<Node>()..add(Node(1));
 List<int> numbers = [1, 2, 3];
 ```
 
+**ListTile**: Fila de lista prediseñada que admite título, subtítulo, íconos y widgets de acción.
 
 **ListView**: Widget que permite mostrar listas desplazables.
 
@@ -314,6 +348,8 @@ Map<String, int> ages = {'Alice': 18, 'Bob': 20};
 
 **Material Design**: Guías de diseño de Google a las que los widgets personalizables de Flutter se adhieren.
 
+**MaterialPageRoute**: Ruta que aplica transiciones y estilo de Material Design al navegar entre pantallas.
+
 **Memory Profiler**: Herramienta para analizar el uso de memoria.
 
 **Método estático (Static Method)**: Método que pertenece a la clase, no a una instancia específica.
@@ -330,6 +366,8 @@ Map<String, int> ages = {'Alice': 18, 'Bob': 20};
 void greet({required String name, String greeting = 'Hello'}) =>
     print('$greeting, $name!');
 ```
+
+**Named routes (Navigator.pushNamed, initialRoute)**: Enfoque de navegación que registra rutas con identificadores de cadena para centralizar y simplificar la navegación entre pantallas.
 
 **Native development**: Creación de apps con lenguajes nativos (Swift, Kotlin, Java).
 
@@ -352,7 +390,6 @@ void greet({required String name, String greeting = 'Hello'}) =>
 ```dart
 String fullName(String firstName, [String middleName, String lastName])
 ```
-
 
 ---
 
@@ -409,6 +446,8 @@ queue.addAll([1, 2, 3]);
 
 ## R
 
+**Radio**: Botón de opción circular para seleccionar una sola alternativa dentro de un grupo.
+
 **README.md**: Archivo Markdown que normalmente contiene una descripción general del proyecto, cómo configurarlo y cómo usarlo. Generalmente es el primer archivo que usuarios y colaboradores consultan al acceder a tu repositorio.
 
 **React Native**: Framework de Facebook que permite crear apps con JavaScript y React.
@@ -420,6 +459,8 @@ int multiply(int a, int b) => a * b;
 ```
 
 **Route (Ruta)**: Una abstracción que representa una pantalla o página en una app Flutter.
+
+**Row**: Widget de diseño que organiza sus hijos en una fila horizontal.
 
 ---
 
@@ -451,6 +492,8 @@ Set<String> names = {'Alice', 'Bob'};
 
 **Stack trace**: Un informe que proporciona la ruta de ejecución a través del programa en el punto donde ocurre una exception. Muestra la secuencia de llamadas de funciones que llevaron al error, lo cual ayuda a identificar la ubicación del problema dentro del código.
 
+**Stack (widget)**: Widget de diseño que superpone hijos en capas, permitiendo posiciones relativas entre ellos.
+
 **State**: Información que puede cambiar durante la vida de una app.
 
 **State Management**: Manejo de los cambios de estado.
@@ -481,15 +524,29 @@ class Utility {
 
 **String interpolation**: Insertar variables dentro de una cadena de texto.
 
+**Switch**: Control de palanca para alternar entre estados activo/inactivo.
+
 ---
 
 ## T
 
+**TabBar**: Widget que muestra pestañas para cambiar entre vistas de forma rápida.
+
+**TabBarView**: Contenedor que asocia contenido desplazable a cada pestaña de un TabBar.
+
 **test/**: Contiene archivos Dart para probar la aplicación o biblioteca. Dart utiliza un paquete potente llamado test para escribir y ejecutar pruebas unitarias.
+
+**TextButton**: Botón plano basado en texto sin elevación.
+
+**TextEditingController**: Controlador que gestiona el texto y notifica cambios en widgets de entrada como TextField.
+
+**TextStyle**: Clase que define estilo de texto (fuente, tamaño, peso, color) aplicado a widgets de texto.
 
 **Text (widget)**: Muestra texto en pantalla.
 
 **TextField**: Widget de entrada de texto.
+
+**ThemeData**: Clase que define el tema global (colores, tipografías, estilos) aplicado a una app Flutter.
 
 **Timeline View**: Visualización del rendimiento en el tiempo.
 
@@ -500,6 +557,7 @@ class Utility {
 ## V
 
 **Var (Dart)**: Variable de tipo inferido
+
 ```dart
 var name = 'Dart';
 ```
@@ -513,6 +571,8 @@ var name = 'Dart';
 **Watch expression**: Una función disponible en muchos debuggers que permite especificar expresiones basadas en variables del código, las cuales el debugger evaluará y mostrará durante la ejecución del programa. Esto ayuda a monitorear cambios en los datos a lo largo de la ejecución.
 
 **Widget**: Elemento visual reutilizable de la UI en Flutter. El bloque básico de construcción de la interfaz de usuario en una app Flutter. Todo en Flutter es un widget.
+
+**Widget tree**: Estructura jerárquica que organiza todos los widgets de la interfaz, permitiendo a Flutter actualizar la UI de forma eficiente.
 
 **Widgets de Material Design y Cupertino**: Conjuntos de widgets preconstruidos que siguen guías de diseño.
 
