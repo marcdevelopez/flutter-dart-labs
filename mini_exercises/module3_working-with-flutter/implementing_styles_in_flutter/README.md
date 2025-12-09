@@ -38,3 +38,19 @@ const TextStyle(
   fontStyle: FontStyle.italic, // usa el archivo italic variable
 );
 ```
+
+## Tema centralizado (`lib/theme/app_theme.dart`)
+- ¿Por qué? Centraliza colores, tipografías y estilos de componentes en un solo lugar, mantiene `main.dart` limpio y facilita escalar (p. ej., agregar dark mode o variantes). Evita repetir estilos sueltos y mantiene coherencia visual.
+- Qué hace: expone `AppTheme.light()` que devuelve un `ThemeData` con paleta (`seed`, `accent`), `ColorScheme`, `TextTheme` basado en `InterCustom` y `ElevatedButtonTheme`.
+- Cómo usarlo:
+  ```dart
+  import 'theme/app_theme.dart';
+
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'Implementing Styles in Flutter',
+    theme: AppTheme.light(),
+    home: const StyleLabHome(),
+  );
+  ```
+- Cómo extenderlo: añade otros component themes (InputDecorationTheme, CardTheme, etc.) dentro de `AppTheme.light()`, o crea `AppTheme.dark()` si necesitas una variante oscura.
