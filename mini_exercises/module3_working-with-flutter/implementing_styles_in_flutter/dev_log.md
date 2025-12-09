@@ -1,0 +1,5 @@
+# Dev Log
+- Aqui llevare un registro al detalle de los puntos importantes a recordar y tener en cuenta durante el desarrolo de este proyecto. Podria tener este aspecto, se ira modificando en cuanto comience el proyecto:  
+  - Día 1: Definido alcance y tema visual (paleta verde/ámbar, fuente CustomFont). Esqueleto de app creado.
+  - Día 2: Añadido `ThemeData` con `TextTheme` y `ElevatedButtonTheme`. Tarjetas básicas renderizando datos mock.
+  - Día 3: Ajustados estilos locales (título hero, badges), sombras y radio de borde en `Container`. Prueba manual en emulador: OK.
