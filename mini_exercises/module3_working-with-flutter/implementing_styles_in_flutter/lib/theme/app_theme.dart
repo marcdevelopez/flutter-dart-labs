@@ -30,13 +30,13 @@ class AppTheme {
       seedColor: seed,
       primary: seed,
       secondary: accent,
-      background: const Color(0xFFF6F8FB),
+      surface: const Color(0xFFF6F8FB),
     );
 
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: colorScheme.background,
+      scaffoldBackgroundColor: colorScheme.surface,
       textTheme: textTheme,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
