@@ -31,6 +31,10 @@ jobs:
           - name: routing_in_flutter
             path: mini_exercises/module3_working-with-flutter/routing_in_flutter
             type: flutter
+          - name: implementing_styles_in_flutter
+            path: mini_exercises/module3_working-with-flutter/implementing_styles_in_flutter
+            type: flutter
+
 
     steps:
       - name: Checkout

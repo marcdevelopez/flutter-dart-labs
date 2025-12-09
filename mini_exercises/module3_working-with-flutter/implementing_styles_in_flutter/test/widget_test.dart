@@ -8,4 +8,3 @@ void main() {
     expect(find.text('Pantalla base lista para aplicar estilos.'), findsOneWidget);
   });
 }
-
