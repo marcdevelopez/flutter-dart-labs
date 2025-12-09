@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   runApp(const StyleLabApp());
@@ -13,11 +14,7 @@ class StyleLabApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Implementing Styles in Flutter',
-      // Theme object where we'll add TextTheme, fonts, ElevatedButtonTheme, etc.
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
-      ),
+      theme: AppTheme.light(),
       // Initial screen for the app
       home: const StyleLabHome(),
     );
