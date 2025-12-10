@@ -57,5 +57,5 @@ const TextStyle(
 
 ## Hook pre-push usado en el proyecto
 - Ubicación: `.git/hooks/pre-push` en la raíz del repo (`flutter-dart-labs`).
-- Qué hace: corre `flutter analyze` y `flutter test` antes de cada `git push`; si falla, bloquea el push y muestra el error.
+- Qué hace: localiza todos los subproyectos con `pubspec.yaml` bajo el repo y corre `flutter analyze` + `flutter test` en cada uno antes de cada `git push`; si falla alguno, bloquea el push. Si un proyecto no tiene carpeta `test`, lo informa y sigue.
 - Para ajustarlo: edita el hook si necesitas más checks o desactívalo temporalmente renombrándolo/quitarle permisos de ejecución.
