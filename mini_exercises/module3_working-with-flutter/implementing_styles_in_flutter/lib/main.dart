@@ -49,6 +49,16 @@ class StyleLabHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final headlineStyle = theme.textTheme.headlineSmall?.copyWith(
+      color: theme.colorScheme.primary,
+      letterSpacing: 0.2,
+    );
+    final subtitleStyle = theme.textTheme.bodyMedium?.copyWith(
+      color: theme.colorScheme.onSurface.withAlpha((0.75 * 255).round()),
+      height: 1.5,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Implementing styles in Flutter'),
@@ -60,13 +70,13 @@ class StyleLabHome extends StatelessWidget {
           Text(
             'Style playground',
             // Use the headline style from the theme
-            style: Theme.of(context).textTheme.headlineSmall,
+            style: headlineStyle,
           ),
           const SizedBox(height: 8),
           Text(
             'Each card is a placeholder to experiment with colors, text, and components.',
             // Style standard body text from the theme
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: subtitleStyle,
           ),
           const SizedBox(height: 16),
           // Range through list of StyleCardInfo to create cards
@@ -87,15 +97,32 @@ class _StyleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final titleStyle = theme.textTheme.titleMedium?.copyWith(
+      fontWeight: FontWeight.w700,
+      color: theme.colorScheme.onSurface,
+      letterSpacing: 0.15,
+    );
+    final descriptionStyle = theme.textTheme.bodyMedium?.copyWith(
+      color: theme.colorScheme.onSurface.withAlpha((0.78 * 255).round()),
+      height: 1.5,
+    );
+
     return Container(
       margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(card.title),
+          Text(
+            card.title,
+            style: titleStyle,
+          ),
           const SizedBox(height: 8),
-          Text(card.description),
+          Text(
+            card.description,
+            style: descriptionStyle,
+          ),
           const SizedBox(height: 12),
           ElevatedButton(
             onPressed: () {},
