@@ -54,3 +54,8 @@ const TextStyle(
   );
   ```
 - Cómo extenderlo: añade otros component themes (InputDecorationTheme, CardTheme, etc.) dentro de `AppTheme.light()`, o crea `AppTheme.dark()` si necesitas una variante oscura.
+
+## Hook pre-push usado en el proyecto
+- Ubicación: `.git/hooks/pre-push` en la raíz del repo (`flutter-dart-labs`).
+- Qué hace: localiza todos los subproyectos con `pubspec.yaml` bajo el repo y corre `flutter analyze` + `flutter test` en cada uno antes de cada `git push`; si falla alguno, bloquea el push. Si un proyecto no tiene carpeta `test`, lo informa y sigue.
+- Para ajustarlo: edita el hook si necesitas más checks o desactívalo temporalmente renombrándolo/quitarle permisos de ejecución.
