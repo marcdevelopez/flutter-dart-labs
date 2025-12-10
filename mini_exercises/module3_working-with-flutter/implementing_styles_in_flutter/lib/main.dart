@@ -55,7 +55,7 @@ class StyleLabHome extends StatelessWidget {
       letterSpacing: 0.2,
     );
     final subtitleStyle = theme.textTheme.bodyMedium?.copyWith(
-      color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+      color: theme.colorScheme.onSurface.withAlpha((0.75 * 255).round()),
       height: 1.5,
     );
 
@@ -104,7 +104,7 @@ class _StyleCard extends StatelessWidget {
       letterSpacing: 0.15,
     );
     final descriptionStyle = theme.textTheme.bodyMedium?.copyWith(
-      color: theme.colorScheme.onSurface.withValues(alpha: 0.78),
+      color: theme.colorScheme.onSurface.withAlpha((0.78 * 255).round()),
       height: 1.5,
     );
 
