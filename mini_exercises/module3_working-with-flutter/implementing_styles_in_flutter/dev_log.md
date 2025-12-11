@@ -5,4 +5,5 @@
   - Día 3: Ajustados estilos locales (título hero, badges), sombras y radio de borde en `Container`. Prueba manual en emulador: OK.
   - Día 4: Paso 4 completado: `ListView` con header y 3 tarjetas placeholders listas para estilizar; `widget_test.dart` actualizado para reflejar el nuevo layout y evitar fallos en CI.  
   Aprendizaje: al cambiar copy/estructura, actualizar tests y correr `flutter test` + `flutter analyze` antes de abrir PR; mejor usar keys o selectores estables para que el texto no rompa aserciones.
+  - Día 5 (2025-12-11): Ajustado overlay de `ElevatedButton` usando alpha en el tema global para evitar deprecaciones y alinear con CI; correr `flutter analyze` con la versión fijada de Flutter para validar.
   
