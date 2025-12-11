@@ -5,6 +5,7 @@ Construir una pantalla única que demuestre estilos en Flutter:
 - Estilos específicos para `Text` y botones.
 - Uso de `Container` con `padding`, `margin`, `BoxDecoration` (color, borde redondeado, sombra).
 - Consistencia de colores y jerarquía visual.
+- Las tarjetas deben ser visibles sobre el fondo: superficie con color contrastante, borde redondeado y sombra ligera.
 
 ## Alcance
 - App de una sola pantalla, sin navegación.
