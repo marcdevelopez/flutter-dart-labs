@@ -60,10 +60,10 @@ class AppTheme {
         ).copyWith(
           overlayColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.pressed)) {
-              return colorScheme.primary.withAlpha((0.9 * 255).round());
+              return colorScheme.onPrimary.withAlpha((0.16 * 255).round());
             }
             if (states.contains(WidgetState.hovered)) {
-              return colorScheme.primary.withAlpha((0.08 * 255).round());
+              return colorScheme.onPrimary.withAlpha((0.10 * 255).round());
             }
             return null;
           }),
