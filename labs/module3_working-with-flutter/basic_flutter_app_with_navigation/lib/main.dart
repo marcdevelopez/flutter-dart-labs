@@ -142,6 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // run validation and if valid, navigate to the second screen
                   if (_formKey.currentState!.validate()) {
                     // Process data
+                    /*
                     Navigator.pushNamed(
                       context,
                       '/second',
@@ -153,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         'gender': _selectedGender,
                       },
                     );
+                    */
                   }
                 },
                 child: const Text('Register'),
