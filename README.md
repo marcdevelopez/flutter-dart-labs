@@ -1,5 +1,6 @@
 # Flutter & Dart Labs 🚀
-[![CI](https://github.com/marcdevelopez/flutter-dart-labs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/marcdevelopez/flutter-dart-labs/actions/workflows/ci.yml)  
+
+[![CI](https://github.com/marcdevelopez/flutter-dart-labs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/marcdevelopez/flutter-dart-labs/actions/workflows/ci.yml)
 
 Este repositorio es mi espacio personal de aprendizaje en **Dart y Flutter**.  
 La intención es ir subiendo, poco a poco, **todo lo que voy practicando y aprendiendo** para mi propio seguimiento y también como recurso abierto para otros que quieran consultarlo o acompañar el progreso.
@@ -72,8 +73,8 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Mini-Ejercicio: routing in Flutter](mini_exercises/module3_working-with-flutter/routing_in_flutter)
   - [x] [Implementando estilos en Flutter](Module3_Working-with-Flutter/notes/7_Implementing_Styles_in_Flutter.md)
   - [x] [Mini-Ejercicio: Implementando estilos en Flutter](mini_exercises/module3_working-with-flutter/implementing_styles_in_flutter)
-  - [ ] Puntos de vista expertos: Aspectos clave del diseño de interfaces con Flutter
-  - [ ] Lab: Crear una app Flutter básica con navegación
+  - [x] [Puntos de vista expertos: Aspectos clave del diseño de interfaces con Flutter](Module3_Working-with-Flutter/notes/8_Expert_Viewpoints_Key_Aspects_of_Designing_User_Interfaces_with_Flutter.md)
+  - [x] [Lab: Crear una app Flutter básica con navegación](labs/module3_working-with-flutter/basic_flutter_app_with_navigation)
 
 - [ ] **Módulo 4 – Flutter avanzado**
 
