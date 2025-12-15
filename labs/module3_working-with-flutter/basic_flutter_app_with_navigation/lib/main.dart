@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // Here we are going to import de second screen...
+import 'second_screen.dart';
 
 // The main function is the entry point for every Dart application
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     // to design a material app.
     return MaterialApp(
       title: 'Basic Flutter App with Navigation',
+      debugShowCheckedModeBanner: false,
       // initialRoute defines the default route for the app.
       initialRoute: '/',
       // routes is a map of route names to the corresponding widget builders.
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       // that screen yet.
       routes: {
         '/': (context) => const HomeScreen(),
-        // '/second': (context) => const SecondScreen(),
+        '/second': (context) => const SecondScreen(),
       },
     );
   }
@@ -49,6 +51,17 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _ageController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
   String _selectedGender = 'Male';
+  // Helper method to calculate age from date of birth
+  int _calculateAge(DateTime birthDate) {
+    final now = DateTime.now();
+    int age = now.year - birthDate.year;
+    if (now.month < birthDate.month ||
+        (now.month == birthDate.month && now.day < birthDate.day)) {
+      age--;
+    }
+    return age;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +98,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your age';
+                  }
+                  final parsedAge = int.tryParse(value);
+                  if (parsedAge == null) {
+                    return 'Please enter a valid number';
+                  }
+                  // check if the age matches the date of birth
+                  final expectedAge = _calculateAge(_selectedDate);
+                  if (parsedAge != expectedAge) {
+                    return 'Age does not match date of birth ($expectedAge)';
                   }
                   return null;
                 },
@@ -142,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // run validation and if valid, navigate to the second screen
                   if (_formKey.currentState!.validate()) {
                     // Process data
-                    /*
+
                     Navigator.pushNamed(
                       context,
                       '/second',
@@ -154,7 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         'gender': _selectedGender,
                       },
                     );
-                    */
                   }
                 },
                 child: const Text('Register'),
