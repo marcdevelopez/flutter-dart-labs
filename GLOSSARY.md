@@ -42,6 +42,21 @@ void printItem(item) => print(item);
 
 **Breakpoint**: Un punto en el programa donde la ejecución se detendrá, permitiéndote inspeccionar el estado de la aplicación. Los breakpoints son esenciales para investigar el comportamiento del código en etapas específicas o bajo ciertas condiciones.
 
+**BottomNavigationBar (Barra de navegación inferior)**: Proporciona navegación entre las vistas de nivel superior de una aplicación a través de una serie de pestañas en la parte inferior de la pantalla.
+
+```dart
+BottomNavigationBar(
+  items: const [
+    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+    BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
+  ],
+  currentIndex: 0,
+  onTap: (index) {
+    // Maneja el cambio de pestaña
+  },
+);
+
+
 ---
 
 ## C
@@ -143,9 +158,60 @@ String describe(String name, {int age = 30, String city = 'Unknown'})
 Performance profiling, memory analysis, and widget inspection
 ```
 
+**Dialogs (showDialog / AlertDialog)**: Muestra diálogos de diseño Material para informar o pedir confirmación.
+
+```dart
+showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    return AlertDialog(
+      title: const Text('Alert!'),
+      content: const Text('You have been alerted.'),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Close'),
+        ),
+      ],
+    );
+  },
+);
+```
+
 **Dismissible**: Widget que permite deslizar un elemento para descartarlo o ejecutar una acción (por ejemplo, eliminar un item de una lista).
 
-**Drawer**: Menú lateral deslizante usado para navegar entre secciones de la app sin ocupar espacio permanente en pantalla.
+**Drawer (Navegación de cajón)**: Menú lateral deslizante usado para navegar entre secciones de la app sin ocupar espacio permanente en pantalla.
+
+```dart
+Drawer(
+  child: ListView(
+    children: <Widget>[
+      DrawerHeader(child: Text('Header')),
+      ListTile(title: Text('Item 1'), onTap: () {}),
+    ],
+  ),
+);
+```
+
+**DropdownButton**: Permite a los usuarios seleccionar de una lista de elementos en un menú desplegable.
+
+```dart
+DropdownButton<String>(
+  value: dropdownValue,
+  onChanged: (String? newValue) {
+    setState(() {
+      dropdownValue = newValue!; // Actualiza el valor seleccionado y refresca la UI
+    });
+  },
+  items: <String>['One', 'Two', 'Three', 'Four'] // Opciones disponibles
+      .map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+      value: value,
+      child: Text(value), // Texto visible en el menú
+    );
+  }).toList(),
+);
+```
 
 **Dynamic (Dart)**: El tipo de variable puede cambiar dinámicamente
 
@@ -161,7 +227,24 @@ dynamic x = 42;
 
 **ElevatedButton**: Botón con elevación y estilo Material usado para acciones primarias.
 
-**ElevatedButton.styleFrom**: Constructor auxiliar para personalizar colores, padding y tipografía de un ElevatedButton.
+```dart
+ElevatedButton(
+  onPressed: () {
+    print('Button Pressed');
+  },
+  child: Text('Press Me')
+);
+```
+
+**ElevatedButton.styleFrom**: Constructor auxiliar para personalizar colores, padding y tipografía de un ElevatedButton. Modifica la apariencia de los botones para alinearlos con el diseño de la aplicación.
+
+```dart
+ElevatedButton(
+  style: ElevatedButton.styleFrom(primary: Colors.green),
+  onPressed: () {},
+  child: Text('Submit')
+);
+```
 
 **Emulador**: Simula un dispositivo real en la computadora para probar apps en diferentes resoluciones y sistemas.
 
@@ -188,6 +271,15 @@ final cityName = 'New York';
 
 **Firebase**: Plataforma de Google para desarrollo móvil que provee autenticación, base de datos en tiempo real, y funciones en la nube.
 
+**Flexible (widget)**: Permite que los widgets hijos se ajusten dentro del espacio disponible en una fila o columna. Controla cómo un widget hijo puede expandirse para llenar el espacio disponible proporcionalmente.
+
+```dart
+Row(children: [
+  Flexible(child: Container(color: Colors.red, height: 50)),
+  Flexible(child: Container(color: Colors.blue, height: 50))
+])
+```
+
 **Flutter**: Toolkit de desarrollo de UI multiplataforma creado por Google.
 
 **Flutter Doctor**: Herramienta de línea de comandos que revisa el entorno de desarrollo Flutter y ayuda a detectar problemas con dependencias o configuraciones.
@@ -212,6 +304,18 @@ final cityName = 'New York';
 
 **Form (Formulario)**: Un grupo de campos de entrada con lógica de validación.
 
+**Form (Validator)**: Asegura que la entrada cumpla con ciertos criterios.
+
+```dart
+Form(
+  child: TextFormField(
+    validator: (value) {
+      if (value.isEmpty) return 'Cannot be empty';
+    }
+  )
+);
+```
+
 **Form (widget)**: Contenedor que agrupa campos de entrada y valida su estado de forma unificada dentro de una pantalla.
 
 **Function (función)**: Bloque de código reutilizable que puede recibir parámetros y devolver valores.
@@ -227,8 +331,14 @@ final cityName = 'New York';
 **Garbage Collection**: Mecanismo automático de gestión de memoria que elimina objetos no utilizados.
 
 **Generational Garbage Collection (GC)**: Técnica de recolección de basura que separa los objetos por antigüedad.
-
 **GestureDetector**: Widget que detecta gestos (tap, doble tap, long press, swipe) y ejecuta callbacks asociados.
+
+```dart
+GestureDetector(
+  onTap: () { print('Tapped!'); },
+  child: Container(color: Colors.blue, width: 100, height: 100)
+);
+```
 
 **Getter**: Función que se usa para obtener el valor de una propiedad, a menudo realizando algún cálculo.
 
@@ -369,9 +479,24 @@ void greet({required String name, String greeting = 'Hello'}) =>
 
 **Named routes (Navigator.pushNamed, initialRoute)**: Enfoque de navegación que registra rutas con identificadores de cadena para centralizar y simplificar la navegación entre pantallas.
 
+**Navigator.pushNamed**: Método que navega a una ruta nombrada previamente registrada en MaterialApp.
+
+```dart
+Navigator.pushNamed(context, '/details');
+```
+
 **Native development**: Creación de apps con lenguajes nativos (Swift, Kotlin, Java).
 
 **Navigator (Navegador/Navegador de rutas)**: Un widget que gestiona una pila de objetos de ruta (routes) y proporciona métodos para navegar entre rutas/pantallas.
+
+**Navigator (Navigation stack / Navegación en pila)**: Gestiona una pila de pantallas y permite apilar (push) y desapilar (pop) rutas al navegar.
+
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => SecondScreen()),
+);
+```
 
 **Nullable (anulable)**: Variable que puede tener un valor nulo.
 
@@ -396,6 +521,17 @@ String fullName(String firstName, [String middleName, String lastName])
 ## P
 
 **Packages**: Bibliotecas disponibles en pub.dev.
+
+**Pasar datos entre rutas**: Permite enviar datos entre pantallas.
+
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => DetailScreen(data: 'Data from previous screen'),
+  ),
+);
+```
 
 **Performance comparison**: Flutter se compila directamente a código ARM (rendimiento casi nativo).
 
@@ -486,6 +622,16 @@ Set<String> names = {'Alice', 'Bob'};
 
 **Single Code Base**: Una sola base de código para múltiples plataformas.
 
+**SnackBar**: Proporciona retroalimentación ligera sobre una operación mostrando un breve mensaje.
+
+```dart
+final snackBar = SnackBar(content: Text('Yay! A SnackBar!'));
+
+ScaffoldMessenger.of(context).showSnackBar(
+  snackBar, // Muestra el mensaje en la parte inferior de la pantalla
+);
+```
+
 **Snippet**: fragmento de código predefinido que puedes insertar rápidamente en tu editor para ahorrar tiempo y evitar escribir estructuras repetitivas desde cero.
 
 **SQLite**: Base de datos local para Flutter.
@@ -530,7 +676,16 @@ class Utility {
 
 ## T
 
-**TabBar**: Widget que muestra pestañas para cambiar entre vistas de forma rápida.
+**TabBar (Tab navigation / Navegación por pestañas)**: Organiza el contenido en pestañas y permite cambiar entre vistas.
+
+```dart
+TabBar(
+  tabs: [
+    Tab(icon: Icon(Icons.directions_car)),
+    Tab(icon: Icon(Icons.directions_transit))
+  ]
+);
+```
 
 **TabBarView**: Contenedor que asocia contenido desplazable a cada pestaña de un TabBar.
 
@@ -540,7 +695,24 @@ class Utility {
 
 **TextEditingController**: Controlador que gestiona el texto y notifica cambios en widgets de entrada como TextField.
 
+```dart
+TextField(
+  decoration: InputDecoration(hintText: 'Enter your username'),
+);
+```
+
 **TextStyle**: Clase que define estilo de texto (fuente, tamaño, peso, color) aplicado a widgets de texto.
+
+```dart
+Text(
+  'Hello Flutter',
+  style: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.blue
+  )
+);
+```
 
 **Text (widget)**: Muestra texto en pantalla.
 
