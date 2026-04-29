@@ -31,7 +31,6 @@ modulo5_final_project/     → Proyecto final de publicación
 ## ✅ Progreso actual
 
 - [x] **Módulo 1 – Introducción a Flutter y Dart**
-
   - [x] [Introducción a Flutter](module1_introduction/notes/1_Introduction-to-Flutter.md)
   - [x] [Entorno de desarrllo en Flutter](module1_introduction/notes/2_Flutter-Development-Environment.md)
   - [x] [Comparación de Flutter con otros frameworks](module1_introduction/notes/3_Comparison-Flutter-vs-Other-Frameworks.md)
@@ -43,7 +42,6 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Lab: Creando una Aplicación Web Flutter Hello World](labs/module1_introduction/lab_hello_world_web/lib/main.dart)
 
 - [ ] **Módulo 2 – Exploring Dart Language**
-
   - [x] [Funcionamiento interno de Dart](Module2_Dart-language/notes/1_Internals-of-Dart.md)
   - [x] [Mini-Ejercicio: Funcionamiento interno de Dart](mini_exercises/module2_dart-language/internals_exercise.dart)
   - [x] [Fundamentos de Dart — Puntos de Vista de Expertos](Module2_Dart-language/notes/2_Expert-Viewpoints-Fundamentals-of-Dart.md)
@@ -61,7 +59,6 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Lab: Depuración de aplicaciones Dart](labs/module2_dart-language/lab_debugging_dart_app/dart_debug)
 
 - [ ] **Módulo 3 – Trabajo con Flutter**
-
   - [x] [Proceso de desarrollo de apps Flutter](Module3_Working-with-Flutter/notes/1_Development-Process-of-Flutter-Apps.md)
   - [x] [Widgets de Flutter](Module3_Working-with-Flutter/notes/2_Flutter-Widgets.md)
   - [x] [Mini-Ejercicio: Widgets de Flutter](mini_exercises/module3_working-with-flutter/flutter_widgets_dart)
@@ -77,7 +74,6 @@ modulo5_final_project/     → Proyecto final de publicación
   - [x] [Lab: Crear una app Flutter básica con navegación](labs/module3_working-with-flutter/basic_flutter_app_with_navigation)
 
 - [ ] **Módulo 4 – Flutter avanzado**
-
   - [ ] Uso de plugins en Flutter
   - [ ] Lab: Llamar a una API Back-End en Flutter
   - [ ] Introducción a funcionalidades nativas móviles
@@ -102,6 +98,48 @@ modulo5_final_project/     → Proyecto final de publicación
   - [ ] Lab: Usar Google Analytics
   - [ ] Proyecto práctico: Crear una app de seguimiento de gastos
   - [ ] Proyecto final: Crear una app de seguimiento de tiempo
+
+---
+
+## ⚙️ Primeros pasos al clonar (monorepo)
+
+Este repositorio contiene varios subproyectos Dart/Flutter (cada uno con su propio `pubspec.yaml`).
+Después de clonar, lo recomendado es preparar dependencias de todos los subproyectos en un solo paso.
+
+1. Clonar y entrar al repositorio:
+
+```bash
+git clone https://github.com/marcdevelopez/flutter-dart-labs.git
+cd flutter-dart-labs
+```
+
+2. Instalar dependencias de todos los subproyectos:
+
+```bash
+./scripts/bootstrap.sh
+```
+
+3. Abrir y ejecutar el subproyecto que quieras practicar.
+
+> Nota: para trabajar sin problemas en VS Code, abre como raíz la carpeta del subproyecto que vayas a ejecutar.
+
+### Tabla rápida de subproyectos
+
+| Proyecto                                                                   | Tipo    | Comando de ejecución                                                                                     | SDK mínimo            |
+| -------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------- | --------------------- |
+| labs/module1_introduction/lab_hello_world_web                              | flutter | `cd labs/module1_introduction/lab_hello_world_web && flutter run -d chrome`                              | Dart `^3.5.0`         |
+| labs/module2_dart-language/lab_variables_functions_methods_Dart            | dart    | `cd labs/module2_dart-language/lab_variables_functions_methods_Dart && dart run`                         | Dart `^3.5.0`         |
+| labs/module2_dart-language/lab_libraries_in_dart                           | dart    | `cd labs/module2_dart-language/lab_libraries_in_dart && dart run`                                        | Dart `^3.5.0`         |
+| labs/module2_dart-language/lab_debugging_dart_app/dart_debug               | dart    | `cd labs/module2_dart-language/lab_debugging_dart_app/dart_debug && dart run`                            | Dart `^3.8.0`         |
+| labs/module3_working-with-flutter/basic_flutter_app_with_navigation        | flutter | `cd labs/module3_working-with-flutter/basic_flutter_app_with_navigation && flutter run -d chrome`        | Dart `^3.8.0`         |
+| mini_exercises/module3_working-with-flutter/flutter_widgets_dart           | flutter | `cd mini_exercises/module3_working-with-flutter/flutter_widgets_dart && flutter run -d chrome`           | Dart `^3.5.0`         |
+| mini_exercises/module3_working-with-flutter/navigation_in_flutter          | flutter | `cd mini_exercises/module3_working-with-flutter/navigation_in_flutter && flutter run -d chrome`          | Dart `^3.5.0`         |
+| mini_exercises/module3_working-with-flutter/routing_in_flutter             | flutter | `cd mini_exercises/module3_working-with-flutter/routing_in_flutter && flutter run -d chrome`             | Dart `^3.5.0`         |
+| mini_exercises/module3_working-with-flutter/implementing_styles_in_flutter | flutter | `cd mini_exercises/module3_working-with-flutter/implementing_styles_in_flutter && flutter run -d chrome` | Dart `>=3.5.0 <4.0.0` |
+
+### Reproducibilidad
+
+Este repositorio conserva los archivos `pubspec.lock` de cada subproyecto app para mantener resoluciones de dependencias reproducibles entre equipos y en CI.
 
 ---
 
