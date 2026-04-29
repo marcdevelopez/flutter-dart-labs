@@ -25,6 +25,7 @@ jobs:
           - name: basic_flutter_app_with_navigation
             path: labs/module3_working-with-flutter/basic_flutter_app_with_navigation
             type: flutter
+            flutter_version: "3.41.8"
           - name: flutter_widgets_dart
             path: mini_exercises/module3_working-with-flutter/flutter_widgets_dart
             type: flutter
@@ -45,7 +46,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.24.4"
+          flutter-version: ${{ matrix.flutter_version || '3.24.4' }}
           channel: "stable"
 
       - name: Flutter version
