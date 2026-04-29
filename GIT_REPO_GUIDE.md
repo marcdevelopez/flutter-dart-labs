@@ -108,6 +108,23 @@ Formato del commit:
 
 ---
 
+### 🌐 Convención de Idioma en Git y PRs
+
+Para mantener consistencia en todo el repositorio:
+
+- **Ramas**: en inglés (prefijos `feat/`, `fix/`, `docs/`, etc.)
+- **Commits**: en inglés, siguiendo Conventional Commits
+- **Título del PR**: en inglés
+- **Descripción del PR**: en inglés
+- **No mezclar idiomas dentro de la metadata del PR** (título + descripción + commits)
+
+Notas:
+
+- El contenido funcional puede seguir en español si aplica (por ejemplo, notas del curso o partes del README).
+- La regla de inglés aplica al flujo Git y colaboración (ramas, commits y pull requests).
+
+---
+
 ### ✅ Borrar ramas después de hacer merge (limpio)
 
 **1️⃣ Borrar rama local**
@@ -339,7 +356,6 @@ git commit -m "docs(readme): agregar instrucciones para abrir el módulo correct
 
 - Si el cambio de documentación afecta únicamente al contexto del mismo miniproyecto o módulo, se mantiene en la rama `feat/...` activa.
 - Solo se crea una rama `docs/...` independiente si:
-
   - El cambio de documentación es **global** (por ejemplo, actualizar la guía general del repo o los README de varios módulos).
   - O si el equipo exige revisiones de documentación por separado (casos poco comunes).
 
