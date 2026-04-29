@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // dropdown for gender selection
               DropdownButtonFormField<String>(
-                value: _selectedGender,
+                initialValue: _selectedGender,
                 decoration: const InputDecoration(labelText: 'Gender'),
                 items: ['Male', 'Female', 'Other']
                     // convert each string in the list to a DropdownMenuItem
