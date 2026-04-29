@@ -31,13 +31,13 @@ modulo5_final_project/     → Proyecto final de publicación
 ## ✅ Progreso actual
 
 - [x] **Módulo 1 – Introducción a Flutter y Dart**
-  - [x] [Introducción a Flutter](module1_introduction/notes/1_Introduction-to-Flutter.md)
-  - [x] [Entorno de desarrllo en Flutter](module1_introduction/notes/2_Flutter-Development-Environment.md)
-  - [x] [Comparación de Flutter con otros frameworks](module1_introduction/notes/3_Comparison-Flutter-vs-Other-Frameworks.md)
-  - [x] [Flutter Toolchain, SDK, & Tools](module1_introduction/notes/4_Flutter-Toolchain-SDK-Tools.md)
-  - [x] [Introducción a utilidades de Flutter](module1_introduction/notes/5_Introduction-to-Flutter-Utilities.md)
-  - [x] [Opiniones de expertos: primeros pasos en Flutter](module1_introduction/notes/6_Expert-Viewpoints-Getting-Started-Flutter.md)
-  - [x] [Basicos Dart](module1_introduction/notes/7_Basics-of-Dart.md)
+  - [x] [Introducción a Flutter](Module1_Introduction/notes/1_Introduction-to-Flutter.md)
+  - [x] [Entorno de desarrllo en Flutter](Module1_Introduction/notes/2_Flutter-Development-Environment.md)
+  - [x] [Comparación de Flutter con otros frameworks](Module1_Introduction/notes/3_Comparison-Flutter-vs-Other-Frameworks.md)
+  - [x] [Flutter Toolchain, SDK, & Tools](Module1_Introduction/notes/4_Flutter-Toolchain-SDK-Tools.md)
+  - [x] [Introducción a utilidades de Flutter](Module1_Introduction/notes/5_Introduction-to-Flutter-Utilities.md)
+  - [x] [Opiniones de expertos: primeros pasos en Flutter](Module1_Introduction/notes/6_Expert-Viewpoints-Getting-Started-Flutter.md)
+  - [x] [Basicos Dart](Module1_Introduction/notes/7_Basics-of-Dart.md)
   - [x] [Mini-Ejercicio: Básicos Dart](mini_exercises/module1_introduction/basics_exercise.dart)
   - [x] [Lab: Creando una Aplicación Web Flutter Hello World](labs/module1_introduction/lab_hello_world_web/lib/main.dart)
 
