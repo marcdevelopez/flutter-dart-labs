@@ -22,6 +22,10 @@ jobs:
           - name: lab_libraries_in_dart
             path: labs/module2_dart-language/lab_libraries_in_dart
             type: dart
+          - name: lab_debugging_dart_app
+            path: labs/module2_dart-language/lab_debugging_dart_app/dart_debug
+            type: dart
+            flutter_version: "3.41.8"
           - name: basic_flutter_app_with_navigation
             path: labs/module3_working-with-flutter/basic_flutter_app_with_navigation
             type: flutter
