@@ -332,17 +332,21 @@ class _GalleryHomePageState extends State<GalleryHomePage> {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          RadioListTile<int>(
-            title: const Text('Option 1'),
-            value: 1,
+          RadioGroup<int>(
             groupValue: _radioValue,
             onChanged: _onRadioChanged,
-          ),
-          RadioListTile<int>(
-            title: const Text('Option 2'),
-            value: 2,
-            groupValue: _radioValue,
-            onChanged: _onRadioChanged,
+            child: Column(
+              children: [
+                RadioListTile<int>(
+                  title: const Text('Option 1'),
+                  value: 1,
+                ),
+                RadioListTile<int>(
+                  title: const Text('Option 2'),
+                  value: 2,
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 12),
 
